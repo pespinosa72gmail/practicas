@@ -9,12 +9,13 @@ class Restaurador extends MY_Controller {
         parent::__construct();
         $this->load->model('restaurador_model');
         $this->load->model('restaurante_model');
+        $this->load->model('franquiciado_model');
         $this->load->model('home_model');
         $this->load->model('buscador_model');
         $this->load->model('footer_model');
 
         $this->breadcrumbs->push('Home', '/');
-        $this->breadcrumbs->push('Panel Restaurador', '/restaurador/index');
+        $this->breadcrumbs->push('Panel Restaurador', '/acceso/restaurador/panel-restaurador');
     }
 
     public function index() {
@@ -74,24 +75,24 @@ class Restaurador extends MY_Controller {
 
             $datos['listadoCategorias'] = $this->home_model->obtenerListCatego();
 
-            $datos['listadoEspecialidades'] = $this->restaurador_model->listadoEspecialidadesRestaurante($datos['restauranteActual']->id_restaurante);
+            //$datos['listadoEspecialidades'] = $this->restaurador_model->listadoEspecialidadesRestaurante($datos['restauranteActual']->id_restaurante);
 
-            $datos['listadoPuntosInteres'] = $this->restaurador_model->listadoPuntosInteres($datos['restauranteActual']->id_restaurante);
+            //$datos['listadoPuntosInteres'] = $this->restaurador_model->listadoPuntosInteres($datos['restauranteActual']->id_restaurante);
 
             //Derepente han dejao de funcionar estas dos lineas
             $datos['datosFacturacion'] = $this->restaurador_model->datosFacturacion($datos['restauranteActual']->id_restaurante);
-            $datos['dameCpDatosFacturacion'] = $this->restaurador_model->obtenerCp($datos['datosFacturacion']->cp_facturacion);
+            $datos['provinciaMunicipioDatosFacturacion'] = $this->restaurador_model->provinciaMunicipioDatosFacturacion($datos['datosFacturacion']->localidades_id_localidad);
             $datos['listadoPlanes'] = $this->restaurador_model->listadoPlanes();
-            $datos['listadoCuponesRestaurate'] = $this->restaurador_model->listadoCuponesRestaurate($datos['restauranteActual']->id_restaurante);
-            $datos['listadoEstacionesRestaurante'] = $this->restaurador_model->listadoEstacionesRestaurante($datos['restauranteActual']->id_restaurante);
+            //$datos['listadoCuponesRestaurate'] = $this->restaurador_model->listadoCuponesRestaurate($datos['restauranteActual']->id_restaurante);
+            //$datos['listadoEstacionesRestaurante'] = $this->restaurador_model->listadoEstacionesRestaurante($datos['restauranteActual']->id_restaurante);
             $datos['listadoEstaciones'] = $this->restaurador_model->listadoEstaciones();
 
 
-            $datos['listadoImagenes'] = $this->restaurador_model->listadoImagenes($datos['restauranteActual']->id_restaurante);
+            //$datos['listadoImagenes'] = $this->restaurador_model->listadoImagenes($datos['restauranteActual']->id_restaurante);
 
             $datos['listadoProvincias'] = $this->home_model->listadoProvincias();
-            $datos['title'] = "Todoslosmenus.com - Â¿QuÃ© comerÃ¡s hoy?";
-            $datos['description'] = "Todoslosmenus.com - Â¿QuÃ© comerÃ¡s hoy?";
+            $datos['title'] = "Todoslosmenus.com - ¿Qué comerás hoy?";
+            $datos['description'] = "Todoslosmenus.com - ¿Qué comerás hoy?";
             $datos['robots'] = "NOINDEX, NOFOLLOW";
             $datos['contenido'] = "panel-restaurador";
             $this->load->view('plantillas/plantilla2', $datos);
@@ -145,6 +146,261 @@ class Restaurador extends MY_Controller {
             redirect(base_url());
         }
     }
+	
+	/* Alta de restaurante */
+	
+	public function altaRestaurantePlan(){
+		if($this->session->userdata('ingresado') == TRUE){
+		
+       		$this->breadcrumbs->push('Plan de nuevo restaurante', '/acceso/restaurador/alta-restaurante-plan');
+			
+			$datos['title'] = "Todoslosmenus.com - ¿Qué comerás hoy?";
+			$datos['description'] = "Todoslosmenus.com - ¿Qué comerás hoy?";
+			$datos['robots'] = "NOINDEX, NOFOLLOW";
+			$datos['contenido'] = "alta-restaurante-restaurador-plan";
+			$this->load->view ('plantillas/plantilla2', $datos);
+
+		}else{
+			redirect(base_url());
+		}
+	}
+	
+	public function registroRestaurante($plan) 
+	{
+		//Vista para dar de alta un restaurante
+		if($this->session->userdata('ingresado') == TRUE) {
+
+       		$this->breadcrumbs->push('Plan de nuevo restaurante', '/acceso/restaurador/alta-restaurante-plan');
+       		$this->breadcrumbs->push('Datos de restaurante', '/acceso/restaurador/alta-restaurante/' . $plan);
+			
+			$datos['planContratado'] = $plan;
+			
+			$datos['listadoTodosRestaurantes'] = $this->restaurante_model->listadoTodosRestaurantes();
+
+			$datos['title'] = "Alta restaurante";
+			$datos['description'] =  "Registro de restaurantes";
+			$datos['robots'] = "NOINDEX, NOFOLLOW";
+			//$datos['contenido'] = "registro-restaurante";
+			$datos['contenido'] = "alta-restaurante-restaurador";
+			$this->load->view ('plantillas/plantilla2', $datos);
+
+		}else{
+			redirect(base_url());
+		}
+	}
+	
+	public function altaRestaurante()
+	{
+		if($this->session->userdata('ingresado') == TRUE)
+		{
+
+			/* Registro datos del restaurante - Ordenado por el orden de la tabla de la base de datos */
+			$clave_restaurante = random_string('unique');
+			$nombre_restaurante = $this->input->get_post('nombre_restaurante', TRUE);
+			$tipo_establecimiento = $this->input->get_post('nombre_select_restaurante', TRUE);
+			$direccion_restaurante = $this->input->get_post('direccion_restaurante', TRUE);
+			$numero_restaurante = $this->input->get_post('numero_restaurante', TRUE);
+			$latlong_restaurante = $this->input->post('latlong_restaurante', TRUE);
+			$latlong_restaurante = explode(",", preg_replace("/^\(|\)$/", "", $latlong_restaurante));
+			$barrio_restaurante = $this->input->get_post('barrio_restaurante', TRUE);
+			$web_restaurante = $this->input->get_post('web_restaurante', TRUE);
+			$email_restaurante = $this->input->get_post('email_restaurante', TRUE);
+			$cp_restaurante = $this->input->get_post('cp_restaurante', TRUE);
+			$precio_medio_restaurante = $this->input->get_post('precio_medio_restaurante', TRUE);
+			$activo_restaurante = 0;
+			$reservas_restaurante = $this->input->get_post('reservas_restaurante', TRUE);
+			$parking_restaurante = $this->input->get_post('parking_restaurante', TRUE);
+			$tarjetas_restaurante = $this->input->get_post('tarjetas_restaurante', TRUE);
+			$visible_restaurante = $this->input->get_post('visible_restaurante', TRUE);
+			$localidad = $this->input->get_post('localidad', TRUE);
+			$clave_plan = $this->input->get_post('clave_plan');
+			$plan = 0;
+			if($clave_plan == "eJ6RW7aD"){
+				//Plan Freemium o Gratis contratado
+				$plan = 1;
+			}else if($clave_plan == "uKjHMt6g"){
+				//Plan Básico
+				$plan = 2;
+			}else if($clave_plan == "UE5Zg3YG"){
+				//Plan Premium
+				$plan = 3;
+			}
+			$id_propietario = $this->session->userdata('id_propietario');
+			
+			//$nombre_final_restaurante = $tipo_establecimiento. ' ' . $nombre_restaurante;
+		
+
+			$resultado = $this->restaurador_model->altaRestaurantes($clave_restaurante, $nombre_restaurante, $tipo_establecimiento, $direccion_restaurante, $numero_restaurante, $latlong_restaurante[0], $latlong_restaurante[1], $barrio_restaurante, $web_restaurante, $email_restaurante, $cp_restaurante, $precio_medio_restaurante, $activo_restaurante, $reservas_restaurante, $parking_restaurante, $tarjetas_restaurante, $visible_restaurante, $localidad, $plan, $id_propietario);
+			echo $resultado . 'separadorsplit' . $clave_restaurante;
+
+		}else{
+			redirect(base_url());
+		}
+	}
+	
+	public function registroRestaurante2($clave_plan, $clave_restaurante) 
+	{
+		//Vista para dar de alta un restaurante
+		if($this->session->userdata('ingresado') == TRUE) {
+
+       		$this->breadcrumbs->push('Plan de nuevo restaurante', '/acceso/restaurador/alta-restaurante-plan');
+       		$this->breadcrumbs->push('Datos de restaurante', '/acceso/restaurador/alta-restaurante/' . $clave_plan);
+       		$this->breadcrumbs->push('Datos de facturación', '/acceso/restaurador/alta-restaurante-2/' . $clave_plan . '/'. $clave_restaurante);
+			
+			$datos['clave_plan'] = $clave_plan;
+			$datos['clave_restaurante'] = $clave_restaurante;
+			
+            $datos['listadoProvincias'] = $this->home_model->listadoProvincias();
+            $datos['listadoCategorias'] = $this->home_model->obtenerListCatego();
+        	$datos['listadoEstaciones'] = $this->home_model->listadoEstaciones();
+
+			$datos['title'] = "Alta restaurante";
+			$datos['description'] =  "Registro de restaurantes";
+			$datos['robots'] = "NOINDEX, NOFOLLOW";
+			//$datos['contenido'] = "registro-restaurante";
+			$datos['contenido'] = "alta-restaurante-restaurador-2";
+			$this->load->view ('plantillas/plantilla2', $datos);
+
+		}else{
+			redirect(base_url());
+		}
+	}
+
+	public function altaRestaurante3()
+	{
+		if($this->session->userdata('ingresado') == TRUE)
+		{
+			
+			$clave_restaurante	 = $this->input->get_post('clave_restaurante', TRUE);
+			$datosRestaurante = $this->franquiciado_model->dameDatosRestaurante($clave_restaurante);
+			
+			$id_restaurante = $datosRestaurante->id_restaurante;
+			
+			$razon_social = $this->input->get_post('razon_social_facturacion', TRUE);
+			$cif = $this->input->get_post('cif_facturacion', TRUE);
+			$direccion = $this->input->get_post('direccion_facturacion', TRUE);
+			$numero = $this->input->get_post('numero_facturacion', TRUE);
+			$cp = $this->input->get_post('cp_facturacion', TRUE);
+			$municipio = $this->input->get_post('municipio_facturacion', TRUE);
+			$email = $this->input->get_post('email_facturacion', TRUE);
+			$cuenta = $this->input->get_post('cuenta_facturacion', TRUE);
+
+			$this->franquiciado_model->altaFacturacionPropietariosFranquiciado($id_restaurante, $razon_social, $cif, $direccion, $numero, $cp, $municipio, $email, $cuenta);
+
+
+
+
+			/* Se registran los datos de las categorías */
+			$primera_categoria = $this->input->get_post('primera_select_categoria', TRUE);
+			$segunda_categoria = $this->input->get_post('segunda_select_categoria', TRUE);
+			$tercera_categoria = $this->input->get_post('tercera_select_categoria', TRUE);
+
+			$this->franquiciado_model->altaCategoriaRestaurante($id_restaurante, $primera_categoria, $segunda_categoria, $tercera_categoria);
+
+
+
+			/* Se registran los datos de las Especialidades */
+			$especialidades = $this->input->get_post('nombre_especialidad', TRUE);
+			if(is_array($especialidades))
+			{
+				foreach ($especialidades as $value) 
+				{
+					$valor = $value;
+					$this->restaurante_model->altaEspecialidadesRestaurantes($id_restaurante, $valor);
+				}
+			}
+
+
+			/* Se registran los datos de las Puntos de interés */
+			$puntos_cercanos = $this->input->get_post('puntos_interes');
+			if(is_array($puntos_cercanos))
+			{
+				foreach ($puntos_cercanos as $value) 
+				{
+					$valor = $value;
+					$this->restaurante_model->altaPuntoInteresRestaurantes($id_restaurante, $valor);
+				}
+			}
+
+			
+			/* Se registran los datos de las Estaciones */
+			$id_estaciones = $this->input->get_post('id_estacion');
+			$estaciones_metro = $this->input->get_post('nombre_estacion');
+			if(is_array($estaciones_metro))
+			{
+				$num = 0;
+				foreach ($estaciones_metro as $nombre_estacion) 
+				{
+					$this->franquiciado_model->altaEstacionesRestaurantes($id_restaurante, $id_estaciones[$num], $nombre_estacion);
+					$num++;
+				}
+			}
+			
+			// Poner a 1 el campo activo_restaurante
+			$this->franquiciado_model->activarRestaurante($id_restaurante);
+
+
+
+
+			$clave_plan = $this->input->get_post('clave_plan');
+			if($clave_plan == "eJ6RW7aD") {
+				//Plan Freemium o Gratis contratado
+				$plan = 1;
+			}else if($clave_plan == "uKjHMt6g") {
+				//Plan Básico
+				$plan = 2;
+			}else if($clave_plan == "UE5Zg3YG") {
+				//Plan Premium
+				$plan = 3;
+			}
+
+
+			if($plan != 1){
+				redirect(base_url().'acceso/restaurador/alta-imagenes/'.$id_restaurante);
+			}else{
+				redirect(base_url().'acceso/restaurador/panel-restaurador');
+			}
+
+		}else{
+			redirect(base_url());
+		}
+	}
+	
+	public function altaRestaurante4($id_restaurante) 
+	{
+		//Vista para dar de alta un restaurante
+		if($this->session->userdata('ingresado') == TRUE) {
+
+			$datos['id_restaurante'] = $id_restaurante;
+			
+			$datos['direccionRestaurante'] = $this->franquiciado_model->direccionRestaurante($id_restaurante);
+
+			$datos['title'] = "Alta restaurante";
+			$datos['description'] =  "Registro de restaurantes";
+			$datos['robots'] = "NOINDEX, NOFOLLOW";
+			//$datos['contenido'] = "registro-restaurante";
+			$datos['contenido'] = "alta-restaurante-restaurador-3";
+			$this->load->view ('plantillas/plantilla2', $datos);
+
+		}else{
+			redirect(base_url());
+		}
+	}
+
+
+
+	
+	
+	
+	/* Baja de Restaurantes */
+	
+    public function listadoBajaRestaurantes() {
+        echo json_encode($this->restaurador_model->listadoBajaRestaurantes());
+    }
+	
+	
+	
+	/* Gestión de datos */
 
     public function actualizarDatosRestaurador() {
         if ($this->session->userdata('ingresado') == TRUE) {
@@ -176,13 +432,13 @@ class Restaurador extends MY_Controller {
         $config['mailtype'] = 'html';
         $this->email->initialize($config);
 
-        $mensaje = 'Estimado propietÃ¡rio, acabas de actulizar tu contraseÃ±a.';
+        $mensaje = 'Estimado propietário, acabas de actulizar tu contraseña.';
 
         $this->email->from('info@todoslosmenus.com', 'Todoslosmenus.com');
         $this->email->to($email);
-        $this->email->subject('ContraseÃ±a actualizada');
+        $this->email->subject('Contraseña actualizada');
         $this->email->message($mensaje);
-        $this->email->set_alt_message('Tu gestor de correo no admite cÃ³digo HTML');
+        $this->email->set_alt_message('Tu gestor de correo no admite código HTML');
         $this->email->send();
     }
 
@@ -219,15 +475,15 @@ class Restaurador extends MY_Controller {
             /* Aqui */
             if (!empty($_FILES)) {
 
-                $tempFile = $_FILES['file']['tmp_name'];
-                $fileName = convert_accented_characters(time() . '-' . $_FILES['file']['name']);
+                $tempFile = $_FILES['archivo_carta']['tmp_name'];
+                $fileName = convert_accented_characters(time() . '-' . $_FILES['archivo_carta']['name']);
                 $targetPath = getcwd() . '/assets/pdfs/';
                 $targetFile = $targetPath . $fileName;
                 move_uploaded_file($tempFile, $targetFile);
 
                 $id_restaurantes = $this->input->get_post('id_restaurantes', TRUE);
                 $this->restaurador_model->subirPdf($id_restaurantes, $fileName);
-                echo "<a href='" . base_url() . "assets/pdfs/" . $restauranteActual->carta_restaurante . "' target='_blank'>Mostrar carta</a>";
+                echo "<a href='" . base_url() . "assets/pdfs/" . $fileName . "' target='_blank'>Mostrar carta</a>";
             }
         } else {
             //redirect(base_url());
@@ -253,16 +509,6 @@ class Restaurador extends MY_Controller {
 
     /*     * ********** Especialidades *********** */
 
-    public function eliminarEspecialidad() {
-        if ($this->session->userdata('ingresado') == TRUE) {
-            $clave_especialidad = $this->input->get('clave', TRUE);
-            $this->restaurador_model->eliminarEspecialidadRestaurante($clave_especialidad);
-            redirect(base_url('acceso/restaurador/panel-restaurador'));
-        } else {
-            redirect(base_url());
-        }
-    }
-
     public function anadirEspecialidad() {
         if ($this->session->userdata('ingresado') == TRUE) {
             $id_restaurante = $this->input->post('id_restaurantes', TRUE);
@@ -275,8 +521,57 @@ class Restaurador extends MY_Controller {
         }
     }
 
+    public function borrarEspecialidad() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+            $id_especialidad = $this->input->get_post('id_especialidad', TRUE);
+            $resultado = $this->restaurador_model->borrarEspecialidadRestaurante($id_especialidad);
+			echo $resultado;
+        } else {
+            redirect(base_url());
+        }
+    }
+	
+	// Esta la dejo por si la usa alguien
+    public function eliminarEspecialidad() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+            $clave_especialidad = $this->input->get('clave', TRUE);
+            $this->restaurador_model->eliminarEspecialidadRestaurante($clave_especialidad);
+            redirect(base_url('acceso/restaurador/panel-restaurador'));
+        } else {
+            redirect(base_url());
+        }
+    }
+
     /*     * ******** Puntos de interes ********* */
 
+    public function listadoPuntosInteresJSON($id_restaurante = null) {
+        echo json_encode($this->restaurador_model->listadoPuntosInteres($this->input->get_post('id_restaurante', TRUE)));
+    }
+
+    public function anadirPuntoInteres() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+
+            $id_restaurante = $this->input->get_post('id_restaurantes', TRUE);
+            $nombre_punto_cercano = $this->input->get_post('select_nombre_punto_cercano', TRUE);
+            $this->restaurador_model->anadirPuntoInteres($id_restaurante, $nombre_punto_cercano);
+
+            $this->restaurador_model->actualizarRestauranteID($id_restaurante);
+        } else {
+            redirect(base_url());
+        }
+    }
+
+    public function borrarPuntoInteres() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+            $id_punto_interes = $this->input->get_post('id_punto_interes', TRUE);
+            $resultado = $this->restaurador_model->borrarPuntoInteres($id_punto_interes);
+			echo $resultado;
+        } else {
+            redirect(base_url());
+        }
+    }
+	
+	// Esta la dejo por si la usa alguien
     public function eliminarPuntoInteres() {
         if ($this->session->userdata('ingresado') == TRUE) {
             $clave = $this->input->get_post('pinteres', TRUE);
@@ -287,21 +582,40 @@ class Restaurador extends MY_Controller {
         }
     }
 
-    public function anadirPuntoInteres() {
+    /*     * ******** Estaciones de metro ********* */
+
+    public function listadoEstacionesMetroJSON($id_restaurante = null) {
+        echo json_encode($this->restaurador_model->listadoEstacionesMetroRestaurante($this->input->get_post('id_restaurante', TRUE)));
+    }
+	
+    public function addEstacionMetro() {
+
         if ($this->session->userdata('ingresado') == TRUE) {
 
-            $id_restaurante = $this->input->post('id_restaurantes', TRUE);
-            $nombre_punto_cercano = $this->input->post('select_nombre_punto_cercano', TRUE);
-            $this->restaurador_model->anadirPuntoInteres($id_restaurante, $nombre_punto_cercano);
+            $id_restaurante = $this->input->get_post('id_restaurante', TRUE);
+            $id_estacion = $this->input->get_post('id_estacion_metro', TRUE);
+            $nombre_estacion = $this->input->get_post('nombre_estacion_metro', TRUE);
 
-            $this->restaurador_model->actualizarRestauranteID($id_restaurante);
+            $resultado = $this->restaurador_model->addEstacionMetro($id_restaurante, $id_estacion, $nombre_estacion);
+			echo $resultado;
         } else {
             redirect(base_url());
         }
     }
+	
+    public function borrarEstacionMetro() {
 
-    /*     * ******** Estaciones de metro ********* */
+        if ($this->session->userdata('ingresado') == TRUE) {
+            $id_estacion = $this->input->get_post('id_estacion_metro', TRUE);
 
+            $resultado = $this->restaurador_model->borrarEstacionMetro($id_estacion);
+			echo $resultado;
+        } else {
+            redirect(base_url());
+        }
+    }
+	
+	// La dejo por si la usa alguien
     public function altaEstacion() {
 
         if ($this->session->userdata('ingresado') == TRUE) {
@@ -315,6 +629,7 @@ class Restaurador extends MY_Controller {
         }
     }
 
+	// La dejo por si la usa alguien
     public function eliminarEstacione() {
         if ($this->session->userdata() == TRUE) {
 
@@ -326,6 +641,25 @@ class Restaurador extends MY_Controller {
 
     /*     * ******** Datos de FacturaciÃ³n ********* */
 
+
+	public function modificarDatosFacturacion(){
+		if($this->session->userdata('ingresado') == TRUE)
+		{
+			$id_restaurante = $this->input->get_post('id_restaurante');
+			$campo = $this->input->get_post('campo');
+			$contenido = $this->input->get_post('contenido');
+			
+			$afftectedRows = $this->restaurador_model->modificarDatosFacturacion($id_restaurante, $campo, $contenido);
+			echo $afftectedRows;
+		}
+		else
+		{
+			redirect(base_url());
+		}
+
+	}
+	
+	// La dejo por si se utiliza alguien
     public function editarDatosFacturacion() {
 
         if ($this->session->userdata('ingresado') == TRUE) {
@@ -367,7 +701,21 @@ class Restaurador extends MY_Controller {
         }
     }
 
-    /* Acciones relacionadas con los cupones - AÃ±adir, Editar y Eliminar cupÃ³n */
+    /* Acciones relacionadas con los cupones - Añadir, Editar y Eliminar cupón */
+
+    public function listadoCuponesRestaurateJSON() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+
+            $id_restaurante = $this->input->post('id_restaurante', TRUE);
+
+            $resultado = $this->restaurador_model->listadoCuponesRestaurate($id_restaurante);
+       		echo json_encode($resultado);
+
+            $this->restaurador_model->actualizarRestauranteID($id_restaurante);
+        } else {
+            redirect(base_url());
+        }
+    }
 
     public function anadirCuponRestaurante() {
         if ($this->session->userdata('ingresado') == TRUE) {
@@ -386,6 +734,25 @@ class Restaurador extends MY_Controller {
         }
     }
 
+    public function modificarCupon() {
+
+        if ($this->session->userdata('ingresado') == TRUE) {
+
+            $id_cupon = $this->input->get_post('id_cupon', TRUE);
+
+            $titulo_cupon = $this->input->get_post('select_titulo_cupon', TRUE);
+            $descripcion_cupon = $this->input->get_post('select_descripcion_cupon', TRUE);
+            $fecha_inicio_cupon = $this->input->get_post('select_fecha_inicio_cupon', TRUE);
+            $fecha_fin_cupon = $this->input->get_post('select_fecha_fin_cupon', TRUE);
+
+            $resultado = $this->restaurador_model->modificarCupon($id_cupon, $titulo_cupon, $descripcion_cupon, $fecha_inicio_cupon, $fecha_fin_cupon);
+			echo $resultado;	
+        } else {
+            redirect(base_url());
+        }
+    }
+
+	// La dejo por si la usa alguien
     public function editarCuponRestaurante() {
 
         if ($this->session->userdata('ingresado') == TRUE) {
@@ -405,6 +772,20 @@ class Restaurador extends MY_Controller {
         }
     }
 
+    public function borrarCupon() {
+        if ($this->session->userdata('ingresado') == TRUE) {
+
+            $id_cupon = $this->input->get_post('id_cupon', TRUE);
+			
+            $resultado = $this->restaurador_model->borrarCupon($id_cupon);
+			echo $resultado;
+			
+        } else {
+            redirect(base_url());
+        }
+    }
+
+	// La dejo por si la usa alguien
     public function eliminarCuponRestaurante() {
         if ($this->session->userdata('ingresado') == TRUE) {
 
@@ -415,6 +796,63 @@ class Restaurador extends MY_Controller {
             redirect(base_url());
         }
     }
+
+	/* Gestión de imágenes del panel de control de restaurador */
+
+	public function altaImagenesRestaurante($id_restaurante){
+
+		if($this->session->userdata('ingresado') == TRUE){
+
+       		$this->breadcrumbs->push('Alta de fotografías de restaurante', '/acceso/restaurador/alta-imagenes/' . $id_restaurante);
+			
+			//$id_restaurante = $this->input->get_post('id_restaurante');
+
+			$datos['datosRestaurante'] = $this->restaurante_model->dameDetalleRestaurante($id_restaurante);
+			$datos['imagenesRestaurante'] = $this->restaurante_model->dameListadoImagen($id_restaurante);
+			
+			/*
+			echo "<pre>";
+			print_r($datos['imagenesRestaurante']);
+			die();
+			*/
+
+			$datos['title'] = "Alta restaurante";
+			$datos['description'] =  "Registro de restaurantes";
+			$datos['robots'] = "NOINDEX, NOFOLLOW";
+			$datos['contenido'] = "registro-imagenes";
+			$this->load->view ('plantillas/plantilla2', $datos);
+
+		}else{
+			redirect(base_url());
+		}
+
+	}
+	
+	public function listadoImagenesJSON(){
+        $id_restaurante = $this->input->get_post('id_restaurante', TRUE);
+        echo json_encode($this->restaurador_model->listadoImagenes($id_restaurante));
+	}
+	
+	public function guardarDatosImagenes(){
+        $id_imagen = $this->input->get_post('id_imagen', TRUE);
+        $titulo = $this->input->get_post('titulo', TRUE);
+        $principal = $this->input->get_post('principal', TRUE);
+		/*$id_imagen[0] = 24;
+		$id_imagen[1] = 25;
+		$titulo[0] = 'cero';
+		$titulo[1] = 'uno';*/
+        echo $this->restaurador_model->guardarDatosImagenes($id_imagen, $titulo, $principal);
+	}
+	
+	public function borrarImagen(){
+        $id_imagen = $this->input->get_post('id_imagen', TRUE);
+        echo $this->restaurador_model->borrarImagen($id_imagen);
+	}
+	
+	public function asegurarImagenPrincipal(){
+        $id_restaurante = $this->input->get_post('id_restaurante', TRUE);
+        $this->restaurador_model->asegurarImagenPrincipal($id_restaurante);
+	}
 
     /* GestiÃ³n de MenÃºn */
 
@@ -702,7 +1140,7 @@ class Restaurador extends MY_Controller {
         }
     }
 
-    /* Cuando un usuario se registra por primera vez, se le envÃ­a un email */
+    /* Cuando un usuario se registra por primera vez, se le envía un email */
 
     public function enviarEmailPropietario($email, $clave) {
         $config['mailtype'] = 'html';
@@ -718,7 +1156,7 @@ class Restaurador extends MY_Controller {
         $this->email->send();
     }
 
-    /* Cuando un usuario se registra por primera vez, se le envÃ­a un email */
+    /* Cuando un usuario se registra por primera vez, se le envía un email */
 
     public function enviarNuevoEmailPropietario($email, $clave) {
         $config['mailtype'] = 'html';
@@ -1020,6 +1458,31 @@ class Restaurador extends MY_Controller {
     public function obtenerEspecialidadesJSON($id_restaurante = null) {
         echo json_encode($this->restaurador_model->listadoEspecialidadesRestaurante($this->input->get_post('id_restaurante', TRUE)));
     }
+
+    /* Mensaje del usuario a Soporte Técnico - Panel de control de usuario */
+	
+    public function mensajeSoporteTecnico() {
+        $id_restaurador = $this->session->userdata('id_propietario');
+        $datos = $this->restaurador_model->datosRestaurador($id_restaurador);
+        $texto_mensaje_soporte = $this->input->post('texto_mensaje_soporte', TRUE);
+		
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+        $mensaje = 'El Restaurador <b>' . $datos->nombre_propietario . ' ' . $datos->apellidos_propietario . '</b> a enviado el siguiente mensaje a soporte técnico:<br /><br />' . $texto_mensaje_soporte;
+        $this->email->from('info@todoslosmenus.com', 'Todoslosmenus.com');
+        $this->email->to('pespinosa72@gmail.com');
+        //$this->email->to('sergio@serynoser.com');
+        $this->email->subject('Mensaje de Restaurador a Soporte Técnico');
+        $this->email->message($mensaje);
+        $this->email->set_alt_message('Tu gestor de correo no admite código HTML');
+        if($this->email->send()){
+			echo "Mensaje enviado correctamente, muchas gracias.";
+		}else{
+			echo "No pudimos enviar el e-mail de confirmación, por favor vuelva a intentarlo.";
+		}
+    }
+
+    /*     * ***************** */
     
     
 }

@@ -73,7 +73,8 @@ class Usuario_model extends CI_Model {
         return $consulta->row();
     }
 
-    public function editarDatosUsuario($id_usuario, $nombre, $apellidos, $email, $localidad, $cp) {
+    /* funcion anterior
+	public function editarDatosUsuario($id_usuario, $nombre, $apellidos, $email, $localidad, $cp) {
         $data = array(
             'nombre_usuario' => $nombre,
             'apellidos_usuario' => $apellidos,
@@ -82,6 +83,25 @@ class Usuario_model extends CI_Model {
         );
         $this->db->where('id_usuario', $id_usuario);
         $this->db->update('usuarios', $data);
+    }*/
+	
+	public function editarDatosUsuario($id_usuario, $campo, $contenido) {
+        $data = array(
+            $campo => $contenido
+        );
+        $this->db->where('id_usuario', $id_usuario);
+        $afftectedRows = $this->db->update('usuarios', $data);
+		return $afftectedRows;
+    }
+	
+	public function modificarCorreo($id_usuario, $email) {
+        $data = array(
+            'email_usuario' => $email,
+            'activo_usuario' => 0
+        );
+        $this->db->where('id_usuario', $id_usuario);
+        $afftectedRows = $this->db->update('usuarios', $data);
+		return $afftectedRows;
     }
 
     /*     * ******************************************** */
@@ -101,8 +121,6 @@ class Usuario_model extends CI_Model {
         return $consulta->result();
     }
 
-    /* Revisar */
-
     public function dameNumPlatoFavoritos($id_usuario) {
         $this->db->join('usuarios', 'usuarios.id_usuario = platos_favoritos.usuarios_id_usuario');
         $this->db->where('usuarios_id_usuario', $id_usuario);
@@ -116,12 +134,15 @@ class Usuario_model extends CI_Model {
             'usuarios_id_usuario' => $id_usuario,
         );
         $this->db->insert('platos_favoritos', $data);
+		$afftectedRows = $this->db->affected_rows();
+		return $afftectedRows;
     }
 
     public function eliminarPlatoFavorito($id_usuario, $id_plato) {
         $this->db->where('usuarios_id_usuario', $id_usuario);
         $this->db->where('id_plato_favorito', $id_plato);
-        $this->db->delete('platos_favoritos');
+        $afftectedRows = $this->db->delete('platos_favoritos');
+		return $afftectedRows;
     }
 
     /*     * ****************************** */
@@ -133,25 +154,25 @@ class Usuario_model extends CI_Model {
 
     /* Datos de los restaurantes favoritos del usuario */
 
-    public function dameRestauranteFavorito($id_usuario) {
+    public function restaurantesFavoritos($id_usuario) {
         $this->db->join('restaurantes', 'restaurantes.id_restaurante = rest_favoritos.restaurantes_id_restaurante');
         $this->db->where('usuarios_id_usuario', $id_usuario);
         $consulta = $this->db->get('rest_favoritos');
         return $consulta->result();
     }
 
-    public function dameNumRestaurantesFavoritos($id_usuario) {
+    /*public function dameNumRestaurantesFavoritos($id_usuario) {
         $this->db->join('restaurantes', 'restaurantes.id_restaurante = rest_favoritos.restaurantes_id_restaurante');
         $this->db->where('usuarios_id_usuario', $id_usuario);
         $consulta = $this->db->count_all_results('rest_favoritos');
         return $consulta;
-    }
+    }*/
 
     public function buscarRestauranteFavorito($nombre_restaurante) {
-        $this->db->like('nombre_restaurante', $nombre_restaurante, 'before');
-        $this->db->or_like('nombre_restaurante', $nombre_restaurante, 'after');
-        $this->db->or_like('nombre_restaurante', $nombre_restaurante, 'both');
-
+		$this->db->limit(5);
+        $this->db->join('localidades', 'restaurantes.localidades_id_localidad = localidades.id_localidad');
+        $this->db->like('nombre_restaurante', $nombre_restaurante, 'both');
+        $this->db->where('activo_restaurante', 1);
         $consulta = $this->db->get('restaurantes');
         return $consulta->result();
     }
@@ -161,37 +182,44 @@ class Usuario_model extends CI_Model {
             'usuarios_id_usuario' => $id_usuario,
             'restaurantes_id_restaurante' => $id_restaurante,
         );
-        $this->db->insert('rest_favoritos', $data);
+        $afftectedRows = $this->db->insert('rest_favoritos', $data);
+		return $afftectedRows;
     }
 
-    public function deleteRestauranteFavorito($id_restaurante_favorito) {
-        $this->db->where('id_rest_favorito', $id_restaurante_favorito);
-        $this->db->delete('rest_favoritos');
+    public function borrarRestauranteFavorito($id_usuario, $id_rest_fav) {
+        $this->db->where('id_rest_favorito', $id_rest_fav);
+        $this->db->where('usuarios_id_usuario', $id_usuario);
+        $afftectedRows = $this->db->delete('rest_favoritos');
+		return $afftectedRows;
     }
 
     /*     * ************************************************ */
 
 
 
-    /*     * ************************************************ */
+    /* Datos de los CP favoritos del usuario */
 
-    public function dameListadoCpFavoritos($id_usuario) {
+    public function cpFavoritos($id_usuario) {
         $this->db->where('usuarios_id_usuario', $id_usuario);
         $consulta = $this->db->get('cp_favoritos');
         return $consulta->result();
     }
 
-    public function addCpFavorito($id_usuario, $nombre_cp) {
+    public function addCpFavorito($id_usuario, $nuevo_cp) {
         $data = array(
-            'nombre_cp_favorito' => $nombre_cp,
+            'nombre_cp_favorito' => $nuevo_cp,
             'usuarios_id_usuario' => $id_usuario,
         );
         $this->db->insert('cp_favoritos', $data);
+		$afftectedRows = $this->db->affected_rows();
+		return $afftectedRows;
     }
 
-    public function deleteCpFavorito($id_cp) {
+    public function deleteCpFavorito($id_usuario, $id_cp) {
+        $this->db->where('usuarios_id_usuario', $id_usuario);
         $this->db->where('id_cp_favorito', $id_cp);
-        $this->db->delete('cp_favoritos');
+        $afftectedRows = $this->db->delete('cp_favoritos');
+		return $afftectedRows;
     }
 
     /*     * ************************************************ */
@@ -216,7 +244,8 @@ class Usuario_model extends CI_Model {
             'resp_trabajo_usuario_tlm' => $respuesta_b,
         );
         $this->db->where('id_usuario', $id_usuario);
-        $this->db->update('usuarios', $data);
+        $afftectedRows = $this->db->update('usuarios', $data);
+		return $afftectedRows;
     }
 
     public function dameDatosUsuarioTLM($id_usuario) {

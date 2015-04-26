@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/panel.franquiciado.propietario.js"></script>
 <section class="one-page-panelcontrol">
 
 	<div class="sections">
@@ -44,43 +45,14 @@
 							</div>
 						</div>
 					</article>
-
-
+                    
 
 					<article id="seleccion" class="seccion-restaurante">
 						<h6>Selección de propietario</h6>
 						<p>
-							<?php if($dameUltimoPropietarioActualizado){ ?>
-
-								Selección actual: <span class="restauranteseleccionado">
-								<?php echo $dameUltimoPropietarioActualizado->nombre_propietario." ".$dameUltimoPropietarioActualizado->apellidos_propietario; ?> - Restaurante El Rodado</span>
-
-							<?php }else{ ?>
-
-								Selección actual: <span class="restauranteseleccionado" style="text-align: center;">Actualmente no tienes ningún propietario dado de alta.</span>
-
-							<?php } ?>
+								Selección actual: <span class="restauranteseleccionado" id="restauranteseleccionado"></span>
 						</p>
-						<div class="enlacesencillo">
-							
-
-
-							<?php if($dameUltimoPropietarioActualizado){ ?>
-
-							<!-- Alta asignado al propietario seleccionado en este momento. -->
-							<a href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-restaurante-plan?clave=<?php echo $dameUltimoPropietarioActualizado->clave_propietario ?>">
-								Asignar nuevo restaurante al propietario<span>
-								<i class="fa fa-arrow-circle-right"></i></span>
-							</a>
-
-							<?php }else{ ?>
-
-							
-
-							<?php } ?>
-
-
-						</div>
+						<div class="enlacesencillo" id="alta_propietario"></div>
 
 						<div class="clear"></div>
 
@@ -89,7 +61,6 @@
 						</p>
 						<div class="form-generico">
 
-							<form method="post" id="form-1" action="#">
 								<div class="row">
 
 									<div class="col-md-9 nodosfilas">
@@ -102,7 +73,7 @@
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnSearchUser">Buscar</a>
+												<a href="#" class="button-3" id="btnSearchPropietario">Buscar</a>
 											</div>
 										</div>
 									</div>
@@ -113,54 +84,15 @@
 									<div class="col-md-12">
 
 										
-										<div class="mensajeexito" style="display: none;">
-											<div class="mensajeexitoSearch"></div>
-										</div>
+										<div id="mensaje_buscador" class="mensajeconfondo"></div>
 
 										<ul class="restaurantesfavoritos_seleccion">
 
 											<div id="listadoPropietarios">
-											<?php if ($dameListadoPropietarios) { ?>
-												<?php foreach ($dameListadoPropietarios as $key => $value) { ?>
-													<li>
-														<div class="row">
-															<div class="col-md-2 nodosfilas ocultar">
-																<img alt="usuario" width="70" height="70" src="<?php echo base_url(); ?>assets/images/usuario.png">
-															</div>
-															<div class="col-md-6 nodosfilas convertir8">
-																<div>
-																	<strong>Nombre</strong>: <?php echo $value->nombre_propietario; ?>
-																</div>
-																<div>
-																	<strong>Apellidos</strong>: <?php echo $value->apellidos_propietario; ?>
-																</div>
-																<div>
-																	<strong>Restaurante</strong>: El Rodado (Boadilla del Monte, Madrid)
-																</div>
-															</div>
-															<div class="col-md-4 nodosfilas">
-																<div class="enlacesencillo">
-																	<a href="<?php echo base_url(); ?>acceso/franquiciado/panel-franquiciado-gestion-propietarios-url?clave_u=<?php echo $value->id_propietario; ?>">Seleccionar<span>
-																	<i class="fa fa-arrow-circle-right"></i></span></a>
-																</div>
-															</div>
-														</div>
-													</li>
-												<?php } ?>
-											<?php }else{ ?>
-												<p style="text-align: center;">Actualmente no tienes ningún propietario dado de alta.</p>
-											<?php } ?>
-
-												
-
-
 											</div>
-
-											<div id="listadoBuscadoPropietarios" class="listadoBuscadoPropietarios" style="display: none;"></div>
 
 										</ul>
 									</div>
-							</form>
 
 						</div>
 						<div class="separadorgrande"></div>
@@ -171,9 +103,10 @@
 								<p>
 									No se pueden dar de alta propietarios por separado.
 									Deberá crearlo a la vez que se crea un restaurante.
+                                    <p style="color:#F00; font-weight:bold;">(creo que sería mejor que si se pueda y que se ponga como está ahora mismo "propietario sin restaurante asignado", de lo contrario cuando un francuiciado borre todos los restaurantes de un propietario habría que borrar al propietario o hacer que no lo muestre cuando no tenga restaurantes)</p>
 								</p>
 								<div class="enlacesencillo">
-									<a href="<?php echo base_url('acceso/franquiciado/alta-propietario-franquiciado-plan'); ?>">Ir a Alta de Restaurante
+									<a href="<?php echo base_url('acceso/franquiciado/alta-propietario-franquiciado-plan'); ?>">Ir a Alta/Baja de Restaurante
 									<span><i class="fa fa-arrow-circle-right"></i></span>
 									</a>
 								</div>
@@ -198,30 +131,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				<?php if ($dameUltimoPropietarioActualizado) { ?>
-					<article id="propietario" class="seccion-restaurante">
+					<article id="propietario" class="seccion-restaurante" style="display: none;">
 
 						<div class="mensajeexito" style="display: none;">
 							<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.
@@ -229,7 +139,6 @@
 
 						<h6>Datos propietario</h6>
 						<div class="form-generico">
-							<form method="post" id="form-1" action="#">
 								<div class="row">
 									<div class="col-md-2">
 										<label>Nombre propietario</label>
@@ -237,16 +146,17 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-user"></i> 
-											<input type="text" name="nombre_propietario" id="nombre_propietario" value="<?php echo $dameUltimoPropietarioActualizado->nombre_propietario; ?>">
+                                            <input type="text" name="nombre_propietario" id="nombre_propietario">
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditDataPropieratiosFranquiciado">Modificar</a>
+												<a href="#" class="button-3" id="btnEditNombrePropieratioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
+									<div id="mensaje_nombre" class="mensajeconfondo"></div>
 
 
 
@@ -260,16 +170,17 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-user"></i> 
-											<input name="apellidos_propietario" id="apellidos_propietario" type="text" value="<?php echo $dameUltimoPropietarioActualizado->apellidos_propietario; ?>">
+											<input name="apellidos_propietario" id="apellidos_propietario" type="text">
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditDataPropieratiosFranquiciado">Modificar</a>
+												<a href="#" class="button-3" id="btnEditApellidosPropieratioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
+									<div id="mensaje_apellidos" class="mensajeconfondo"></div>
 
 
 
@@ -283,16 +194,17 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-envelope"></i> 
-											<input name="email_propietario" id="email_propietario" type="text" value="<?php echo $dameUltimoPropietarioActualizado->email_propietario; ?>">
+											<input name="email_propietario" id="email_propietario" type="text">
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditDataPropieratiosFranquiciado">Modificar</a>
+												<a href="#" class="button-3" id="btnEditCorreoPropieratioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
+									<div id="mensaje_correo" class="mensajeconfondo"></div>
 
 
 
@@ -310,13 +222,27 @@
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
+									</div>
+                                    
+									<div class="clear"></div>
+                                    
+									<div class="col-md-2">
+										<label>Repetir contraseña</label>
+									</div>
+									<div class="col-md-7 nodosfilas convertir9">
+										<div class="form-input">
+											<i class="fa fa-key"></i> 
+											<input type="password" name="repetir_password" id="repetir_password" placeholder="Repite la nueva contraseña">
+										</div>
+									</div>
+									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditPasswordPropietario">Modificar</a>
+												<a href="#" class="button-3" id="btnEditPasswordPropietarioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
-									<input type="hidden" name="id_propietario" id="id_propietario" value="<?php echo $dameUltimoPropietarioActualizado->id_propietario; ?>">
+									<div id="mensaje_password" class="mensajeconfondo"></div>
 
 
 
@@ -330,16 +256,17 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-phone"></i> 
-											<input name="telefono_propietario" id="telefono_propietario" type="text" value="<?php echo $dameUltimoPropietarioActualizado->telefono_propietario; ?>">
+											<input name="telefono_propietario" id="telefono_propietario" type="text">
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditDataPropieratiosFranquiciado">Modificar</a>
+												<a href="#" class="button-3" id="btnEditTelefonoPropieratioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
+									<div id="mensaje_telefono" class="mensajeconfondo"></div>
 
 
 
@@ -353,35 +280,17 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-map-marker"></i> 
-											<input name="cp_propietario" id="cp_propietario" type="text" value="<?php echo $dameUltimoPropietarioActualizado->cp_propietario; ?>">
+											<input name="cp_propietario" id="cp_propietario" type="text">
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
 										<div class="form-input">
 											<div class="callout-a ">
-												<a href="#" class="button-3" id="btnEditDataPropieratiosFranquiciado">Modificar</a>
+												<a href="#" class="button-3" id="btnEditCpPropieratioFranquiciado">Modificar</a>
 											</div>
 										</div>
 									</div>
-
-
-
-									<div class="clear"></div>
-
-
-
-									<div class="col-md-2">
-										<label>Municipio</label>
-									</div>
-									<div class="col-md-7 nodosfilas convertir9">
-										<div class="form-input">
-											<i class="fa fa-map-marker"></i> 
-											<input name="localidad_propietario" id="localidad_propietario" type="text" class="clarito" value="<?php echo $dameCpPropietario->nombre_localidad; ?>" disabled>
-										</div>
-									</div>
-									<div class="col-md-3 nodosfilas">
-										<span class="nota">Asociado al CP</span>
-									</div>
+									<div id="mensaje_cp" class="mensajeconfondo"></div>
 
 
 
@@ -395,22 +304,56 @@
 									<div class="col-md-7 nodosfilas convertir9">
 										<div class="form-input">
 											<i class="fa fa-map-marker"></i> 
-											<input name="provincia_propietario" id="provincia_propietario" type="text" class="clarito"  value="<?php echo $dameCpPropietario->nombre_provincia; ?>" disabled>
+                                                <select class="provincia_gestor" name="provincia_propietario" id="provincia_propietario">
+                                                    <option value="-1">Provincia</option>
+                                                    <?php foreach ($listadoProvincias as $key => $value) { ?>
+                                                        <option value="<?php echo $value->id_provincia; ?>">
+                                                            <?php echo $value->nombre_provincia; ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
 										</div>
 									</div>
 									<div class="col-md-3 nodosfilas">
-										<span class="nota">Asociado al CP</span>
+										<div class="form-input">
+											<div class="callout-a ">
+												<a href="#" class="button-3" id="btnEditProvinciaPropieratioFranquiciado">Modificar</a>
+											</div>
+										</div>
 									</div>
+									<div id="mensaje_provincia" class="mensajeconfondo"></div>
+
+
+
+									<div class="clear"></div>
+
+
+
+									<div class="col-md-2">
+										<label>Municipio</label>
+									</div>
+									<div class="col-md-7 nodosfilas convertir9">
+										<div class="form-input">
+											<i class="fa fa-map-marker"></i> 
+                                        <select class="municipio_gestor" name="municipio_propietario" id="municipio_propietario">
+                                            <option>Municipio</option>
+                                        </select>
+										</div>
+									</div>
+									<div class="col-md-3 nodosfilas">
+										<div class="form-input">
+											<div class="callout-a ">
+												<a href="#" class="button-3" id="btnEditMunicipioPropieratioFranquiciado">Modificar</a>
+											</div>
+										</div>
+									</div>
+									<div id="mensaje_municipio" class="mensajeconfondo"></div>
+                                    
 									<div class="clear"></div>
 
 								</div>
-
-								<input type="hidden" name="id_propietario" id="id_propietario" value="<?php echo $dameUltimoPropietarioActualizado->id_propietario; ?>">
-
-							</form>
 						</div>
 					</article>
-				<?php } ?>
 
 
 

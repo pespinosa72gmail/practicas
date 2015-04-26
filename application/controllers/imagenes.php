@@ -121,8 +121,10 @@ class Imagenes extends MY_Controller {
 				$config['height'] = 225;
 				$this->image_lib->clear();
 				$this->image_lib->initialize($config);
-				$this->image_lib->resize();			
-			
+				$this->image_lib->resize();
+				
+				$this->restaurador_model->asegurarImagenPrincipal($id_restaurante);
+				
 		}
 	}
 

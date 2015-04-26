@@ -1,6 +1,6 @@
 var parpadeo;
 function seleccionaRestaurante(id_restaurante) {
-    alert(id_restaurante);
+    //alert(id_restaurante);
     $('#id_restaurante').val(id_restaurante);
     $("#buscador-restaurante-form").attr("action", "/acceso/restaurador/panel-restaurador");
     $("#buscador-restaurante-form").submit();
@@ -42,7 +42,7 @@ function obtenerTiposMenus() {
             } else {
                 out = out + '<div class="col-md-12 nodosfilas">';
                 out = out + '<div class="form-input">';
-                out = out + '<p style="text-align: center;">Actualmente no tienes ningÃºn menÃº aÃ±adido.</p>';
+                out = out + '<p style="text-align: center;">Actualmente no tienes ningún menú añadido.</p>';
                 out = out + '</div>';
                 out = out + '</div>';
             }
@@ -50,7 +50,7 @@ function obtenerTiposMenus() {
         },
         error: function (event) {
             setInterval(function () {
-                $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al cargar los menÃºs.<br />');
+                $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al cargar los menús.<br />');
             }, 3000);
         },
     });
@@ -120,8 +120,8 @@ function obtenerMenusCompletos() {
                             out = out + '<div class="alerts">';
                             out = out + '<i class="fa fa-star"></i>';
                             out = out + '<div>';
-                            out = out + '<h3>SelecciÃ³n de menÃºs habituales</h3>';
-                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
+                            out = out + '<h3>Selección de menús habituales</h3>';
+                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
                             out = out + '<div id="listado-menu-habituales-' + data[i].id_menu + '" class="row">';
                             if (data[i].menus_habituales.length) {
                                 for (var j in data[i].menus_habituales) {
@@ -140,7 +140,7 @@ function obtenerMenusCompletos() {
                                 }
                             } else {
                                 out = out + '<div class="col-md-6">';
-                                out = out + '<p>Actualmente no tienes ningÃºn menÃº dado de alta.</p>';
+                                out = out + '<p>Actualmente no tienes ningún menú dado de alta.</p>';
                                 out = out + '</div>';
                             }
                             out = out + '</div>';
@@ -160,7 +160,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].primeros[k].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].primeros[k].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -180,7 +180,7 @@ function obtenerMenusCompletos() {
                                 //out = out + '<div class="row contenedor" id="1">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -197,7 +197,7 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<div class="clear"></div>';
                             out = out + '<div class="enlacesencillo">';
-                            out = out + '<a href="#" name="addInputPrimeros-' + data[i].id_menu + '" id="addInputPrimeros-' + data[i].id_menu + '">AÃ±adir mÃ¡s primeros<span><i class="fa fa-arrow-circle-right"></i></span></a>';
+                            out = out + '<a href="#" name="addInputPrimeros-' + data[i].id_menu + '" id="addInputPrimeros-' + data[i].id_menu + '">Añadir más primeros<span><i class="fa fa-arrow-circle-right"></i></span></a>';
                             out = out + '</div>';
                             out = out + '<input type="hidden" name="primeros_platos_menu" id="primeros_platos_menu">';
                             out = out + '</div>';
@@ -210,7 +210,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].segundos[l].nombre_segundo_menu + '" name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].segundos[l].nombre_segundo_menu + '" name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -229,7 +229,7 @@ function obtenerMenusCompletos() {
                                 out = out + '<div class="col-md-10 nodosfilas">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -246,7 +246,7 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<div class="clear"></div>';
                             out = out + '<div class="enlacesencillo">';
-                            out = out + '<a href="#" name="addInputSegundos-' + data[i].id_menu + '" id="addInputSegundos-' + data[i].id_menu + '">AÃ±adir mÃ¡s segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>';
+                            out = out + '<a href="#" name="addInputSegundos-' + data[i].id_menu + '" id="addInputSegundos-' + data[i].id_menu + '">Añadir más segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
@@ -265,9 +265,9 @@ function obtenerMenusCompletos() {
                             out = out + '<div class="col-md-3">';
                             out = out + '<div class="form-input">';
                             if (data[i].cafe_menu == 1) {
-                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"checked><label>Con cafÃ©</label>';
+                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"checked><label>Con café</label>';
                             } else {
-                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"><label>Con cafÃ©</label>';
+                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"><label>Con café</label>';
                             }
                             out = out + '</div>';
                             out = out + '</div>';
@@ -309,24 +309,24 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<br />';
                             out = out + '<div class="row">';
-                            out = out + '<p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>';
+                            out = out + '<p class="reducirfila">Â¿Este menú lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>';
                             out = out + '<div class="col-md-8 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<i class="fa fa-cutlery"></i>';
-                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">';
+                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. Menú de los lunes, Menú arroces, etc...">';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="col-md-4 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<div class="callout-a ">';
-                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menÃº habitual</a>';
+                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menú habitual</a>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="separadorpeq"></div>';
                             out = out + '<div class="row centrar reducirfila">';
-                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menÃº">';
+                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menú">';
                             out = out + '</div>';
                             out = out + '</br>';
                             out = out + '<div id="mensajeMenu-' + data[i].id_menu + '"></div>';
@@ -381,8 +381,8 @@ function obtenerMenusCompletos() {
                             out = out + '<div class="alerts">';
                             out = out + '<i class="fa fa-star"></i>';
                             out = out + '<div>';
-                            out = out + '<h3>SelecciÃ³n de menÃºs habituales</h3>';
-                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
+                            out = out + '<h3>Selección de menús habituales</h3>';
+                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
                             out = out + '<div id="listado-menu-habituales-' + data[i].id_menu + '" class="row">';
                             if (data[i].menus_habituales.length) {
                                 for (var j in data[i].menus_habituales) {
@@ -395,14 +395,14 @@ function obtenerMenusCompletos() {
                                     out = out + '<a href="" id="btnDeleteMenuHabitual' + data[i].menus_habituales[j].id_menu_habitual + '-' + data[i].id_menu + '">';
                                     out = out + '<i class="fa fa-times-circle"></i>';
                                     out = out + '</a>';
-                                    alert(data[i].menus_habituales[j].id_menu_habitual);
+                                    //alert(data[i].menus_habituales[j].id_menu_habitual);
                                     //out = out + '<input type="hidden" name="id_menu_habitual" id="id_menu_habitual" class="id_menu_habitual" value="' + data[i].menus_habituales[j].id_menu_habitual + '" />';
                                     out = out + '</label>';
                                     out = out + '</div>';
                                 }
                             } else {
                                 out = out + '<div class="col-md-6">';
-                                out = out + '<p>Actualmente no tienes ningÃºn menÃº dado de alta.</p>';
+                                out = out + '<p>Actualmente no tienes ningún menú dado de alta.</p>';
                                 out = out + '</div>';
                             }
                             out = out + '</div>';
@@ -422,7 +422,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].entrantes[k].nombre_entrante_menu + '" name="entrantes_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].entrantes[k].nombre_entrante_menu + '" name="entrantes_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -442,7 +442,7 @@ function obtenerMenusCompletos() {
                                 //out = out + '<div class="row contenedor" id="1">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="entrantes_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="entrantes_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -459,7 +459,7 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<div class="clear"></div>';
                             out = out + '<div class="enlacesencillo">';
-                            out = out + '<a href="#" name="addInputEntrantes-' + data[i].id_menu + '" id="addInputEntrantes-' + data[i].id_menu + '">AÃ±adir mÃ¡s entrantes<span><i class="fa fa-arrow-circle-right"></i></span></a>';
+                            out = out + '<a href="#" name="addInputEntrantes-' + data[i].id_menu + '" id="addInputEntrantes-' + data[i].id_menu + '">Añadir más entrantes<span><i class="fa fa-arrow-circle-right"></i></span></a>';
                             //out = out + '<input type="hidden" name="primeros_platos_menu" id="primeros_platos_menu">';
                             out = out + '</div>';
                             out = out + '</div>';
@@ -472,7 +472,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].primeros[l].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].primeros[l].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -491,7 +491,7 @@ function obtenerMenusCompletos() {
                                 out = out + '<div class="col-md-10 nodosfilas">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -614,24 +614,24 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             //out = out + '<br />';
                             out = out + '<div class="row">';
-                            out = out + '<p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>';
+                            out = out + '<p class="reducirfila">Â¿Este menú lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>';
                             out = out + '<div class="col-md-8 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<i class="fa fa-cutlery"></i>';
-                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">';
+                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. Menú de los lunes, Menú arroces, etc...">';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="col-md-4 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<div class="callout-a ">';
-                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menÃº habitual</a>';
+                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menú habitual</a>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="separadorpeq"></div>';
                             out = out + '<div class="row centrar reducirfila">';
-                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menÃº">';
+                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menú">';
                             out = out + '</div>';
                             out = out + '</br>';
                             out = out + '<div id="mensajeMenu-' + data[i].id_menu + '"></div>';
@@ -685,8 +685,8 @@ function obtenerMenusCompletos() {
                             out = out + '<div class="alerts">';
                             out = out + '<i class="fa fa-star"></i>';
                             out = out + '<div>';
-                            out = out + '<h3>SelecciÃ³n de menÃºs habituales</h3>';
-                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
+                            out = out + '<h3>Selección de menús habituales</h3>';
+                            out = out + '<p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>';
                             out = out + '<div id="listado-menu-habituales-' + data[i].id_menu + '" class="row">';
                             if (data[i].menus_habituales.length) {
                                 for (var j in data[i].menus_habituales) {
@@ -705,7 +705,7 @@ function obtenerMenusCompletos() {
                                 }
                             } else {
                                 out = out + '<div class="col-md-6">';
-                                out = out + '<p>Actualmente no tienes ningÃºn menÃº dado de alta.</p>';
+                                out = out + '<p>Actualmente no tienes ningún menú dado de alta.</p>';
                                 out = out + '</div>';
                             }
                             out = out + '</div>';
@@ -725,7 +725,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].primeros[k].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].primeros[k].nombre_primeros_menu + '" name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -745,7 +745,7 @@ function obtenerMenusCompletos() {
                                 //out = out + '<div class="row contenedor" id="1">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="primeros_menu_estructura_' + data[i].id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -762,7 +762,7 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<div class="clear"></div>';
                             out = out + '<div class="enlacesencillo">';
-                            out = out + '<a href="#" name="addInputPrimeros-' + data[i].id_menu + '" id="addInputPrimeros-' + data[i].id_menu + '">AÃ±adir mÃ¡s entrantes<span><i class="fa fa-arrow-circle-right"></i></span></a>';
+                            out = out + '<a href="#" name="addInputPrimeros-' + data[i].id_menu + '" id="addInputPrimeros-' + data[i].id_menu + '">Añadir más entrantes<span><i class="fa fa-arrow-circle-right"></i></span></a>';
                             out = out + '<input type="hidden" name="entrantes_menu" id="entrantes_menu">';
                             out = out + '</div>';
                             out = out + '</div>';
@@ -775,7 +775,7 @@ function obtenerMenusCompletos() {
                                     out = out + '<div class="col-md-10 nodosfilas">';
                                     out = out + '<div class="form-input">';
                                     out = out + '<i class="fa fa-cutlery"></i>';
-                                    out = out + '<input value="' + data[i].segundos[l].nombre_segundo_menu + '" name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                    out = out + '<input value="' + data[i].segundos[l].nombre_segundo_menu + '" name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                                     out = out + '</div>';
                                     out = out + '</div>';
                                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -795,7 +795,7 @@ function obtenerMenusCompletos() {
                                 out = out + '<div class="col-md-10 nodosfilas">';
                                 out = out + '<div class="form-input">';
                                 out = out + '<i class="fa fa-cutlery"></i>';
-                                out = out + '<input name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                                out = out + '<input name="segundos_menu_estructura_' + data[i].id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                                 out = out + '</div>';
                                 out = out + '</div>';
                                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -813,7 +813,7 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             out = out + '<div class="clear"></div>';
                             out = out + '<div class="enlacesencillo">';
-                            out = out + '<a href="#" name="addInputSegundos-' + data[i].id_menu + '" id="addInputSegundos-' + data[i].id_menu + '">AÃ±adir mÃ¡s segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>';
+                            out = out + '<a href="#" name="addInputSegundos-' + data[i].id_menu + '" id="addInputSegundos-' + data[i].id_menu + '">Añadir más segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
@@ -832,9 +832,9 @@ function obtenerMenusCompletos() {
                             out = out + '<div class="col-md-3">';
                             out = out + '<div class="form-input">';
                             if (data[i].cafe_menu == 1) {
-                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"checked><label>Con cafÃ©</label>';
+                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"checked><label>Con café</label>';
                             } else {
-                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"><label>Con cafÃ©</label>';
+                                out = out + '<input type="checkbox" name="cafe_menu_' + data[i].id_menu + '" id="cafe_menu_' + data[i].id_menu + '"><label>Con café</label>';
                             }
                             out = out + '</div>';
                             out = out + '</div>';
@@ -876,24 +876,24 @@ function obtenerMenusCompletos() {
                             out = out + '</div>';
                             //out = out + '<br />';
                             out = out + '<div class="row">';
-                            out = out + '<p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>';
+                            out = out + '<p class="reducirfila">Â¿Este menú lo vas a reutilizar a menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>';
                             out = out + '<div class="col-md-8 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<i class="fa fa-cutlery"></i>';
-                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">';
+                            out = out + '<input name="nombre_menu_habitual" id="nombre_menu_habitual_' + data[i].id_menu + '" type="text" placeholder="Ej. Menú de los lunes, Menú arroces, etc...">';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="col-md-4 nodosfilas">';
                             out = out + '<div class="form-input">';
                             out = out + '<div class="callout-a ">';
-                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menÃº habitual</a>';
+                            out = out + '<a href="#" id="btnAddMenuHabitual-' + data[i].id_menu + '" class="button-3">Guardar como menú habitual</a>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '</div>';
                             out = out + '<div class="separadorpeq"></div>';
                             out = out + '<div class="row centrar reducirfila">';
-                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menÃº">';
+                            out = out + '<input class="button-3 botonpeq" name="btnAddPlateMenu2-' + data[i].id_menu + '" id="btnAddPlateMenu2-' + data[i].id_menu + '" type="button" value="Actualizar menú">';
                             out = out + '</div>';
                             out = out + '</br>';
                             out = out + '<div id="mensajeMenu-' + data[i].id_menu + '"></div>';
@@ -908,7 +908,7 @@ function obtenerMenusCompletos() {
             } else {
                 out = out + '<div class="col-md-12 nodosfilas">';
                 out = out + '<div class="form-input">';
-                out = out + '<p style="text-align: center;">Actualmente no tienes ningÃºn menÃº aÃ±adido.</p>';
+                out = out + '<p style="text-align: center;">Actualmente no tienes ningún menú añadido.</p>';
                 out = out + '</div>';
                 out = out + '</div>';
             }
@@ -957,7 +957,7 @@ function obtenerMenusHabituales(id_menu) {
                 }
             } else {
                 out = out + '<div class="col-md-6">';
-                out = out + '<p>Actualmente no tienes ningÃºn menÃº dado de alta.</p>';
+                out = out + '<p>Actualmente no tienes ningún menú dado de alta.</p>';
                 out = out + '</div>';
             }
             $("#listado-menu-habituales-" + id_menu).html(out);
@@ -1023,9 +1023,9 @@ $(document).on("click", "a[id*='eliminar-tipo-menu-']", function (event) {
 $("body").on("click", ".eliminar", function (e) {
 
     var array = this.id.split('-');
-    alert('voy a borrar' + window.primeros[array[1]])
-    alert(array[0] + '  ' + array[1]);
-    alert('voy a borrar' + window.segundos[array[1]])
+    //alert('voy a borrar' + window.primeros[array[1]])
+    //alert(array[0] + '  ' + array[1]);
+    //alert('voy a borrar' + window.segundos[array[1]])
     if (window.primeros[array[1]] > 1 && array[0] == 'primero') {
         $(this).parent('div').parent().parent().parent().parent().remove();
         window.primeros[array[1]]--;
@@ -1047,7 +1047,7 @@ $(document).on("click", "a[id^=addInputEntrantes-]", function (event) {
     var id_menu = array[1];
     if (window.entrantes[id_menu] <= MaxInputs) {
         window.FieldCountEntrantes[id_menu]++;
-        $('#contenedorPlatosEntrantes-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="entrantes_menu_estructura_' + id_menu + '[]" id="entrantes_menu_estructura" class="input-class" type="text" placeholder="AÃ±adir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="entrante-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
+        $('#contenedorPlatosEntrantes-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="entrantes_menu_estructura_' + id_menu + '[]" id="entrantes_menu_estructura" class="input-class" type="text" placeholder="Añadir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="entrante-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
         window.entrantes[id_menu]++;
     }
     return false;
@@ -1059,7 +1059,7 @@ $(document).on("click", "a[name^=addInputPrimeros-]", function (event) {
 
     if (window.primeros[id_menu] <= MaxInputs) {
         window.FieldCountPrimeros[id_menu]++;
-        $('#contenedorPlatos-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="primeros_menu_estructura_' + id_menu + '[]" id="primeros_menu_estructura" class="input-class" type="text" placeholder="AÃ±adir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="primero-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
+        $('#contenedorPlatos-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="primeros_menu_estructura_' + id_menu + '[]" id="primeros_menu_estructura" class="input-class" type="text" placeholder="Añadir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="primero-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
         window.primeros[id_menu]++;
     }
     return false;
@@ -1069,7 +1069,7 @@ $(document).on("click", "a[name^=addInputSegundos-]", function (event) {
     var id_menu = array[1];
     if (window.segundos[id_menu] <= window.MaxInputs) {
         window.FieldCountSegundos[id_menu]++;
-        $('#contenedorPlatos2-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="segundo-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
+        $('#contenedorPlatos2-' + id_menu + '').append('<div class="row contenedor" id="' + window.FieldCount + '"><div class="col-md-10 nodosfilas"><div class="form-input"><i class="fa fa-cutlery"></i> <input name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato"></div></div><div class="col-md-2 nodosfilas"><div class="form-input"><div class="form-input"><div class="callout-a"><a id="segundo-' + id_menu + '" href="#" class="button-3 eliminar">X</a></div></div></div></div></div>');
         window.segundos[id_menu]++;
     }
     return false;
@@ -1093,7 +1093,7 @@ $(document).on("click", 'input[name^=borrar-cajas-]', function (event)
 
 //Submit del formulario de menÃƒÂºs
 $(document).on('submit', 'form[name^=platos-menus-form-]', function (event) {
-    alert('entro aquÃ­');
+    //alert('entro aquÃ­');
     event.preventDefault;
     return false;
 })
@@ -1117,9 +1117,9 @@ $(document).on("click", 'input[name^=btnAddPlateMenu2-]', function (event)
 
     var array = this.id.split('-');
 
-    //ValidaciÃ³n
+    //Validación
     if ($('#calendario-menu-' + array[1]).val() == "") {
-        $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca la fecha del menÃº.');
+        $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca la fecha del menú.');
         setInterval(function () {
             $('#mensajeMenu-' + array[1]).fadeOut("slow");
             $('#mensajeMenu-' + array[1]).fadeIn("slow");
@@ -1196,7 +1196,7 @@ $(document).on("click", 'input[name^=btnAddPlateMenu2-]', function (event)
             $('#mensajeMenu-' + array[1]).html("<span align='center'><img src='./../../assets/images/loader.gif ' /></span>");
         },
         success: function (event) {
-            $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+            $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
             clearInterval(parpadeo);
             parpadeo = setInterval(function () {
                 $('#mensajeMenu-' + array[1]).fadeOut("slow");
@@ -1217,7 +1217,7 @@ $(document).on('click', 'a[id^=btnAddMenuHabitual-]', function (event) {
     event.preventDefault;
     var array = this.id.split('-');
     if ($('#nombre_menu_habitual_' + array[1]).val() == "") {
-        $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el nombre del menÃº habitual.');
+        $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el nombre del menú habitual.');
         clearInterval(parpadeo);
         parpadeo = setInterval(function () {
             $('#mensajeMenu-' + array[1]).fadeOut("slow");
@@ -1242,7 +1242,7 @@ $(document).on('click', 'a[id^=btnAddMenuHabitual-]', function (event) {
             $('#mensajeMenu-' + array[1]).html("<span align='center'><img src='./../../assets/images/loader.gif ' /></span>");
         },
         success: function (event) {
-            $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+            $('#mensajeMenu-' + array[1]).html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
             clearInterval(parpadeo);
             parpadeo = setInterval(function () {
                 $('#mensajeMenu-' + array[1]).fadeOut("slow");
@@ -1314,7 +1314,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                     out = out + '<div class="col-md-10 nodosfilas">';
                     out = out + '<div class="form-input">';
                     out = out + '<i class="fa fa-cutlery"></i>';
-                    out = out + '<input value="' + data.entrantes[i].nombre_entrante_menu + '" name="entrantes_menu_estructura_' + id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                    out = out + '<input value="' + data.entrantes[i].nombre_entrante_menu + '" name="entrantes_menu_estructura_' + id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="Añadir plato">';
                     out = out + '</div>';
                     out = out + '</div>';
                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -1334,7 +1334,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                 //out = out + '<div class="row contenedor" id="1">';
                 out = out + '<div class="form-input">';
                 out = out + '<i class="fa fa-cutlery"></i>';
-                out = out + '<input name="entrantes_menu_estructura_' + id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                out = out + '<input name="entrantes_menu_estructura_' + id_menu + '[]" class="input-class" id="entrantes_menu_estructura" type="text" placeholder="Añadir plato">';
                 out = out + '</div>';
                 out = out + '</div>';
                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -1358,7 +1358,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                     out = out + '<div class="col-md-10 nodosfilas">';
                     out = out + '<div class="form-input">';
                     out = out + '<i class="fa fa-cutlery"></i>';
-                    out = out + '<input value="' + data.primeros[i].nombre_primeros_menu + '" name="primeros_menu_estructura_' + id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                    out = out + '<input value="' + data.primeros[i].nombre_primeros_menu + '" name="primeros_menu_estructura_' + id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                     out = out + '</div>';
                     out = out + '</div>';
                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -1378,7 +1378,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                 //out = out + '<div class="row contenedor" id="1">';
                 out = out + '<div class="form-input">';
                 out = out + '<i class="fa fa-cutlery"></i>';
-                out = out + '<input name="primeros_menu_estructura_' + id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                out = out + '<input name="primeros_menu_estructura_' + id_menu + '[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">';
                 out = out + '</div>';
                 out = out + '</div>';
                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -1403,7 +1403,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                     out = out + '<div class="col-md-10 nodosfilas">';
                     out = out + '<div class="form-input">';
                     out = out + '<i class="fa fa-cutlery"></i>';
-                    out = out + '<input value="' + data.segundos[i].nombre_segundo_menu + '" name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                    out = out + '<input value="' + data.segundos[i].nombre_segundo_menu + '" name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                     out = out + '</div>';
                     out = out + '</div>';
                     out = out + '<div class="col-md-2 nodosfilas">';
@@ -1422,7 +1422,7 @@ $(document).on('click', "a[id*='btnSelectMenuHabitual-']", function (event) {
                 out = out + '<div class="col-md-10 nodosfilas">';
                 out = out + '<div class="form-input">';
                 out = out + '<i class="fa fa-cutlery"></i>';
-                out = out + '<input name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">';
+                out = out + '<input name="segundos_menu_estructura_' + id_menu + '[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">';
                 out = out + '</div>';
                 out = out + '</div>';
                 out = out + '<div class="col-md-2 nodosfilas">';
@@ -1486,6 +1486,13 @@ $(document).on('ready', function () {
     /*****************************************************************************************/
     /*****************************************************************************************/
 
+	// Botones del menú lateral
+    $('a#altaRestaurantePlan').on('click', function (event) {
+        var url = "./alta-restaurante-plan";
+        $(location).attr("href", url);
+    });
+
+
 //Cargas de elementos dinÃƒÆ’Ã‚Â¡micos
     obtenerTiposMenus();
     obtenerMenusCompletos();
@@ -1525,7 +1532,8 @@ $(document).on('ready', function () {
         error: function (event) {
         }
     });
-    /* Desplegamos lo del usuario TLM en la vista /registro-usuario */         $('#abrir-cerrar-buscador').on('click', function (event) {
+    /* Desplegamos lo del usuario TLM en la vista /registro-usuario */
+	$('#abrir-cerrar-buscador').on('click', function (event) {
         event.preventDefault();
         if ($('#buscador-restaurante').css("display") == 'none') {
             $('#buscador-restaurante').show("slide", {
@@ -1538,8 +1546,18 @@ $(document).on('ready', function () {
         }
 
     });
-    $('#buscador-restaurante-form').submit(function (event) {
-        event.preventDefault();
+    //Programamos el boón tipo <a>
+    $('#buscarRestaurante').click(function (e) {
+        e.preventDefault();
+        buscarRestaurantes();
+    });
+	$("#nombre_restaurante_buscar").on('keydown', function () {
+		if(event.keyCode == 13){
+			buscarRestaurantes();
+			return false;
+		};
+	});
+    function buscarRestaurantes(){
         var url = "/restaurador/buscarRestaurantesPropietariosJSON";
         var nombre_restaurante = $('#nombre_restaurante_buscar').val();
         var id_propietario = $('#id_propietario').val();
@@ -1567,7 +1585,7 @@ $(document).on('ready', function () {
                     out = out + "<div class='col-md-6 nodosfilas convertir8'>";
                     out = out + "<div><strong>Nombre</strong>:" + data[i].nombre_restaurante + "</div>";
                     out = out + "<div><strong>Municipio</strong>: " + data[i].municipio + "</div>";
-                    out = out + "<div><strong>CategorÃƒÆ’Ã‚Â­a</strong>: " + data[i].categoria + "</div>";
+                    out = out + "<div><strong>Categoría</strong>: " + data[i].categoria + "</div>";
                     out = out + "<div><strong>Precio medio</strong>: " + data[i].precio_medio + "</div>";
                     out = out + "</div>";
                     out = out + "<div class='col-md-4 nodosfilas'>";
@@ -1583,12 +1601,7 @@ $(document).on('ready', function () {
             }
         });
         return false;
-    });
-    //Programamos el botÃƒÆ’Ã‚Â³n tipo <a>
-    $('#buscarRestaurante').click(function (event) {
-        $("#buscador-restaurante-form").submit();
-        return false;
-    });
+    };
     /* Guardar Tipo de MenÃƒÆ’Ã‚Âº. Para la secciÃƒÆ’Ã‚Â³n Tipos de MenÃƒÆ’Ã‚Âºs */
     $('input#btnAddTipoMenu').on('click', function (event) {
 
@@ -1598,7 +1611,7 @@ $(document).on('ready', function () {
         var estructura = $('input:checked#estructura_menu').val();
         if (nombre == "") {
 
-            $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el nombre del menÃº.');
+            $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el nombre del menú.');
             setInterval(function () {
                 $('.addFormTipoMenu').fadeOut("slow");
                 $('.addFormTipoMenu').fadeIn("slow");
@@ -1612,7 +1625,7 @@ $(document).on('ready', function () {
              */
         }
         if (!$('input[name=estructura_menu]').is(':checked')) {
-//$('#estructura_menu').after('<span id="error_restaurante" class="form-description required-error">Selecciona un campo</span>'); $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccion el tipo de menÃº.');
+//$('#estructura_menu').after('<span id="error_restaurante" class="form-description required-error">Selecciona un campo</span>'); $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccion el tipo de menú.');
             setInterval(function () {
                 $('.addFormTipoMenu').fadeOut("slow");
                 $('.addFormTipoMenu').fadeIn("slow");
@@ -1634,7 +1647,7 @@ $(document).on('ready', function () {
                 //$('.addFormTipoMenu').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
             },
             success: function (event) {
-                $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El menÃº se ha aÃ±adido correctamente.');
+                $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El menú se ha añadido correctamente.');
                 setInterval(function () {
                     $('.addFormTipoMenu').fadeOut("slow");
                     $('.addFormTipoMenu').fadeIn("slow");
@@ -1646,7 +1659,7 @@ $(document).on('ready', function () {
             },
             error: function (event) {
                 setInterval(function () {
-                    $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al guardar el menÃº.<br />');
+                    $('.addFormTipoMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al guardar el menú.<br />');
                 }, 3000);
             },
         });
@@ -1659,7 +1672,7 @@ $(document).on('ready', function () {
 
     /* Caracteres del textarea de observaciones - Dentro de gestiÃƒÆ’Ã‚Â³n de MenÃƒÆ’Ã‚Âºs */
     var max_character = 255;
-    $('#contador').html(max_character + ' MÃ¡ximos caracteres permitidos');
+    $('#contador').html(max_character + ' Máximos caracteres permitidos');
     $('#observaciones_menu').on('keyup', function (event)
     {
         var caracteres = $(this).val().length;
@@ -1852,7 +1865,7 @@ $(document).on('ready', function () {
 
             var re = /^(\d.{5,7})|(.{1}\d.{4,6})|(.{2}\d.{3,5})|(.{3}\d.{2,4})|(.{4}\d.{1,3})|(.{5}\d.{0,2})|(.{6}\d.{0,1})|(.{7}\d)$/
             if (!re.test(password_propietario)) {
-                $('#mensaje_pass').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password debe tener al menos un nÃºmero y entre 6 y 8 caracteres.</div>');
+                $('#mensaje_pass').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password debe tener al menos un número y entre 6 y 8 caracteres.</div>');
                 $('#mensaje_pass').css({display: "block"});
                 $('#password_propietario').focus();
                 clearInterval(parpadeo);
@@ -1863,7 +1876,7 @@ $(document).on('ready', function () {
                 return false;
             }
             ;
-            //ValidaciÃ³n del password del gestor
+            //Validación del password del gestor
             var re = /^([a-zA-Z].{5,7})|(.{1}[a-zA-Z].{4,6})|(.{2}[a-zA-Z].{3,5})|(.{3}[a-zA-Z].{2,4})|(.{4}[a-zA-Z].{1,3})|(.{5}[a-zA-Z].{0,2})|(.{6}[a-zA-Z].{0,1})|(.{7}[a-zA-Z])$/
             if (!re.test($('.password_gestor').val())) {
                 $('.mensaje_pass').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password debe tener al menos una letra y entre 6 y 8 caracteres.');
@@ -1876,10 +1889,10 @@ $(document).on('ready', function () {
                 }, tiempo);
                 return false;
             }
-//ValidaciÃ³n del password del gestor
+//Validación del password del gestor
             var re = /^([A-Z].{5,7})|(.{1}[A-Z].{4,6})|(.{2}[A-Z].{3,5})|(.{3}[A-Z].{2,4})|(.{4}[A-Z].{1,3})|(.{5}[A-Z].{0,2})|(.{6}[A-Z].{0,1})|(.{7}[A-Z])$/
             if (!re.test($('.password_gestor').val())) {
-                $('#mensaje_pass').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password debe tener al menos una letra mayÃºscula y entre 6 y 8 caracteres.');
+                $('#mensaje_pass').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password debe tener al menos una letra mayúscula y entre 6 y 8 caracteres.');
                 $('#mensaje_pass').css({display: "block"});
                 $('#password_propietario').focus();
                 clearInterval(parpadeo);
@@ -1891,7 +1904,7 @@ $(document).on('ready', function () {
             }
 
         } else {
-            $('#mensaje_pass').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password estÃ¡ vacÃ­o.');
+            $('#mensaje_pass').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;El password está vacÃ­o.');
             $('#mensaje_pass').css({display: "block"});
             $('#password_propietario').focus();
             clearInterval(parpadeo);
@@ -1943,7 +1956,7 @@ $(document).on('ready', function () {
         $('#mensaje_cp').css({display: "none"});
         var telefono_propietario = $('#telefono_propietario').val();
         if (!telefono_propietario) {
-            $('#mensaje_tel').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce el telÃ©fono del propietario</div>');
+            $('#mensaje_tel').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce el teléfono del propietario</div>');
             $('#mensaje_tel').css({display: "block"});
             $('#telefono_propietario').focus();
             clearInterval(parpadeo);
@@ -1970,7 +1983,7 @@ $(document).on('ready', function () {
             },
             success: function (data) {
                 $('#mensaje_tel').css({display: "block"});
-                $('#mensaje_tel').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;TelÃ©fono modificado correctamente</div>');
+                $('#mensaje_tel').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Teléfono modificado correctamente</div>');
                 clearInterval(parpadeo);
                 parpadeo = setInterval(function () {
                     $('.efecto-fade').fadeOut("slow");
@@ -1996,7 +2009,7 @@ $(document).on('ready', function () {
         var cp_propietario = $('#cp_propietario').val();
         var cp = /^\d{5}$/;
         if (!cp.test($('#cp_propietario').val())) {
-            $('#mensaje_cp').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El formato del cÃ³digo postal es incorrecto</div>');
+            $('#mensaje_cp').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El formato del código postal es incorrecto</div>');
             $('#mensaje_cp').css({display: "block"});
             $('#cp_propietario').focus();
             clearInterval(parpadeo);
@@ -2023,7 +2036,7 @@ $(document).on('ready', function () {
             },
             success: function (data) {
                 $('#mensaje_cp').css({display: "block"});
-                $('#mensaje_cp').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;CÃ³digo Postal modificado correctamente</div>');
+                $('#mensaje_cp').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Código Postal modificado correctamente</div>');
                 clearInterval(parpadeo);
                 parpadeo = setInterval(function () {
                     $('.efecto-fade').fadeOut("slow");
@@ -2036,7 +2049,7 @@ $(document).on('ready', function () {
         });
         return false;
     });
-//Para que se ejecute al cargar la pÃ¡gina
+//Para que se ejecute al cargar la página
     $("#provincia_propietario option:selected").each(function () {
         provincia = $('#id_provincia').val();
         localidad = $('#id_localidad').val();
@@ -2314,16 +2327,16 @@ $(document).on('ready', function () {
             }
         });
 
-        //LocalizaciÃ³n de la direcciÃ³n
+        //Localización de la dirección
         var geocoder = new google.maps.Geocoder();
         var address = $("#calle_restaurante").val() + ', ' + $("#numero_restaurante").val() + ', ' + $("#cp_restaurante").val();
         //var address = $(".calle_restaurante").val();
 
         //alert(address);
-        //buscamos en la region de espaÃ±a
+        //buscamos en la region de españa
         geocoder.geocode({'address': address, 'region': 'es'}, function (results, status) {
             if (status == 'OK') {
-                //alert('DirecciÃ³n reconocida');
+                //alert('Dirección reconocida');
                 //Calle
                 if (results[0].address_components[1]) {
                     //alert(results[0].address_components[1].long_name);
@@ -2331,7 +2344,7 @@ $(document).on('ready', function () {
                 } else {
                     //alert('Componente1 vacÃ­o');
                 }
-                //CÃ³digo Postal
+                //Código Postal
                 if (results[0].address_components[7]) {
                     //alert(results[0].address_components[7].long_name);
                     $('#cp_restaurante').val(results[0].address_components[7].long_name);
@@ -2376,7 +2389,7 @@ $(document).on('ready', function () {
 
         return false;
     });
-    //NÃºmero de la calle del restaurante
+    //Número de la calle del restaurante
     $('a#btnModificarNumeroRestaurante').on('click', function (event) {
         event.preventDefault;
         $('#mensaje_nombre_restaurante').css({display: "none"});
@@ -2416,7 +2429,7 @@ $(document).on('ready', function () {
             },
             success: function (data) {
                 $('#mensaje_numero').css({display: "block"});
-                $('#mensaje_numero').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;NÃºmero modificado correctamente</div>');
+                $('#mensaje_numero').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Número modificado correctamente</div>');
                 clearInterval(parpadeo);
                 parpadeo = setInterval(function () {
                     $('.efecto-fade').fadeOut("slow");
@@ -2428,14 +2441,14 @@ $(document).on('ready', function () {
             }
         });
 
-        //LocalizaciÃ³n de la direcciÃ³n
+        //Localización de la dirección
         var geocoder = new google.maps.Geocoder();
         var address = $("#calle_restaurante").val() + ', ' + $("#numero_restaurante").val() + ', ' + $("#cp_restaurante").val();
 
-        //buscamos en la region de espaÃ±a
+        //buscamos en la region de españa
         geocoder.geocode({'address': address, 'region': 'es'}, function (results, status) {
             if (status == 'OK') {
-                //alert('DirecciÃ³n reconocida');
+                //alert('Dirección reconocida');
                 //Calle
                 if (results[0].address_components[1]) {
                     //alert(results[0].address_components[1].long_name);
@@ -2443,7 +2456,7 @@ $(document).on('ready', function () {
                 } else {
                     //alert('Componente1 vacÃ­o');
                 }
-                //CÃ³digo Postal
+                //Código Postal
                 if (results[0].address_components[7]) {
                     //alert(results[0].address_components[7].long_name);
                     $('#cp_restaurante').val(results[0].address_components[7].long_name);
@@ -2476,7 +2489,7 @@ $(document).on('ready', function () {
                  if (results[0].address_components[2]) {
                  completeAddress = completeAddress + ' ' + results[0].address_components[2].long_name;
                  }
-                 //CÃ³digo postal
+                 //Código postal
                  if (results[0].address_components[7]) {
                  completeAddress = completeAddress + ' ' + results[0].address_components[7].long_name;
                  }
@@ -2509,7 +2522,7 @@ $(document).on('ready', function () {
         return false;
     });
 
-    //NÃºmero de la calle del restaurante
+    //Número de la calle del restaurante
     $('a#btnModificarCPRestaurante').on('click', function (event) {
         event.preventDefault;
         $('#mensaje_nombre_restaurante').css({display: "none"});
@@ -2523,7 +2536,7 @@ $(document).on('ready', function () {
         var cp_restaurante = $('#cp_restaurante').val();
         var cp = /^\d{5}$/;
         if (!cp.test($('#cp_propietario').val())) {
-            $('#mensaje_cp_restaurante').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el cÃ³digo postal del restaurante</div>');
+            $('#mensaje_cp_restaurante').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca el código postal del restaurante</div>');
             $('#mensaje_cp_restaurante').css({display: "block"});
             $('#cp_restaurante').focus();
             clearInterval(parpadeo);
@@ -2550,7 +2563,7 @@ $(document).on('ready', function () {
             },
             success: function (data) {
                 $('#mensaje_cp_restaurante').css({display: "block"});
-                $('#mensaje_cp_restaurante').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;CÃ³digo Postal modificado correctamente</div>');
+                $('#mensaje_cp_restaurante').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Código Postal modificado correctamente</div>');
                 clearInterval(parpadeo);
                 parpadeo = setInterval(function () {
                     $('.efecto-fade').fadeOut("slow");
@@ -2562,16 +2575,16 @@ $(document).on('ready', function () {
             }
         });
 
-        //LocalizaciÃ³n de la direcciÃ³n
+        //Localización de la dirección
         var geocoder = new google.maps.Geocoder();
         var address = $("#calle_restaurante").val() + ', ' + $("#numero_restaurante").val() + ', ' + $("#cp_restaurante").val();
         //var address = $(".calle_restaurante").val();
 
         //alert(address);
-        //buscamos en la region de espaÃ±a
+        //buscamos en la region de españa
         geocoder.geocode({'address': address, 'region': 'es'}, function (results, status) {
             if (status == 'OK') {
-                //alert('DirecciÃ³n reconocida');
+                //alert('Dirección reconocida');
                 //Calle
                 if (results[0].address_components[1]) {
                     //alert(results[0].address_components[1].long_name);
@@ -2579,7 +2592,7 @@ $(document).on('ready', function () {
                 } else {
                     //alert('Componente1 vacÃ­o');
                 }
-                //CÃ³digo Postal
+                //Código Postal
                 if (results[0].address_components[7]) {
                     //alert(results[0].address_components[7].long_name);
                     $('#cp_restaurante').val(results[0].address_components[7].long_name);
@@ -2684,9 +2697,9 @@ $(document).on('ready', function () {
 
         var precio_restaurante = $('#precio_medio_restaurante').val();
         if (precio_restaurante=='Selecciona rango de precios') {
-            $('#mensaje_cp_restaurante').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione un rango</div>');
-            $('#mensaje_cp_restaurante').css({display: "block"});
-            $('#cp_restaurante').focus();
+            $('#mensaje_precio').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione un rango</div>');
+            $('#mensaje_precio').css({display: "block"});
+            $('#precio_medio_restaurante').focus();
             clearInterval(parpadeo);
             parpadeo = setInterval(function () {
                 $('.efecto-fade').fadeOut("slow");
@@ -2702,7 +2715,7 @@ $(document).on('ready', function () {
             async: false,
             data: {
                 id_restaurante: $("#id_restaurantes").val(),
-                campo: 'precio_carta_restaurante',
+                campo: 'precio_medio_restaurante',
                 contenido: precio_restaurante
             },
             beforeSend: function (event) {
@@ -2730,9 +2743,9 @@ $(document).on('ready', function () {
     $('a#btnUploadCartaRestaurante').on('click', function (event) {
 
         var formData = new FormData();
-        var nombre_fichero = document.getElementById("file").files[0];
+        var nombre_fichero = document.getElementById("archivo_carta").files[0];
         var extensiones = new Array('pdf', 'jpg', 'doc', 'docs');
-        var documento = $('#file')[0].files[0];
+        var documento = $('#archivo_carta')[0].files[0];
         //Obtenemos el nombre del documento
         var fileName = documento.name;
         var fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
@@ -2773,7 +2786,7 @@ $(document).on('ready', function () {
 
         var id = $('#id_restaurantes').val();
         var url = "/acceso/restaurador/actualizar-pdf-restaurante?id_restaurantes" + id;
-        formData.append('file', nombre_fichero);
+        formData.append('archivo_carta', nombre_fichero);
         formData.append('id_restaurantes', id);
         $.ajax({
             type: "POST",
@@ -3222,7 +3235,7 @@ $(document).on('ready', function () {
             },
             success: function (event) {
                 setInterval(function () {
-                    $('.addFormPlateMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+                    $('.addFormPlateMenu').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
                     location.reload();
                 }, 3000);
                 return false;
@@ -3261,7 +3274,7 @@ $(document).on('ready', function () {
             },
             success: function (event) {
                 setInterval(function () {
-                    $('.editFormProperties').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+                    $('.editFormProperties').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
                     location.reload();
                 }, 3000);
                 return false;
@@ -3341,7 +3354,7 @@ $(document).on('ready', function () {
             },
             success: function (event) {
                 setInterval(function () {
-                    $('.editFormRestaurant').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+                    $('.editFormRestaurant').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
                     location.reload();
                 }, 3000);
             },
@@ -3404,7 +3417,7 @@ $(document).on('ready', function () {
      success: function (event)
      {
      setInterval(function () {
-     $('#mensajePDF').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Carta subida con Ã©xito.<br />').delay(3000).fadeOut();
+     $('#mensajePDF').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Carta subida con éxito.<br />').delay(3000).fadeOut();
      }, 3000);
      },
      error: function (event)
@@ -3444,7 +3457,7 @@ $(document).on('ready', function () {
             },
             success: function (event) {
                 setInterval(function () {
-                    $('.editFormCategory').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
+                    $('.editFormCategory').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con éxito.<br />');
                     location.reload();
                 }, 3000);
             },
@@ -3456,120 +3469,933 @@ $(document).on('ready', function () {
         });
         return false;
     });
+	
     /* Especialidades */
-    $('a#btnAddEspecialtiesForm').on('click', function (event) {
-        var select_nombre_especialidad = $('#select_nombre_especialidad').val();
-        var id = $('#id_restaurantes').val();
-        var url = "/acceso/restaurador/anadir-especialidad";
+	var duplicados_especialidad = '';
+	function listarEspecialidades(){
+		
+        var id_restaurante = $('#id_restaurantes').val();
+		
+        var url = "/restaurador/obtenerEspecialidadesJSON";
+		
         $.ajax({
             type: "POST",
             url: url,
             data: {
-                id_restaurantes: id,
-                select_nombre_especialidad: select_nombre_especialidad,
+                id_restaurante: id_restaurante
             },
             beforeSend: function (event) {
-                $('.editFormEspecialidades').show();
-                $('.editFormEspecialidades').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
+                $('#listado_especialidades').html('<div align="center" class="efecto-fade"><img src="./../../assets/images/loader.gif" /></div>');
             },
-            success: function (event) {
-                setInterval(function () {
-                    $('.editFormEspecialidades').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Se ha modificado con Ã©xito.<br />');
-                    location.reload();
-                }, 3000);
+            success: function (data) {
+                if(data != '[]'){
+					var data = JSON.parse(data);
+					var out = '';
+					for (var i in data) {
+						out = out + '<div class="col-md-9 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<i class="fa fa-cutlery"></i>';
+						out = out + '		<input type="text" value="' + data[i].nombre_especialidad + '" disabled>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						out = out + '<div class="col-md-3 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<div class="callout-a ">';
+						out = out + '			<a id="borrar_especialidad-' + data[i].id_especialidad + '" href="#" class="button-3">Eliminar</a>';
+						out = out + '		</div>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						
+						duplicados_especialidad = duplicados_especialidad + 'nodup' + data[i].nombre_especialidad + 'nodup';
+					};
+				}else{
+					var out = '';
+					out = out + '<div class="col-md-9 nodosfilas">';
+					out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+					out = out + '		<p>Actualmente no has añadido ninguna especialidad a tu restaurante</p>';
+					out = out + '	</div>';
+					out = out + '</div>';
+				};
+                $('#listado_especialidades').html(out);
             },
             error: function (event) {
-                setInterval(function () {
-                    $('.editFormEspecialidades').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al guardar los datos.<br />');
-                }, 3000);
+                $('#listado_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
             },
         });
-        return false;
-    }); /****************** Puntos de interÃƒÆ’Ã‚Â©s ******************/
-    $('a#btnAddPuntoInteres').on('click', function (event) {
-        var nombre_punto_cercano = $('#select_nombre_punto_cercano').val();
-        var id = $('#id_restaurantes').val();
-        var url = "/acceso/restaurador/anadir-puntos-interes";
-        /*
-         console.log(nombre_punto_cercano);
-         return false;
-         */
-
+		
+	};
+	listarEspecialidades();
+	
+    $('a#btnAddEspecialtiesForm').on('click', function (e) {
+		e.preventDefault();
+		addEspecialidad();
+	});
+	$("#nueva_especialidad").on('keydown', function () {
+		$('#mensaje_especialidades').css({display:"none"});
+		if(event.keyCode == 13){
+			addEspecialidad();
+		};
+	});
+	
+    function addEspecialidad(){
+		
+        $('#mensaje_especialidades').css({display: "none"});
+		
+        var nueva_especialidad = $('#nueva_especialidad').val();
+        var id_restaurante = $('#id_restaurantes').val();
+		
+		if(!nueva_especialidad){
+			$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce una nueva especialidad</div>');
+			$('#mensaje_especialidades').css({display:"block"});
+			$('#nueva_especialidad').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(duplicados_especialidad.toLowerCase().indexOf('nodup' + nueva_especialidad.toLowerCase() + 'nodup') > -1){
+			$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Ya tiene esta especialidad</div>');
+			$('#mensaje_especialidades').css({display:"block"});
+			$('#nueva_especialidad').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+        var url = "/restaurador/anadirEspecialidad";
+		
         $.ajax({
             type: "POST",
             url: url,
             data: {
-                id_restaurantes: id,
-                select_nombre_punto_cercano: nombre_punto_cercano,
+                id_restaurantes: id_restaurante,
+                select_nombre_especialidad: nueva_especialidad,
             },
             beforeSend: function (event) {
-                $('.editFormPuntoInteres').show();
-                $('.editFormPuntoInteres').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
+                $('#mensaje_especialidades').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_especialidades').html(out);
             },
-            success: function (event) {
-                setInterval(function () {
-
-                    $('.editFormPuntoInteres').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Punto cercano aÃ±adido correctamente.<br />');
-                    location.reload();
-                }, 3000);
+            success: function (data) {
+				$('#mensaje_especialidades').css({display:"none"});
+        		$('#nueva_especialidad').val('');
+				listarEspecialidades();
+                /*if(data == 1){
+					listarEspecialidades();
+				}else{
+					$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo añadir la especialidad</div>');
+					$('#mensaje_especialidades').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};*/
             },
             error: function (event) {
-                setInterval(function () {
-                    $('.editFormPuntoInteres').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al guardar los datos.<br />');
-                }, 3000);
+                $('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
             },
         });
         return false;
-    }); /* Datos de facturaciÃƒÆ’Ã‚Â³n */
-    $('a#btnEditBillingData').on('click', function (event) {
-        var id = $('#id_restaurantes').val();
-        var url = "/acceso/restaurador/editar-razon-social";
-        var razon_social = $('#razon_social_facturacion').val();
-        var direccion = $('#direccion_facturacion').val();
-        var numero = $('#numero_facturacion').val();
-        var cp = $('#cp_facturacion').val();
-        var email = $('#email_facturacion').val();
-        var periodo = $('#periodo_facturacion').val();
-        var numero_cuenta = $('#num_cuenta_facturacion').val();
-        var cif = $('#cif_facturacion').val();
+    };
+	
+	$(document).on('click', "a[id*='borrar_especialidad-']", function (event) {
+
+		var array = this.id.split('-');
+		
+        var url = "/restaurador/borrarEspecialidad";
+		
         $.ajax({
             type: "POST",
             url: url,
             data: {
-                id_restaurantes: id,
-                razon_social_facturacion: razon_social,
-                direccion_facturacion: direccion,
-                numero_facturacion: numero,
-                cp_facturacion: cp,
-                email_facturacion: email,
-                periodo_facturacion: periodo,
-                num_cuenta_facturacion: numero_cuenta,
-                cif_facturacion: cif,
+                id_especialidad: array[1]
             },
             beforeSend: function (event) {
-                $('.editFormRazonSocial').show();
-                $('.editFormRazonSocial').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
+                $('#mensaje_especialidades').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_especialidades').html(out);
             },
-            success: function (event) {
-                setInterval(function () {
-                    $('.editFormRazonSocial').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Datos modificados correctamente.<br />');
-                    location.reload();
-                }, 3000);
+            success: function (data) {
+                if(data == 1){
+					$('#mensaje_especialidades').css({display:"none"});
+					listarEspecialidades();
+				}else{
+					$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo eliminar la especialidad</div>');
+					$('#mensaje_especialidades').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};
             },
             error: function (event) {
-                setInterval(function () {
-                    $('.editFormRazonSocial').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al modificar los datos.<br />');
-                }, 3000);
+                $('.mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
             },
         });
         return false;
-    }); /* Dentro del panel de Datos de FacturaciÃƒÆ’Ã‚Â³n - Cambiamos el plan contratado */
-    /* El va asociado al Restaurante */
-    $('a#btnEditPlanContratado').on('click', function (event) {
+	});
+	
+	
+	/****************** Puntos de interés ******************/
+	
+	var duplicados_punto_interes = '';
+	function listarPuntosInteres(){
+		
+        var id_restaurante = $('#id_restaurantes').val();
+		
+        var url = "/restaurador/listadoPuntosInteresJSON";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_restaurante: id_restaurante
+            },
+            beforeSend: function (event) {
+                $('#listado_punto_interes').html('<div align="center" class="efecto-fade"><img src="./../../assets/images/loader.gif" /></div>');
+            },
+            success: function (data) {
+                if(data != '[]'){
+					var data = JSON.parse(data);
+					var out = '';
+					for (var i in data) {
+						out = out + '<div class="col-md-9 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<i class="fa fa-cutlery"></i>';
+						out = out + '		<input type="text" value="' + data[i].nombre_punto_cercano + '" disabled>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						out = out + '<div class="col-md-3 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<div class="callout-a ">';
+						out = out + '			<a id="borrar_punto_interes-' + data[i].id_punto_cercano + '" href="#" class="button-3">Eliminar</a>';
+						out = out + '		</div>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						
+						duplicados_punto_interes = duplicados_punto_interes + 'nodup' + data[i].nombre_punto_cercano + 'nodup';
+					};
+				}else{
+					var out = '';
+					out = out + '<div class="col-md-9 nodosfilas">';
+					out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+					out = out + '		<p>Actualmente no has añadido ningún punto de interés</p>';
+					out = out + '	</div>';
+					out = out + '</div>';
+				};
+                $('#listado_punto_interes').html(out);
+            },
+            error: function (event) {
+                $('#listado_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+		
+	};
+	listarPuntosInteres();
+	
+    $('a#btnAddPuntoInteres').on('click', function (e) {
+		e.preventDefault();
+		addPuntoInteres();
+	});
+	$("#nuevo_punto_interes").on('keydown', function () {
+		$('#mensaje_punto_interes').css({display:"none"});
+		if(event.keyCode == 13){
+			addPuntoInteres();
+		};
+	});
+	
+    function addPuntoInteres(){
+		
+        $('#mensaje_punto_interes').css({display: "none"});
+		
+        var nuevo_punto_interes = $('#nuevo_punto_interes').val();
+        var id_restaurante = $('#id_restaurantes').val();
+		
+		if(!nuevo_punto_interes){
+			$('#mensaje_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce un nuevo punto de interés</div>');
+			$('#mensaje_punto_interes').css({display:"block"});
+			$('#nuevo_punto_interes').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(duplicados_punto_interes.toLowerCase().indexOf('nodup' + nuevo_punto_interes.toLowerCase() + 'nodup') > -1){
+			$('#mensaje_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Ya tiene ese punto de interés</div>');
+			$('#mensaje_punto_interes').css({display:"block"});
+			$('#nuevo_punto_interes').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+        var url = "/restaurador/anadirPuntoInteres";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_restaurantes: id_restaurante,
+                select_nombre_punto_cercano: nuevo_punto_interes,
+            },
+            beforeSend: function (event) {
+                $('#mensaje_punto_interes').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_punto_interes').html(out);
+            },
+            success: function (data) {
+				$('#mensaje_punto_interes').css({display:"none"});
+        		$('#nuevo_punto_interes').val('');
+				listarPuntosInteres();
+                /*if(data == 1){
+					listarEspecialidades();
+				}else{
+					$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo añadir la especialidad</div>');
+					$('#mensaje_especialidades').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};*/
+            },
+            error: function (event) {
+                $('#mensaje_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+        return false;
+    };
+	
+	$(document).on('click', "a[id*='borrar_punto_interes-']", function (event) {
 
-        var url = "/acceso/restaurador/editar-plan-contratado";
+		var array = this.id.split('-');
+		
+        var url = "/restaurador/borrarPuntoInteres";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_punto_interes: array[1]
+            },
+            beforeSend: function (event) {
+                $('#mensaje_punto_interes').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_punto_interes').html(out);
+            },
+            success: function (data) {
+                if(data == 1){
+					$('#mensaje_punto_interes').css({display:"none"});
+					listarPuntosInteres();
+				}else{
+					$('#mensaje_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo eliminar el punto de interés</div>');
+					$('#mensaje_punto_interes').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};
+            },
+            error: function (event) {
+                $('#mensaje_punto_interes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+        return false;
+	});
+	
+	
+	/****************** Estaciones de Metro ******************/
+	
+	var duplicados_estaciones_metro = '';
+	function listarEstacionesMetro(){
+		
+        var id_restaurante = $('#id_restaurantes').val();
+		
+        var url = "/restaurador/listadoEstacionesMetroJSON";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_restaurante: id_restaurante
+            },
+            beforeSend: function (event) {
+                $('#listado_estaciones_metro').html('<div align="center" class="efecto-fade"><img src="./../../assets/images/loader.gif" /></div>');
+            },
+            success: function (data) {
+                if(data != '[]'){
+					var data = JSON.parse(data);
+					var out = '';
+					for (var i in data) {
+						out = out + '<div class="col-md-9 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<i class="fa fa-cutlery"></i>';
+						out = out + '		<input type="text" value="' + data[i].nombre_estacion + '" disabled>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						out = out + '<div class="col-md-3 nodosfilas">';
+						out = out + '	<div class="form-input">';
+						out = out + '		<div class="callout-a ">';
+						out = out + '			<a id="borrar_estacion_metro-' + data[i].id_rel_estacion_restaurante + '" href="#" class="button-3">Eliminar</a>';
+						out = out + '		</div>';
+						out = out + '	</div>';
+						out = out + '</div>';
+						
+						duplicados_estaciones_metro = duplicados_estaciones_metro + 'nodup' + data[i].nombre_estacion + 'nodup';
+					};
+				}else{
+					var out = '';
+					out = out + '<div class="col-md-9 nodosfilas">';
+					out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+					out = out + '		<p>Actualmente no has añadido ninguna estación de metro</p>';
+					out = out + '	</div>';
+					out = out + '</div>';
+				};
+                $('#listado_estaciones_metro').html(out);
+            },
+            error: function (event) {
+                $('#listado_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+		
+	};
+	listarEstacionesMetro();
+	
+    $('a#addEstacionMetro').on('click', function (e) {
+		e.preventDefault();
+		addEstacionMetro();
+	});
+	
+	$("#nueva_estacion_metro").on('change', function () {
+		$('#mensaje_estaciones_metro').css({display:"none"});
+	});
+	
+    function addEstacionMetro(){
+		
+        $('#mensaje_estaciones_metro').css({display: "none"});
+		
+        var id_estacion_metro = $('#nueva_estacion_metro').val();
+        var nombre_estacion_metro = $('#nueva_estacion_metro option:selected').html();
+        var id_restaurante = $('#id_restaurantes').val();
+		
+		if(id_estacion_metro < 0){
+			$('#mensaje_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione una nueva estación de metro</div>');
+			$('#mensaje_estaciones_metro').css({display:"block"});
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(duplicados_estaciones_metro.toLowerCase().indexOf('nodup' + nombre_estacion_metro.toLowerCase() + 'nodup') > -1){
+			$('#mensaje_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Ya tiene esa estación de metro</div>');
+			$('#mensaje_estaciones_metro').css({display:"block"});
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+        var url = "/restaurador/addEstacionMetro";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_restaurante: id_restaurante,
+                nombre_estacion_metro: nombre_estacion_metro,
+                id_estacion_metro: id_estacion_metro
+            },
+            beforeSend: function (event) {
+                $('#mensaje_estaciones_metro').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_estaciones_metro').html(out);
+            },
+            success: function (data) {
+                if(data == 1){
+					$("#nueva_estacion_metro option[value=-2]").attr("selected",true);
+					$('#mensaje_estaciones_metro').css({display:"none"});
+					listarEstacionesMetro();
+				}else{
+					$('#mensaje_especialidades').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo añadir la estación de metro</div>');
+					$('#mensaje_especialidades').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};
+            },
+            error: function (event) {
+                $('#mensaje_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+        return false;
+    };
+	
+	$(document).on('click', "a[id*='borrar_estacion_metro-']", function (event) {
+
+		var array = this.id.split('-');
+		
+        var url = "/restaurador/borrarEstacionMetro";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_estacion_metro: array[1]
+            },
+            beforeSend: function (event) {
+                $('#mensaje_estaciones_metro').show();
+				var out = '';
+				out = out + '<div class="col-md-9 nodosfilas">';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="./../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+				out = out + '</div>';
+                $('#mensaje_estaciones_metro').html(out);
+            },
+            success: function (data) {
+                if(data == 1){
+					$('#mensaje_estaciones_metro').css({display:"none"});
+					listarEstacionesMetro();
+				}else{
+					$('#mensaje_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo eliminar la estación de metro</div>');
+					$('#mensaje_estaciones_metro').css({display:"block"});
+					clearInterval(parpadeo);
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				};
+            },
+            error: function (event) {
+                $('#mensaje_estaciones_metro').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+        return false;
+	});
+	
+	
+	/* Datos de facturación */
+	
+	var mensaje_realizado = '';
+	var mensaje_no_realizado = '';
+	
+	$("#provincia_facturacion, #municipio_facturacion, #plan_contratado").on('change', function () {
+		borrarMensajesDF();
+	});
+	
+	function borrarMensajesDF(){
+		clearInterval(parpadeo);
+		
+		$('#mensaje_razon_facturacion').css({display:"none"});
+		$('#mensaje_cif_facturacion').css({display:"none"});
+		$('#mensaje_calle_facturacion').css({display:"none"});
+		$('#mensaje_numero_facturacion').css({display:"none"});
+		$('#mensaje_cp_facturacion').css({display:"none"});
+		$('#mensaje_provincia_facturacion').css({display:"none"});
+		$('#mensaje_municipio_facturacion').css({display:"none"});
+		$('#mensaje_email_facturacion').css({display:"none"});
+		$('#mensaje_plan_facturacion').css({display:"none"});
+		$('#mensaje_cuenta_facturacion').css({display:"none"});
+	};
+	
+	function modificarDatosFacturacion(campo, contenido, zona_mensaje){
+		var url = "/restaurador/modificarDatosFacturacion";
+		$.ajax({
+			type: "POST",
+			url: url,
+			async: false,
+			data: {
+				id_restaurante: $('#id_restaurantes').val(),
+				campo: campo,
+				contenido: contenido
+			},
+			beforeSend: function (event) {
+				$('#' + zona_mensaje).css({display:"block"});
+				$('#' + zona_mensaje).html('<div align="center" class="efecto-fade"><img src="../../../assets/images/loader.gif" /></div>');
+			},
+			success: function (data) {
+				if(data == 1){
+					$('#' + zona_mensaje).css({display:"block"});
+					$('#' + zona_mensaje).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;' + mensaje_realizado + '</div>');
+					parpadeo = setInterval(function () {
+						$('.efecto-fade').fadeOut("slow");
+						$('.efecto-fade').fadeIn("slow");
+					}, tiempo);
+				}else{
+					$('#' + zona_mensaje).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;' + mensaje_no_realizado + '</div>');
+				};
+			},
+			error: function (event) {
+				$('#' + zona_mensaje).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+			}
+		});
+	};
+	
+	$("#razon_social_facturacion").on('keydown', function () {
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarRazonFacturacion();
+		};
+	});
+	$('#btnEditRazonFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarRazonFacturacion();
+	});
+	function modificarRazonFacturacion(){
+		borrarMensajesDF();
+		var razon_social_facturacion = $('#razon_social_facturacion').val();
+		
+		if(!razon_social_facturacion){
+			$('#mensaje_razon_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce una Razón Social</div>');
+			$('#mensaje_razon_facturacion').css({display:"block"});
+			$('#razon_social_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Razón Social modificada correctamente';
+		mensaje_no_realizado = 'No se pudo modificar la Razón Social';
+		
+		modificarDatosFacturacion('razon_social_facturacion', razon_social_facturacion, 'mensaje_razon_facturacion');
+	};
+	
+	$("#cif_facturacion").on('keydown', function () {
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarCifFacturacion();
+		};
+	});
+	$('#btnEditCifFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarCifFacturacion();
+	});
+	function modificarCifFacturacion(){
+		borrarMensajesDF();
+		var cif_facturacion = $('#cif_facturacion').val();
+		
+		if(!cif_facturacion){
+			$('#mensaje_cif_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce un CIF / NIF</div>');
+			$('#mensaje_cif_facturacion').css({display:"block"});
+			$('#cif_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'CIF / NIF  modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el CIF / NIF';
+		
+		modificarDatosFacturacion('cif_facturacion', cif_facturacion, 'mensaje_cif_facturacion');
+	};
+	
+	$("#calle_facturacion").on('keydown', function () {
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarCalleFacturacion();
+		};
+	});
+	$('#btnEditCalleFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarCalleFacturacion();
+	});
+	function modificarCalleFacturacion(){
+		borrarMensajesDF();
+		var calle_facturacion = $('#calle_facturacion').val();
+		
+		if(!calle_facturacion){
+			$('#mensaje_calle_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce una calle</div>');
+			$('#mensaje_calle_facturacion').css({display:"block"});
+			$('#calle_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Calle modificada correctamente';
+		mensaje_no_realizado = 'No se pudo modificar la calle';
+		
+		modificarDatosFacturacion('direccion_facturacion', calle_facturacion, 'mensaje_calle_facturacion');
+	};
+	
+	$("#numero_facturacion").on('keydown', function () {
+		if(!(event.keyCode > 45 && event.keyCode < 57) && !(event.keyCode > 95 && event.keyCode < 106) && !(event.keyCode == 13) && !(event.keyCode == 8)) return false;
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarNumeroFacturacion();
+		};
+	});
+	$('#btnEditNumeroFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarNumeroFacturacion();
+	});
+	function modificarNumeroFacturacion(){
+		borrarMensajesDF();
+		var numero_facturacion = $('#numero_facturacion').val();
+		
+		if(!numero_facturacion){
+			$('#mensaje_numero_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce un número de dirección</div>');
+			$('#mensaje_numero_facturacion').css({display:"block"});
+			$('#numero_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+	
+		if(isNaN(numero_facturacion)){
+			$('#mensaje_numero_facturacion').css({display:"block"});
+			$('#mensaje_numero_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El Número de dirección debe ser numérico</div>');
+			$('#mensaje_numero_facturacion').css({display:"block"});
+			$('#numero_facturacion').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Número de dirección modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el número de dirección';
+		
+		modificarDatosFacturacion('numero_facturacion', numero_facturacion, 'mensaje_numero_facturacion');
+	};
+	
+	$("#cp_facturacion").on('keydown', function () {
+		if(!(event.keyCode > 45 && event.keyCode < 57) && !(event.keyCode > 95 && event.keyCode < 106) && !(event.keyCode == 13) && !(event.keyCode == 8)) return false;
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarCpFacturacion();
+		};
+	});
+	$('#btnEditCpFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarCpFacturacion();
+	});
+	function modificarCpFacturacion(){
+		borrarMensajesDF();
+		var cp_facturacion = $('#cp_facturacion').val();
+		
+		if(!cp_facturacion){
+			$('#mensaje_cp_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce un código postal</div>');
+			$('#mensaje_cp_facturacion').css({display:"block"});
+			$('#cp_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+	
+		if(isNaN(cp_facturacion)){
+			$('#mensaje_cp_facturacion').css({display:"block"});
+			$('#mensaje_cp_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;El código postal debe ser numérico</div>');
+			$('#mensaje_cp_facturacion').css({display:"block"});
+			$('#cp_facturacion').focus();
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Código postal modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el código postal';
+		
+		modificarDatosFacturacion('cp_facturacion', cp_facturacion, 'mensaje_cp_facturacion');
+	};
+
+	//Para que se ejecute al cargar la página
+    $("#provincia_facturacion option:selected").each(function () {
+        provincia = $('#provincia_facturacion').val();
+        localidad = $('#id_localidad_facturacion').val();
+        if (provincia) {
+            $.post("/completa-localidades/", {
+                provincia: provincia, localidad: localidad
+            }, function (data) {
+                $("#municipio_facturacion").html(data);
+            });
+        }
+    });
+	//Para que se ejecute al cambiar la provincia
+    $("#provincia_facturacion").on('change', function () {
+        $("#provincia_facturacion option:selected").each(function () {
+            provincia = $('#provincia_facturacion').val();
+            $.post("/completa-localidades/", {
+                provincia: provincia
+            }, function (data) {
+                //alert(data);
+                $("#municipio_facturacion").html(data);
+            });
+        });
+    });
+	
+	$('#btnEditProvinciaFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarProvinciaFacturacion();
+	});
+	function modificarProvinciaFacturacion(){
+		borrarMensajesDF();
+		var provincia_facturacion = $('#provincia_facturacion').val();
+		
+		if(provincia_facturacion == -1){
+			$('#mensaje_provincia_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione una provincia</div>');
+			$('#mensaje_provincia_facturacion').css({display:"block"});
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		$('#mensaje_provincia_facturacion').css({display:"block"});
+		$('#mensaje_provincia_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Provincia modificada correctamente</div>');
+		
+		//modificarDatosFacturacion('direccion_facturacion', calle_facturacion, 'mensaje_calle_facturacion');
+	};
+	
+	$('#btnEditMunicipioFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarMunicipioFacturacion();
+	});
+	function modificarMunicipioFacturacion(){
+		borrarMensajesDF();
+		var municipio_facturacion = $('#municipio_facturacion').val();
+		
+		if(municipio_facturacion == 'Municipio'){
+			$('#mensaje_municipio_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione un municipio</div>');
+			$('#mensaje_municipio_facturacion').css({display:"block"});
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Municipio modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el municipio';
+		
+		modificarDatosFacturacion('localidades_id_localidad', municipio_facturacion, 'mensaje_municipio_facturacion');
+	};
+	
+	$("#email_facturacion").on('keydown', function () {
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarEmailFacturacion();
+		};
+	});
+	$('#btnEditEmailFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarEmailFacturacion();
+	});
+	function modificarEmailFacturacion(){
+		borrarMensajesDF();
+		var email_facturacion = $('#email_facturacion').val();
+		
+		if(!email_facturacion){
+			$('#mensaje_email_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce un correo electrónico de facturación</div>');
+			$('#mensaje_email_facturacion').css({display:"block"});
+			$('#email_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+	
+		var re = /^\b[a-zA-Z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b$/
+		if (!re.test(email_facturacion)) {
+			$('#mensaje_email_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Formato de correo electrónico incorrecto</div>');
+			$('#mensaje_email_facturacion').css({display:"block"});
+			$('#email_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Correo electrónico de facturación modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el correo electrónico de facturación';
+		
+		modificarDatosFacturacion('email_facturacion', email_facturacion, 'mensaje_email_facturacion');
+	};	
+	
+    // El va asociado al Restaurante
+    $('a#btnEditPlanContratadoFacturacion').on('click', function (e) {
+		e.preventDefault();
+
         var id = $('#id_restaurantes').val();
         var plan = $('#plan_contratado').val();
+		
+		if(plan == -1){
+			$('#mensaje_plan_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, seleccione un plan de contrato</div>');
+			$('#mensaje_plan_facturacion').css({display:"block"});
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+        var url = "/restaurador/editarPlanContratado";
+		
         $.ajax({
             type: "POST",
             url: url,
@@ -3578,33 +4404,231 @@ $(document).on('ready', function () {
                 plan_contratado: plan,
             },
             beforeSend: function (event) {
-                $('.editFormRazonSocial').show();
-                $('.editFormRazonSocial').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
+                $('#mensaje_plan_facturacion').show();
+				$('#mensaje_plan_facturacion').html('<div align="center" class="efecto-fade"><img src="../../../assets/images/loader.gif" /></div>');
             },
             success: function (event) {
-                setInterval(function () {
-
-                    $('.editFormRazonSocial').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Datos modificados correctamente.<br />');
-                    location.reload();
-                }, 3000);
+				$('#mensaje_plan_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Plan contratado modificado correctamente</div>');
+				$('#mensaje_plan_facturacion').css({display:"block"});
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
             }, error: function (event) {
                 setInterval(function () {
-                    $('.editFormRazonSocial').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al modificar los datos.<br />');
+				$('#mensaje_plan_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error</div>');
+				$('#mensaje_plan_facturacion').css({display:"block"});
                 }, 3000);
             },
         });
-        return false;
+		
     });
+	
+	$("#num_cuenta_facturacion").on('keydown', function () {
+		borrarMensajesDF();
+		if(event.keyCode == 13){
+			modificarCuentaFacturacion();
+		};
+	});
+	$('#btnEditCuentaFacturacion').on('click', function(e) {
+		e.preventDefault();
+		modificarCuentaFacturacion();
+	});
+	function modificarCuentaFacturacion(){
+		borrarMensajesDF();
+		var num_cuenta_facturacion = $('#num_cuenta_facturacion').val();
+		
+		if(!num_cuenta_facturacion){
+			$('#mensaje_cuenta_facturacion').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduce una número de cuenta bancaria</div>');
+			$('#mensaje_cuenta_facturacion').css({display:"block"});
+			$('#num_cuenta_facturacion').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		mensaje_realizado = 'Número de cuenta bancaria modificado correctamente';
+		mensaje_no_realizado = 'No se pudo modificar el número de cuenta bancaria';
+		
+		modificarDatosFacturacion('num_cuenta_facturacion', num_cuenta_facturacion, 'mensaje_cuenta_facturacion');
+	};
+	
+	
     /* Seccion Cupones de descuento */
-    /* AÃƒÆ’Ã‚Â±adir cupÃƒÆ’Ã‚Â³n */
-    $('#btnAddCupon').on('click', function (event) {
+	
+	// Listado de cupones
+	
+	function listarCupones(){
+		
+        var id_restaurante = $('#id_restaurantes').val();
+		
+        var url = "/restaurador/listadoCuponesRestaurateJSON";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_restaurante: id_restaurante
+            },
+            beforeSend: function (event) {
+                $('#lista_cupones').show();
+				var out = '';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+                $('#lista_cupones').html(out);
+            },
+            success: function (data) {				
+				var data = JSON.parse(data);
+				var out = '';
+				if (data.length) {
+					for (var i in data) {
+						out = out + '<div class="col-md-6" style="margin-bottom: 30px;">';
+						out = out + '	<div class="callout">';
+						out = out + '		<div class="row">';
+						out = out + '			<div class="col-md-3">';
+						out = out + '				<label>Título</label>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-9 nodosfilas convertir12">';
+						out = out + '				<div class="form-input">';
+						out = out + '					<i class="fa fa-pencil"></i>';
+						out = out + '					<input name="select_titulo_cupon" id="select_titulo_cupon_' + data[i].id_cupon + '" type="text" value="' + data[i].titulo_cupon + '">';
+						out = out + '				</div>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-3">';
+						out = out + '				<label>Descripción</label>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-9 nodosfilas convertir12">';
+						out = out + '				<div class="form-input">';
+						out = out + '					<i class="fa fa-pencil"></i>';
+						out = out + '					<textarea name="select_descripcion_cupon" id="select_descripcion_cupon_' + data[i].id_cupon + '">' + data[i].descripcion_cupon + '</textarea>';
+						out = out + '				</div>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-3">';
+						out = out + '				<label>Inicio promoción</label>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-9 nodosfilas convertir12">';
+						out = out + '				<div class="form-input">';
+						out = out + '					<i class="fa fa-calendar"></i>';
+						out = out + '					<input name="select_fecha_inicio_cupon" id="select_fecha_inicio_cupon_' + data[i].id_cupon + '" type="text" value="' + data[i].fecha_inicio_cupon + '" readonly="readonly">';
+						out = out + '				</div>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-3">';
+						out = out + '				<label>Fin promoción</label>';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-9 nodosfilas convertir12">';
+						out = out + '				<div class="form-input">';
+						out = out + '					<i class="fa fa-calendar"></i>';
+						out = out + '					<input name="select_fecha_fin_cupon" id="select_fecha_fin_cupon_' + data[i].id_cupon + '" type="text" value="' + data[i].fecha_fin_cupon + '" readonly="readonly">';
+						out = out + '				</div>';
+						out = out + '			</div>';
+						out = out + '			<div id="mensaje_cupon_' + data[i].id_cupon + '" class="mensajeconfondo">asdasd</div>';
+						out = out + '			<div class="col-md-6 nodosfilas">';
+						out = out + '				<input name="borrarCupon-' + data[i].id_cupon + '" class="button-4" type="button" value="Eliminar">';
+						out = out + '			</div>';
+						out = out + '			<div class="col-md-6 nodosfilas">';
+						out = out + '				<input name="modificarCupon-' + data[i].id_cupon + '" class="button-3" type="submit" value="Modificar">';
+						out = out + '			</div>';
+						out = out + '		</div>';
+						out = out + '	</div>';
+						out = out + '</div>';
+					}
+				} else {
+					out = out + '<div class="col-md-12 nodosfilas">';
+					out = out + '	<div class="form-input">';
+					out = out + '		<p style="text-align: center;">Actualmente no tienes ningún cupón o descuento añadido.</p>';
+					out = out + '	</div>';
+					out = out + '</div>';
+				}
+				$('#lista_cupones').html(out);
+            },
+            error: function (event) {
+                $('#lista_cupones').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+            },
+        });
+	};
+	listarCupones();
+	
+    // Añadir cupón
+	
+	$("#titulo_cupon").on('keydown', function () {
+		$('#mensaje_anadir_cupon').css({display:"none"});
+		if(event.keyCode == 13){
+			anadirCupon();
+		};
+	});
+	$("#descripcion_cupon").on('keydown', function () {
+		$('#mensaje_anadir_cupon').css({display:"none"});
+	});
+	$("#fecha_inicio_cupon").on('change', function () {
+		$('#mensaje_anadir_cupon').css({display:"none"});
+	});
+	$("#fecha_fin_cupon").on('change', function () {
+		$('#mensaje_anadir_cupon').css({display:"none"});
+	});
+    $('#btnAddCupon').on('click', function (e) {
+		e.preventDefault();
+		anadirCupon();
+	});
+	function anadirCupon(){
 
+		$('#mensaje_anadir_cupon').css({display:"none"});
+		
         var id = $('#id_restaurantes').val();
-        var url = "/acceso/restaurador/anadir-cupon";
+		
         var titulo = $('#titulo_cupon').val();
         var descripcion = $('#descripcion_cupon').val();
         var fecha_inicio = $('#fecha_inicio_cupon').val();
         var fecha_fin = $('#fecha_fin_cupon').val();
+		
+		if(!titulo){
+			$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca un título de cupón o descuento</div>');
+			$('#mensaje_anadir_cupon').css({display:"block"});
+			$('#titulo_cupon').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(!descripcion){
+			$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca una descripción de cupón o descuento</div>');
+			$('#mensaje_anadir_cupon').css({display:"block"});
+			$('#descripcion_cupon').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(!fecha_inicio){
+			$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca una fecha de inicio de cupón o descuento</div>');
+			$('#mensaje_anadir_cupon').css({display:"block"});
+			$('#fecha_inicio_cupon').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		if(!fecha_fin){
+			$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca una fecha de fin de cupón o descuento</div>');
+			$('#mensaje_anadir_cupon').css({display:"block"});
+			$('#fecha_fin_cupon').focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+        var url = "/restaurador/anadirCuponRestaurante";
+		
         $.ajax({
             type: "POST",
             url: url,
@@ -3616,77 +4640,231 @@ $(document).on('ready', function () {
                 fecha_fin_cupon: fecha_fin,
             },
             beforeSend: function (event) {
-                $('.addFormCupon').show();
-                $('.addFormCupon').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
+                $('#mensaje_anadir_cupon').show();
+                $('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><img src="../../../assets/images/loader.gif" /></div>');
             },
             success: function (event) {
-                setInterval(function () {
-
-                    $('.addFormCupon').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;CupÃ³n aÃ±adido correctamente.<br />');
-                    location.reload();
-                }, 3000);
+				$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Cupón o desccuento añadido correctamente</div>');
+				$('#mensaje_anadir_cupon').css({display:"block"});
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+				listarCupones();
+       			$('#titulo_cupon').val('');
+        		$('#descripcion_cupon').val('');
+       			$('#fecha_inicio_cupon').val('');
+       			$('#fecha_fin_cupon').val('');
             },
             error: function (event) {
-                setInterval(function () {
-                    $('.addFormCupon').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al guardar el cupÃ³n.<br />');
-                }, 3000);
+                $('#mensaje_anadir_cupon').show();
+                $('#mensaje_anadir_cupon').html("<div align='center'>Error</div>");
+            },
+        });
+        return false;
+    };
+		
+	// Borrar Cupon
+	$(document).on('click', "input[name*='borrarCupon-']", function (event) {
+
+		var array = this.name.split('-');
+		
+        var url = "/restaurador/borrarCupon";
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id_cupon: array[1]
+            },
+            beforeSend: function (event) {
+				var out = '';
+				out = out + '	<div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">';
+				out = out + '		<p><img src="../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+                $('#lista_cupones').html(out);
+                $('#lista_cupones').show();
+            },
+            success: function (data) {
+				if(data == 1){
+					$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Cupón o desccuento elimindado correctamente</div>');
+					listarCupones();
+				}else{
+					$('#mensaje_anadir_cupon').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo eliminar el cupón o desccuento</div>');
+				};
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+				$('#mensaje_anadir_cupon').css({display:"block"});
+            },
+            error: function (event) {
+                $('#mensaje_anadir_cupon').show();
+                $('#mensaje_anadir_cupon').html("<div align='center'>Error</div>");
             },
         });
         return false;
     });
-    /* Editar cupÃƒÆ’Ã‚Â³n */
-    /*
-     $('input#btnEditCupon').on('click', function (event){
-     
-     //var id = $('#clave_cupon').val();
-     //var id = $('input[name=clave_cupon]').serialize();
-     
-     var url = "/acceso/restaurador/editar-cupon?clave_cupon="+id;
-     
-     var titulo = $('#select_titulo_cupon').val();
-     var descripcion = $('#select_descripcion_cupon').val();
-     var fecha_inicio = $('#select_fecha_inicio_cupon').val();
-     var fecha_fin = $('#select_fecha_fin_cupon').val();
-     
-     $.ajax({
-     type: "POST",
-     url: url,
-     data: {
-     clave_cupon: id,
-     select_titulo_cupon: titulo,
-     select_descripcion_cupon: descripcion,
-     select_fecha_inicio_cupon: fecha_inicio,
-     select_fecha_fin_cupon: fecha_fin,
-     },
-     
-     beforeSend: function (event){
-     $('.editFormCupon').show();
-     $('.editFormCupon').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
-     },
-     
-     success: function (event){
-     setInterval(function(){
-     
-     $('.editFormCupon').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;CupÃƒÆ’Ã‚Â³n editado correctamente.<br />');
-     location.reload();
-     
-     }, 3000);
-     },
-     error: function (event){
-     setInterval(function(){
-     $('.editFormCupon').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al editar el cupÃƒÆ’Ã‚Â³n.<br />');
-     }, 3000);
-     },
-     });
-     return false;
-     });
-     */
-
-
-
-
-
-
+	
+	
+    // Editar cupón
+	$(document).on('keydown', "input[name*='select_titulo_cupon']", function (event) {
+		$("div[id^='mensaje_cupon_']").css({display:"none"});
+	});
+	$(document).on('keydown', "input[name*='select_descripcion_cupon']", function (event) {
+		$("div[id^='mensaje_cupon_']").css({display:"none"});
+	});
+	$(document).on('click', "input[name*='modificarCupon-']", function (event) {
+		
+		var array = this.name.split('-');
+		
+		$("div[id^='mensaje_cupon_']").css({display:"none"});
+		
+		var titulo = $('#select_titulo_cupon_' + array[1]).val();
+		var descripcion = $('#select_descripcion_cupon_' + array[1]).val();
+		var fecha_inicio = $('#select_fecha_inicio_cupon_' + array[1]).val();
+		var fecha_fin = $('#select_fecha_fin_cupon_' + array[1]).val();
+		
+		if(!titulo){
+			$('#mensaje_cupon_' + array[1]).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca un título de cupón o descuento</div>');
+			$('#mensaje_cupon_' + array[1]).css({display:"block"});
+			$('#select_titulo_cupon_' + array[1]).focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		if(!descripcion){
+			$('#mensaje_cupon_' + array[1]).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Por favor, introduzca una descripción de cupón o descuento</div>');
+			$('#mensaje_cupon_' + array[1]).css({display:"block"});
+			$('#select_descripcion_cupon_' + array[1]).focus();
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		};
+		
+		var url = "/restaurador/modificarCupon";
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {
+				id_cupon: array[1],
+				select_titulo_cupon: titulo,
+				select_descripcion_cupon: descripcion,
+				select_fecha_inicio_cupon: fecha_inicio,
+				select_fecha_fin_cupon: fecha_fin,
+			},
+			
+			beforeSend: function (event){
+				var out = '';
+				out = out + '	<div class="form-input" style="text-align: center;">';
+				out = out + '		<p><img src="../../assets/images/loader.gif" /></p>';
+				out = out + '	</div>';
+                $('#mensaje_cupon_' + array[1]).html(out);
+                $('#mensaje_cupon_' + array[1]).show();
+			},
+			
+			success: function (data){
+				if(data == 1){
+					$('#mensaje_cupon_' + array[1]).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Cupón o desccuento modificado correctamente</div>');
+				}else{
+					$('#mensaje_cupon_' + array[1]).html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudo modificar el cupón o desccuento</div>');
+				};
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+				$('#mensaje_cupon_' + array[1]).css({display:"block"});
+			},
+			error: function (event){
+                $('#mensaje_cupon_' + array[1]).html("<div align='center'>Error</div>");
+                $('#mensaje_cupon_' + array[1]).show();
+			},
+		});
+		return false;
+	});
+	
+	
+	/* Gestion de mimágenes */
+	listadoImagenes();
+	
+	$(document).on('keydown', "input[name*='titulo_imagen']", function (event) {
+		$('#mensaje_imagenes').css({display:"none"});
+	});
+																				   
+	$(document).on('change', "input[id^='principal_imagen-']", function (event) {
+		$('#mensaje_imagenes').css({display:"none"});
+	});
+	
+    $('#cambios_imagenes').live('click', function (event) {
+		
+		$('#mensaje_imagenes').css({display:"none"});
+				
+		var ids_imagen = new Array();
+		var titulos = new Array();
+		var principal = new Array();
+		var i = 0;
+		
+		$("input[id^=titulo_imagen-]").each(function () {
+			//alert($(this).val());
+    		var array = this.id.split('-');
+			ids_imagen[i] = array[1];
+			titulos[i] = $(this).val();
+			if($('#principal_imagen-' + array[1]).is(':checked')){
+				principal[i] = 1;
+			}else{
+				principal[i] = 0;
+			};
+			//alert($('#principal_imagen' + array[1]).is(':checked'));
+            i++;
+		});
+		
+		var url = "/restaurador/guardarDatosImagenes";
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			async: false,
+			data: {
+				id_imagen: ids_imagen,
+				titulo: titulos,
+				principal: principal
+			},
+         	datatype: 'json',
+			beforeSend: function (event){
+				$('#mensaje_imagenes').html('<div align="center" class="efecto-fade"><img src="' + base_url + 'assets/images/loader.gif" /></div>');
+			},
+			success: function (data){
+				if(data == 1){
+					listadoImagenes();
+					$('#mensaje_imagenes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Datos guardados correctamente</div>');
+				}else{
+					$('#mensaje_imagenes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;No se pudieron guardar los datos</div>');
+				};
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+				$('#mensaje_imagenes').css({display:"block"});
+			},
+			error: function (event){
+				$('#mensaje_imagenes').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error</div>');
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+				$('#mensaje_imagenes').css({display:"block"});
+			},
+		});
+		
+	});
+	
+	
+	
 
     /* Alta restaurantes - Comprobar campos vacÃƒÆ’Ã‚Â­o */
     $('input#btnAddRestaurante').on('click', function (event) {
@@ -4113,7 +5291,7 @@ $(document).on('ready', function () {
             success: function (event) {
                 setInterval(function () {
 
-                    $('.addFormEstacion').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;EstaciÃ³n aÃ±adida correctamente.<br />');
+                    $('.addFormEstacion').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Estación añadida correctamente.<br />');
                     location.reload();
                 }, 3000);
             },
@@ -4156,34 +5334,219 @@ $(document).on('ready', function () {
         });
         return false;
     });
-    /* Mensaje soporte tÃƒÆ’Ã‚Â©cnico desde Panel Restaurado */
-    $('input#btnSubmitMessageSupport').on('click', function (event) {
 
-        event.preventDefault();
-        var mensaje = $('#mensaje_soporte').val();
-        var url = "/acceso/restaurador/mensaje-soporte-tecnico";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: {
-                mensaje_soporte: mensaje,
-            },
-            beforeSend: function (event) {
-                $('#sendMessageSupport').show();
-                $('#sendMessageSupport').html("<span align='center'><img src='./../../assets/images/loader.gif '/></span>");
-            },
-            success: function (event) {
-                setInterval(function () {
-                    $('#sendMessageSupport').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Mensaje enviado con ÃƒÆ’Ã‚Â©xito.<br />').delay(3000).fadeOut();
-                }, 3000);
-            },
-            error: function (event) {
-                setInterval(function () {
-                    $('#sendMessageSupport').html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Error al enviar el mensaje.<br />').delay(3000).fadeOut();
-                }, 3000);
-            },
-        });
-        return false;
-    });
+	/* ----------- E-MAIL A SOPORTE TÉCNICO ----------- */
+	
+	$("#texto_mensaje_soporte").on('keydown', function () {
+		$('#mensaje_soporte').css({display:"none"});
+	});
+	$('#btnEmailSoporte').on('click', function() {
+		$('#mensaje_soporte').css({display:"none"});
+		
+		texto_mensaje_soporte = $('#texto_mensaje_soporte').val();
+		
+		if(!texto_mensaje_soporte){
+			$('#mensaje_soporte').css({display:"block"});
+			$('#mensaje_soporte').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Por favor, escriba un mensaje</div>');
+			clearInterval(parpadeo);
+			parpadeo = setInterval(function () {
+				$('.efecto-fade').fadeOut("slow");
+				$('.efecto-fade').fadeIn("slow");
+			}, tiempo);
+			return false;
+		}
+		
+		texto_mensaje_soporte = "<pre>" + texto_mensaje_soporte + "<pre>";
+		
+		var url = "/restaurador/mensajeSoporteTecnico";
+		$.ajax({
+			type: "POST",
+			url: url,
+			async: false,
+			data: {
+				texto_mensaje_soporte: texto_mensaje_soporte
+			},
+			beforeSend: function (event) {
+				$('#mensaje_soporte').css({display:"block"});
+				$('#mensaje_soporte').html('<div align="center" class="efecto-fade"><img src="' + base_url + 'assets/images/loader.gif" /></div>');
+			},
+			success: function (data) {
+				$('#mensaje_soporte').css({display:"block"});
+				$('#mensaje_soporte').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;' + data + '</div>');
+				clearInterval(parpadeo);
+				parpadeo = setInterval(function () {
+					$('.efecto-fade').fadeOut("slow");
+					$('.efecto-fade').fadeIn("slow");
+				}, tiempo);
+			},
+			error: function (event) {
+				$('#mensaje_soporte').html('<div align="center" class="efecto-fade"><i class="fa fa-info-circle"></i>&nbsp;Error</div>');
+			}
+		});
+	});
 });
     
+var base_url = '';
+
+var url = "/franquiciado/baseURL";
+$.ajax({
+	type: "POST",
+	url: url,
+	async: false,
+	data: {
+	},
+	success: function (data) {
+		base_url = data;
+	}
+});
+
+
+/* Gestión de imágenes */
+
+function listadoImagenes(){
+	
+	var id_restaurante = $('#id_restaurantes').val();
+	
+	var url = "/restaurador/listadoImagenesJSON";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		async: false,
+		data: {
+			id_restaurante: id_restaurante
+		},
+		beforeSend: function (event){
+			var out = '';
+			out = out + '<li class="col-md-12 portfolio-item portfolio-item-2 isotope-item">';
+			out = out + '		<p align="center"><img src="' + base_url + 'assets/images/loader.gif" /></p>';
+			out = out + '</li>';
+			$('#listado_imagenes').html(out);
+		},
+		success: function (data){
+			var out = '';
+			out = out + '<div class="row portfolio-all portfolio-0 ajustaralto">';
+			out = out + '	<ul>';
+			if(data != '[]'){
+				var data = JSON.parse(data);
+				for (var i in data) {
+					out = out + '<li class="col-md-4 portfolio-item portfolio-item-2 isotope-item">';
+					out = out + '	<div class="portfolio-one rellenarfondo">';
+					out = out + '		<div class="portfolio-head">';
+					out = out + '			<div class="portfolio-img">';
+					out = out + '				<img alt="" src="' + base_url + 'assets/img_restaurantes/' + data[i].thumbnails_imagen + '.' + data[i].extension_imagen + '">';
+					out = out + '			</div>';
+					out = out + '			<div class="portfolio-hover">';
+					out = out + '				<div class="portfolio-meta">';
+					out = out + '					<div class="portfolio-name">';
+					out = out + '						<div class="form-input">';
+					out = out + '							<i class="fa fa-pencil"></i>';
+					out = out + '							<input name="titulo_imagen" id="titulo_imagen-' + data[i].id_imagen + '" type="text" ';
+					if(data[i].titulo_imagen){
+					out = out + '							 value="' + data[i].titulo_imagen + '" ';
+					};
+					out = out + '							 Placeholder="Título de foto">';
+					out = out + '						</div>';
+					out = out + '						<div class="form-input" style="float: right;">';
+					out = out + '							<input type="radio" name="principal_imagen" id="principal_imagen-' + data[i].id_imagen + '" ';
+					if(data[i].principal_imagen == 1){
+					out = out + '							 checked="checked"';
+					};
+					out = out + '							><label>Principal</label>';
+					out = out + '						</div>';
+					out = out + '					</div>';
+					out = out + '				</div>';
+					out = out + '				<a class="portfolio-link" href="javascript:borrarImagen(' + data[i].id_imagen + ');"><i class="fa fa-times"></i></a>';
+					out = out + '				<a data-rel="prettyPhoto" class="portfolio-zoom prettyPhoto" href="' + base_url + 'assets/img_restaurantes/' + data[i].nombre_imagen + '"><i class="fa fa-search"></i></a>';
+					out = out + '			</div>';
+					out = out + '		</div>';
+					out = out + '	</div>';
+					out = out + '</li>';
+				};
+			}else{
+				out = out + '<li class="col-md-12 portfolio-item portfolio-item-2 isotope-item">';
+				out = out + '	<p style="text-align: center;">No hay imágenes</p>';
+				out = out + '</li>';
+			};
+			out = out + '	</ul>';
+			out = out + '</div>';
+			
+			if(data != '[]'){ 
+				out = out + '<div id="mensaje_imagenes" class="mensajeconfondo"></div>';
+				out = out + '<div class="row centrar reducirfila">';
+				out = out + '	<input id="cambios_imagenes" class="button-3 botonpeq" type="button" value="Guardar cambios">';
+				out = out + '</div>';
+			};
+			
+			out = out + '<div class="separadorpeq"></div>';
+			
+			/*out = out + '<div class="row centrar reducirfila">';
+			out = out + '	<input class="button-4 botonpeq" type="button" id="addImagen" value="Añadir más fotos">';
+			out = out + '</div>';*/
+			out = out + '<div class="row centrar reducirfila">';
+			out = out + '	<a href="' + base_url + 'acceso/restaurador/alta-imagenes/' + id_restaurante + '" class="button-4 botonpeq" style="text-align:center;">Añadir más fotos</a>';
+			out = out + '</div>';
+			$('#listado_imagenes').html(out);
+			jQuery("a[data-rel^='prettyPhoto']").prettyPhoto();
+		},
+		error: function (event){
+			$('#listado_imagenes').html("<div align='center'>Error</div>");
+		},
+	});
+};
+
+function borrarImagen(id_imagen){
+		
+	var url = "/restaurador/borrarImagen";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		async: false,
+		data: {
+			id_imagen: id_imagen
+		},
+		
+		beforeSend: function (event){
+			var out = '';
+			out = out + '	<div class="form-input" style="text-align: center;">';
+			out = out + '		<p><img src="' + base_url + 'assets/images/loader.gif" /></p>';
+			out = out + '	</div>';
+			$('#listado_imagenes').html(out);
+		},
+		
+		success: function (data){
+			if(data == 1){
+				asegurarImagenPrincipal();
+			};
+		},
+		error: function (event){
+			var out = '';
+			out = out + '	<div class="form-input" style="text-align: center;">';
+			out = out + '		<p>Error</p>';
+			out = out + '	</div>';
+			$('#listado_imagenes').html(out);
+		},
+	});
+};
+
+function asegurarImagenPrincipal(){
+		
+	var url = "/restaurador/asegurarImagenPrincipal";
+	
+	$.ajax({
+		type: "POST",
+		url: url,
+		async: false,
+		data: {
+			id_restaurante: $('#id_restaurantes').val()
+		},
+		beforeSend: function (event){
+		},
+		success: function (data){
+			listadoImagenes();
+		},
+		error: function (event){
+		},
+	});
+};

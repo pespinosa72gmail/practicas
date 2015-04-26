@@ -60,6 +60,14 @@ class Restaurador_model extends CI_Model {
         }
     }
 
+    /* Sacar id_provincia de datos de facturacion */
+
+    public function provinciaMunicipioDatosFacturacion($localidades_id_localidad) {
+        $this->db->where('id_localidad', $localidades_id_localidad);
+        $consulta = $this->db->get('localidades');
+        return $consulta->row();
+    }
+
     /* Método general - Obtener el Código Postal */
 
     public function obtenerCp($cp) {
@@ -143,6 +151,12 @@ class Restaurador_model extends CI_Model {
         $this->db->delete('especialidades');
     }
 
+    public function borrarEspecialidadRestaurante($id) {
+        $this->db->where('id_especialidad', $id);
+        $resultado = $this->db->delete('especialidades');
+		return $resultado;
+    }
+
     public function anadirEspecialidadRestaurante($id_restaurante, $nombre_especialidad) {
         $clave_especialidad = random_string('unique');
         $data = array(
@@ -161,11 +175,6 @@ class Restaurador_model extends CI_Model {
         return $consulta->result();
     }
 
-    public function eliminarPuntosInteres($clave) {
-        $this->db->where('clave_punto_cercano', $clave);
-        $this->db->delete('puntos_cercanos');
-    }
-
     public function anadirPuntoInteres($id_restaurante, $nombre_punto_cercano) {
         $clave_punto_cercano = random_string('unique');
         $data = array(
@@ -176,20 +185,57 @@ class Restaurador_model extends CI_Model {
         $this->db->insert('puntos_cercanos', $data);
     }
 
-    /* Estaciones de metro */
-
-    public function listadoEstacionesRestaurante($id_restaurante) {
-        $this->db->where('restaurantes_id_restaurante', $id_restaurante);
-        $consulta = $this->db->get('rel_estaciones_restaurantes');
-        return $consulta->result();
+    public function borrarPuntoInteres($id_punto_interes) {
+        $this->db->where('id_punto_cercano', $id_punto_interes);
+        $resultado = $this->db->delete('puntos_cercanos');
+		return $resultado;
     }
+
+    public function eliminarPuntosInteres($clave) {
+        $this->db->where('clave_punto_cercano', $clave);
+        $this->db->delete('puntos_cercanos');
+    }
+
+    /* Estaciones de metro */
 
     public function listadoEstaciones() {
         $this->db->order_by('nombre_estacion', 'asc');
         $consulta = $this->db->get('estaciones');
         return $consulta->result();
     }
+	
+    public function listadoEstacionesMetroRestaurante($id_restaurante){
+        $this->db->join('estaciones', 'estaciones.id_estacion = rel_estaciones_restaurantes.estaciones_id_estacion');
+        $this->db->where('restaurantes_id_restaurante', $id_restaurante);
+        $consulta = $this->db->get('rel_estaciones_restaurantes');
+        return $consulta->result();
+    }
+	
+	// La dejo por si la usa alguien
+    public function listadoEstacionesRestaurante($id_restaurante) {
+        $this->db->where('restaurantes_id_restaurante', $id_restaurante);
+        $consulta = $this->db->get('rel_estaciones_restaurantes');
+        return $consulta->result();
+    }
 
+    public function addEstacionMetro($id_restaurantes, $id_estacion, $nombre_estacion){
+        $data = array(
+			'clave_rel_estacion_restaurante' => random_string('unique'),
+            'estaciones_id_estacion' => $id_estacion,
+            'nombre_rel_estacion_restaurante' => $nombre_estacion,
+            'restaurantes_id_restaurante' => $id_restaurantes,
+        );
+        $resultado = $this->db->insert('rel_estaciones_restaurantes', $data);
+		return $resultado;
+    }
+
+    public function borrarEstacionMetro($id_estacion) {
+        $this->db->where('id_rel_estacion_restaurante', $id_estacion);
+        $resultado = $this->db->delete('rel_estaciones_restaurantes');
+		return $resultado;
+    }
+	
+	// La dejo por si la usa alguien
     public function anadirEstacion($id_restaurantes, $nombre_estacion) {
         $data = array(
             'nombre_rel_estacion_restaurante' => $nombre_estacion,
@@ -206,6 +252,17 @@ class Restaurador_model extends CI_Model {
         return $consulta->row();
     }
 
+	
+	public function modificarDatosFacturacion($id_restaurante, $campo, $contenido) {
+        $data = array(
+            $campo => $contenido,
+        );
+        $this->db->where('restaurantes_id_restaurante', $id_restaurante);
+        $afftectedRows = $this->db->update('facturacion', $data);
+		return $afftectedRows;
+    }
+	
+	// La dejo por si la usa alguien
     public function editarDatosFacturacion($id_restaurante, $razon_social, $direccion_facturacion, $numero_facturacion, $cp_facturacion, $email_facturacion, $periodo_facturacion, $num_cuenta_facturacion, $cif_facturacion) {
         $data = array(
             'razon_social_facturacion' => $razon_social,
@@ -259,6 +316,19 @@ class Restaurador_model extends CI_Model {
         $this->db->insert('cupones', $data);
     }
 
+    public function modificarCupon($id_cupon, $titulo_cupon, $descripcion_cupon, $fecha_inicio_cupon, $fecha_fin_cupon) {
+        $data = array(
+            'titulo_cupon' => $titulo_cupon,
+            'descripcion_cupon' => $descripcion_cupon,
+            'fecha_inicio_cupon' => $fecha_inicio_cupon,
+            'fecha_fin_cupon' => $fecha_fin_cupon,
+        );
+        $this->db->where('id_cupon', $id_cupon);
+        $resultado = $this->db->update('cupones', $data);
+		return $resultado;
+    }
+
+	// La dejo por si la usa alguien
     public function editarCupon($clave_cupon, $titulo_cupon, $descripcion_cupon, $fecha_inicio_cupon, $fecha_fin_cupon) {
         $data = array(
             'titulo_cupon' => $titulo_cupon,
@@ -270,6 +340,13 @@ class Restaurador_model extends CI_Model {
         $this->db->update('cupones', $data);
     }
 
+    public function borrarCupon($id_cupon) {
+        $this->db->where('id_cupon', $id_cupon);
+        $resultado = $this->db->delete('cupones');
+		return $resultado;
+    }
+
+	// La dejo por si la usa alguien
     public function eliminarCupon($clave_cupon) {
         $this->db->where('clave_cupon', $clave_cupon);
         $this->db->delete('cupones');
@@ -543,9 +620,50 @@ class Restaurador_model extends CI_Model {
 
     public function listadoImagenes($id_restaurantes) {
         $this->db->where('restaurantes_id_restaurante', $id_restaurantes);
+        $this->db->order_by('principal_imagen', 'desc');
+        $this->db->order_by('titulo_imagen', 'asc');
         $consulta = $this->db->get('imagenes');
         return $consulta->result();
     }
+
+    public function guardarDatosImagenes($id_imagen, $titulo, $principal) {
+		$error = 1;
+		for ($i = 0; $i < count($id_imagen); $i++) {
+			$data = array('titulo_imagen' => $titulo[$i], 'principal_imagen' => $principal[$i]);
+			$this->db->where('id_imagen', $id_imagen[$i]);
+			$resultado = $this->db->update('imagenes', $data);
+			if(!$resultado){
+				$error = 0;
+			}
+		}
+		return $error;
+    }
+
+    public function borrarImagen($id_imagen) {
+        $this->db->where('id_imagen', $id_imagen);
+        return $this->db->delete('imagenes');
+    }
+
+    public function asegurarImagenPrincipal($id_restaurante) {
+        $this->db->where('restaurantes_id_restaurante', $id_restaurante);
+        $this->db->where('principal_imagen', 1);
+        $this->db->get('imagenes');
+		if($this->db->affected_rows() == 0){
+			$data = array('principal_imagen' => 1);
+			$this->db->where('restaurantes_id_restaurante', $id_restaurante);
+			$this->db->order_by('id_imagen', 'desc');
+			$this->db->limit(1);
+			$this->db->update('imagenes', $data);
+		}
+    }
+	
+	
+	
+	
+	
+	
+	
+	
 
     public function getRestauranteData($id_restaurante) {
 
@@ -678,6 +796,82 @@ class Restaurador_model extends CI_Model {
         $consulta = $this->db->get('restaurantes');
         return $consulta->result();
     }
+	/* Alta/Baja de restaurantes */
+	
+    public function altaRestaurantes($clave_restaurante, $nombre_restaurante, $tipo_establecimiento, $direccion_restaurante, $numero_restaurante, $lat_restaurante, $long_restaurante, $barrio_restaurante, $web_restaurante, $email_restaurante, $cp_restaurante, $precio_medio_restaurante, $activo_restaurante, $reservas_restaurante, $parking_restaurante, $tarjetas_restaurante, $visible_restaurante, $localidad, $plan, $id_propietario) {
+		
+		// Sacar el id de la localidad/municipio de la tabla localidades
+		$localidades_id_localidad = 1;
+        $this->db->where('cp_localidad', $cp_restaurante);
+        $this->db->where('nombre_localidad', $localidad);
+		$this->db->limit(1);
+        $consulta = $this->db->get('localidades');
+		if ($consulta->num_rows() > 0){
+			$resultado = $consulta->row();
+			$localidades_id_localidad = $resultado->id_localidad;
+		}
+		
+		$id_codigo_postal = 1;
+        $this->db->where('num_codigo_postal', $cp_restaurante);
+		$this->db->limit(1);
+        $consulta = $this->db->get('codigo_postal');
+		if ($consulta->num_rows() > 0){
+			$resultado = $consulta->row();
+			$id_codigo_postal = $resultado->id_codigo_postal;
+		}
+
+        $data = array(
+            'clave_restaurante' => $clave_restaurante,
+            'slug_restaurante' => url_title(strtolower(convert_accented_characters($nombre_restaurante))),
+            'metakeywords_restaurante' => $nombre_restaurante,
+            'tipo_restaurante' => $tipo_establecimiento,
+            'nombre_restaurante' => $nombre_restaurante,
+            //'logo_restaurante' => '',
+            //'descripcion_restaurante' => '',
+            'direccion_restaurante' => $direccion_restaurante,
+            'numero_restaurante' => $numero_restaurante,
+            'lat_restaurante' => $lat_restaurante,
+            'long_restaurante' => $long_restaurante,
+            'barrio_restaurante' => $barrio_restaurante,
+            //'telefono_restaurante' => '',
+            'web_restaurante' => $web_restaurante,
+            'email_restaurante' => $email_restaurante,
+            'cp_restaurante' => $cp_restaurante,
+            //'otros_datos_restaurante' => '',
+			'precio_medio_restaurante' => $precio_medio_restaurante,
+			//'carta_restaurante' => '',
+			//'precio_carta_restaurante' => '',
+			//'horario_apertura_restaurante' => '',
+			//'horario_cierre_restaurante' => '',
+			'activo_restaurante' => $activo_restaurante,
+		    'reservas_restaurante' => $reservas_restaurante,
+            'parking_restaurante' => $parking_restaurante,
+            'tarjetas_restaurante' => $tarjetas_restaurante,
+            'visible_restaurante' => $visible_restaurante,
+			'creado_restaurante' => now(),
+			'actualizado_restaurante' => now(),
+            'categorias_id_categoria' => -1,
+            'localidades_id_localidad' => $localidades_id_localidad,
+            'codigo_postal_id_codigo_postal' => $id_codigo_postal,
+            'planes_id_plan' => $plan,
+            'propietarios_id_propietario' => $id_propietario,
+        );
+		
+        $this->db->insert('restaurantes', $data);
+		return $this->db->affected_rows();
+    }
+	
+    public function listadoBajaRestaurantes() {
+		
+        $this->db->join('localidades', 'localidades.id_localidad = restaurantes.localidades_id_localidad');
+
+        $this->db->where('propietarios_id_propietario', $this->session->userdata('id_propietario'));
+        $consulta = $this->db->get('restaurantes');
+        return $consulta->result();
+		
+    }
+	
+	/* ------------------------ */
 
     public function obtenerTipoMenus($id_restaurante) {
         $this->db->where('restaurantes_id_restaurante', $id_restaurante);

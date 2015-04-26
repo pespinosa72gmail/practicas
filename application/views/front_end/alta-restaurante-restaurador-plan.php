@@ -21,20 +21,13 @@
 				<div class="col-md-9">
                     <article class="seccion-restaurante">
     
-                    <?php if(!$clave_propietario){ ?>
-                        <h5>Gestión de propietarios - Alta de propietario y restaurante</h5>
-                    <?php }else{ ?>
                         <h5>Gestión de propietarios - Alta de restaurante</h5>
-                    <?php } ?>
                             
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="callout-a "><a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado-gestion-propietarios'); ?>" class="button-3">Volver a gestión de propietarios</a></div>
+                            <div class="col-md-6">
+                                <div class="callout-a "><a href="<?php echo base_url('acceso/restaurador/panel-restaurador'); ?>" class="button-3">Volver a panel de control</a></div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="callout-a "><a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado'); ?>" class="button-3">Volver a panel de control</a></div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="callout-a "><a href="<?php echo base_url(); ?>logout" class="button-3">Desconectar</a></div>
                             </div>
                         </div>
@@ -57,16 +50,9 @@
                     <div><span>25€ +  IVA</span><strong>al mes</strong></div>
                     <h3>Plan Premium</h3>
 
-                    <?php if(!$clave_propietario){ ?>
 
-                    	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado/UE5Zg3YG">Elegir</a>
+                    	<a class="button-4" href="<?php echo base_url(); ?>acceso/restaurador/alta-restaurante/UE5Zg3YG">Elegir</a>
 
-                    <?php }else{ ?>
-
-                    	<!-- <a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado-2?plan=UE5Zg3YG&clave=<?php echo $clave_propietario->clave_propietario; ?>">Elegir</a> -->
-                    	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado-2/UE5Zg3YG/<?php echo $clave_propietario->clave_propietario; ?>">Elegir</a>
-
-                    <?php } ?>
 
                   </div>
                 </div>
@@ -78,15 +64,7 @@
                   <div><span>12€ + IVA</span><strong>al mes</strong></div>
                   <h3>Plan Básico</h3>
 
-	                  <?php if(!$clave_propietario){ ?>
-
-	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado/uKjHMt6g">Elegir</a>
-
-	                  <?php }else{ ?>
-
-	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado-2/uKjHMt6g/<?php echo $clave_propietario->clave_propietario; ?>">Elegir</a>
-
-	                  <?php } ?>
+	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/restaurador/alta-restaurante/uKjHMt6g">Elegir</a>
 
                 </div>
               </div>
@@ -99,15 +77,7 @@
                   <div><span>Gratuito</span></div>
                   <h3>Plan Freemium</h3>
 
-                  	<?php if(!$clave_propietario){ ?>
-
-	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado/eJ6RW7aD">Elegir</a>
-
-	                  <?php }else{ ?>
-
-	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/franquiciado/alta-propietario-franquiciado-2/eJ6RW7aD/<?php echo $clave_propietario->clave_propietario; ?>">Elegir</a>
-
-	                  <?php } ?>
+	                  	<a class="button-4" href="<?php echo base_url(); ?>acceso/restaurador/alta-restaurante/eJ6RW7aD">Elegir</a>
 
                 </div>
               </div>

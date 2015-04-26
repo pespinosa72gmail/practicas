@@ -15,6 +15,25 @@ $(function () {
     })
 });
 
+/*$(function () {
+    $(document).on("focus","input[name='calendario-cupon']", function (event){
+                $(this).datepicker(opcionesCalendario);
+    })
+});*/
+
+$(function () {
+    $(document).on("focus","#calendario_menu2", function (event){
+                $("#calendario_menu2").datepicker(opcionesCalendario);
+    })
+});
+
+$(function () {
+    $(document).on("focus","#calendario_menu3", function (event){
+                $("#calendario_menu3").datepicker(opcionesCalendario);
+    })
+});
+
+
 $(function () {
     $("input[name=calendario]").datepicker({
         dateFormat: 'dd/mm/yy'
@@ -26,16 +45,27 @@ $(function () {
     }).val();
 });
 /* Calendario cupones panel restaurador */
+
 $(function () {
+    $(document).on("focus","input[name='select_fecha_inicio_cupon']", function (event){
+                $(this).datepicker(opcionesCalendario);
+    })
+});
+/*$(function () {
     $("input[name=select_fecha_inicio_cupon]").datepicker({
         dateFormat: 'dd/mm/yy'
     }).val();
-});
+});*/
 $(function () {
+    $(document).on("focus","input[name='select_fecha_fin_cupon']", function (event){
+                $(this).datepicker(opcionesCalendario);
+    })
+});
+/*$(function () {
     $("input[name=select_fecha_fin_cupon]").datepicker({
         dateFormat: 'dd/mm/yy'
     }).val();
-});
+});*/
 $(function () {
     $("input[name=fecha_inicio_cupon]").datepicker({
         dateFormat: 'dd/mm/yy'

@@ -8,7 +8,7 @@
                 <!-- Primera columna 2/12 -->
                 <div class="col-md-3">
                     <div class="widget">
-                        <div class="widget-title"><h6>MenÃº</h6></div>
+                        <div class="widget-title"><h6>Menú</h6></div>
                         <nav class="menu">
                             <ul>
                                 <?php $this->load->view('front_end/menu_lateral/menu-panel-restaurador'); ?>
@@ -35,8 +35,8 @@
 
                     <!-- Listado de los restaurantes -->
                     <article id="seleccion" class="seccion-restaurante">
-                        <h6>SelecciÃ³n de restaurante</h6>
-                        <p>SelecciÃ³n actual: 
+                        <h6>Selección de restaurante</h6>
+                        <p>Selección actual: 
                             <span class="restauranteseleccionado">
                                 <!--Restaurante Rodado (Boadilla del Monte, Madrid)-->
                                 <?php echo $restauranteActual->nombre_restaurante; ?>
@@ -86,7 +86,7 @@
                                                     <div class="col-md-6 nodosfilas convertir8">
                                                         <div><strong>Nombre</strong>: <?php echo $value->nombre_restaurante; ?></div>
                                                         <div><strong>Municipio</strong>: <?php echo $value->nombre_localidad; ?></div>
-                                                        <div><strong>CategorÃ­a</strong>: <?php echo isset($value->nombre_categoria) ? $value->nombre_categoria : ''; ?></div>
+                                                        <div><strong>Categorí­a</strong>: <?php echo isset($value->nombre_categoria) ? $value->nombre_categoria : ''; ?></div>
                                                         <div><strong>Precio medio</strong>: <?php echo $value->precio_medio_restaurante; ?></div>
                                                     </div>
                                                     <div class="col-md-4 nodosfilas">
@@ -105,7 +105,7 @@
 
 
                                         </ul>
-                                        <div class="enlacesencillo"><a href="panelcontrol_restaurador2.php">Alta de nuevo restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></div>
+                                        <div class="enlacesencillo"><a href="<?php echo base_url('acceso/restaurador/alta-restaurante-plan'); ?>">Alta de nuevo restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="id_restaurante" id="id_restaurante">
@@ -119,9 +119,9 @@
 
 
                     <article id="gestiontipos" class="seccion-restaurante">
-                        <h6>Tipos de menÃº</h6>
-                        <p>A continuaciÃ³n se indican los tipos de menÃºs que tiene asociados el restaurante. Puede aÃ±adir mÃ¡s en la parte inferior.</p>
-                        <p>En todos ellos, podrÃ¡ indicar en la secciÃ³n "Gestionar menÃºs" si incluyen <strong>cafÃ©, bebida y postre</strong>.</p>
+                        <h6>Tipos de menú</h6>
+                        <p>A continuación se indican los tipos de menús que tiene asociados el restaurante. Puede añadir más en la parte inferior.</p>
+                        <p>En todos ellos, podrá indicar en la sección "Gestionar menús" si incluyen <strong>café, bebida y postre</strong>.</p>
                         <div class="form-generico">
 
                             <div class="row" id="listado-tipos-menu">
@@ -132,13 +132,13 @@
                                 <!-- <div class="col-md-9 nodosfilas">
                                      <div class="form-input">
                                          <i class="fa fa-pencil"></i>
-                                         <input name="name" id="name" type="text" value="<?php //echo $value->nombre_menu;     ?>" disabled>
+                                         <input name="name" id="name" type="text" value="<?php //echo $value->nombre_menu;    ?>" disabled>
                                      </div>
                                  </div>
                                  <div class="col-md-3 nodosfilas">
                                      <div class="form-input">
                                          <div class="callout-a ">
-                                             <a href="<?php //echo base_url();     ?>acceso/restaurador/eliminar-tipo-menu?clave_menu=<?php //echo $value->id_menu;     ?>&clave_restaurante=<?php //echo $value->restaurantes_id_restaurante;     ?>" class="button-3">Eliminar</a>
+                                             <a href="<?php //echo base_url();    ?>acceso/restaurador/eliminar-tipo-menu?clave_menu=<?php //echo $value->id_menu;    ?>&clave_restaurante=<?php //echo $value->restaurantes_id_restaurante;    ?>" class="button-3">Eliminar</a>
                                          </div>
                                      </div>
                                  </div>
@@ -149,7 +149,7 @@
                                 <!--
                                                                     <div class="col-md-12 nodosfilas">
                                                                         <div class="form-input">
-                                                                            <p style="text-align: center;">Actualmente no tienes ningÃºn menÃº aÃ±adido.</p>
+                                                                            <p style="text-align: center;">Actualmente no tienes ningún menú añadido.</p>
                                                                         </div>
                                                                     </div>
                                 -->
@@ -173,7 +173,7 @@
                                     <div class="col-md-9 nodosfilas convertir12">
                                         <div class="form-input">
                                             <i class="fa fa-pencil"></i>
-                                            <input name="nombre_menu" id="nombre_menu" type="text" placeholder="Introduce un nombre, Ej. MenÃº fin de semana">
+                                            <input name="nombre_menu" id="nombre_menu" type="text" placeholder="Introduce un nombre, Ej. Menú fin de semana">
                                         </div>
                                     </div>
                                     <div class="clear"></div>
@@ -184,7 +184,7 @@
                                     <div class="col-md-9 nodosfilas convertir12">
                                         <div class="form-input">
                                             <input type="radio" name="estructura_menu" id="estructura_menu" value="1">
-                                            <label>Primeros + Segundos (típico menú del día)</label>
+                                            <label>Primeros + Segundos (tí­pico menú del dí­a)</label>
                                         </div>
                                         <div class="clear"></div>
                                         <div class="form-input">
@@ -248,27 +248,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <article id="gestionmenus" class="seccion-restaurante">
                         <h6>Gestión menús</h6>
                         <div class="accordion accordion-2 toggle-accordion">
@@ -278,905 +257,905 @@
                             <div id="listado-menus">
                                 <!--
                                 <?php foreach ($listadoMenus as $key => $value) { ?>
-                    
+                
                                     <?php if ($value->tipo_menu_id_tipo_menu == 1) { ?>
-                                                                        <div class="section-content">
-                                                                            <h4 class="accordion-title">
-                                                                                <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
-                                                                            </h4>
-                                    
-                                                                            <div class="accordion-inner">
-                                                                                <div class="form-generico">
-                                                                                    <form method="post" name="test" id="platos-menus-form">
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Fecha</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-calendar"></i>
+                                                                <div class="section-content">
+                                                                    <h4 class="accordion-title">
+                                                                        <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
+                                                                    </h4>
+                            
+                                                                    <div class="accordion-inner">
+                                                                        <div class="form-generico">
+                                                                            <form method="post" name="test" id="platos-menus-form">
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Fecha</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-calendar"></i>
                                         <?php //$codigo = random_string('unique'); ?>
-                                                                                                        <input name="calendario" id="calendario_menu<?php //echo $codigo;            ?>" type="text" value="<?php echo $value->fecha_dia_menu; ?>" placeholder="dd/mm/aaaa">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Precio</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-eur"></i> 
-                                                                                                        <input name="precio_menu" id="precio_menu" type="text" value="<?php echo $value->precio_menu; ?>" placeholder="">
-                                                                                                    </div>
-                                                                                                </div>
+                                                                                                <input name="calendario" id="calendario_menu<?php //echo $codigo;           ?>" type="text" value="<?php echo $value->fecha_dia_menu; ?>" placeholder="dd/mm/aaaa">
                                                                                             </div>
                                                                                         </div>
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="alerts">
-                                                                                            <i class="fa fa-star"></i>
-                                                                                            <div>
-                                                                                                <h3>SelecciÃ³n de menÃºs habituales</h3>
-                                                                                                <p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
-                                    
-                                    
-                                                                                                <div class="row">
-                                    
+                                                                                    </div>
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Precio</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-eur"></i> 
+                                                                                                <input name="precio_menu" id="precio_menu" type="text" value="<?php echo $value->precio_menu; ?>" placeholder="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="alerts">
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <div>
+                                                                                        <h3>Selección de menús habituales</h3>
+                                                                                        <p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
+                            
+                            
+                                                                                        <div class="row">
+                            
                                         <?php if ($listadoMenusHabituales) { ?>
                                             <?php foreach ($listadoMenusHabituales as $key => $values) { ?>
-                                                                                                                                            <div class="col-md-6">
-                                                                                                                                                <label>
-                                                                                                                                                    <a href="<?php echo base_url(); ?>?menu_habitual=<?php echo $values->id_menu_habitual; ?>" id="btnSelectMenuHabitual">
+                                                                                                                            <div class="col-md-6">
+                                                                                                                                <label>
+                                                                                                                                    <a href="<?php echo base_url(); ?>?menu_habitual=<?php echo $values->id_menu_habitual; ?>" id="btnSelectMenuHabitual">
                                                 <?php echo $values->nombre_menu_habitual; ?>&nbsp;
-                                                                                                                                                        <i class="fa fa-check-circle"></i>
-                                                                                                                                                    </a>&nbsp;
-                                                                    
-                                                                                                                                                    <a href="<?php echo base_url(); ?>acceso/restaurador/eliminar-menu-habitual?menu_habitual=<?php echo $values->id_menu_habitual; ?>" id="btnDeleteMenuHabitual">
-                                                                                                                                                        <i class="fa fa-times-circle"></i>
-                                                                                                                                                    </a>
-                                                                    
-                                                                                                                                                    <input type="hidden" name="id_menu_habitual" id="id_menu_habitual" class="id_menu_habitual" value="<?php echo $values->id_menu_habitual; ?>" />
-                                                                    
-                                                                                                                                                </label>
-                                                                                                                                            </div>
-                                            <?php } ?>
+                                                                                                                                        <i class="fa fa-check-circle"></i>
+                                                                                                                                    </a>&nbsp;
                                                     
+                                                                                                                                    <a href="<?php echo base_url(); ?>acceso/restaurador/eliminar-menu-habitual?menu_habitual=<?php echo $values->id_menu_habitual; ?>" id="btnDeleteMenuHabitual">
+                                                                                                                                        <i class="fa fa-times-circle"></i>
+                                                                                                                                    </a>
+                                                    
+                                                                                                                                    <input type="hidden" name="id_menu_habitual" id="id_menu_habitual" class="id_menu_habitual" value="<?php echo $values->id_menu_habitual; ?>" />
+                                                    
+                                                                                                                                </label>
+                                                                                                                            </div>
+                                            <?php } ?>
+                                        
                                         <?php } else { ?>
-                                                                                                                        <div class="col-md-6">
-                                                                                                                            <p>Actualmente no tienes ningÃºn menÃº dado de alta.</p>
-                                                                                                                        </div>
+                                                                                                            <div class="col-md-6">
+                                                                                                                <p>Actualmente no tienes ningún menú dado de alta.</p>
+                                                                                                            </div>
                                         <?php } ?>
-                                    
-                                                                                                </div>
-                                    
-                                    
-                                                                                            </div>
+                            
                                                                                         </div>
-                                    
-                                    
-                                                                                        <div class="row derecha">
-                                                                                            <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
-                                                                                        </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>PRIMEROS</h5>
-                                    
-                                                                                                <div id="contenedorPlatos" class="contenedorPlatos">
+                            
+                            
+                                                                                    </div>
+                                                                                </div>
+                            
+                            
+                                                                                <div class="row derecha">
+                                                                                    <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>PRIMEROS</h5>
+                            
+                                                                                        <div id="contenedorPlatos" class="contenedorPlatos">
                                         <?php if ($listadoPrimeros[$key]) { ?>
                                             <?php foreach ($listadoPrimeros[$key] as $primero): ?>
-                                                                                                                                            <div class="row contenedor" id="1">
-                                                                                                                                                <div class="col-md-10 nodosfilas">
-                                                                                                                                                    <div class="form-input">
-                                                                                                                                                        <i class="fa fa-cutlery"></i> 
-                                                                                                                                                        <input value="<?php echo $primero->nombre_primeros_menu ?>" name="primeros_menu_estructura[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                                <div class="col-md-2 nodosfilas">
-                                                                                                                                                    <div class="form-input">
-                                                                                                                                                        <div class="form-input">
-                                                                                                                                                            <div class="callout-a">
-                                                                                                                                                                <a href="#" class="button-3 eliminar">X</a>
-                                                                                                                                                            </div>
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                            </div>
-                                            <?php endforeach; ?>
-                                        <?php } else { ?>
-                                                                                                                        <div class="row contenedor" id="1">
-                                                                                                                            <div class="col-md-10 nodosfilas">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <i class="fa fa-cutlery"></i> 
-                                                                                                                                    <input name="primeros_menu_estructura[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="AÃ±adir plato">
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                            <div class="col-md-2 nodosfilas">
-                                                                                                                                <div class="form-input">
+                                                                                                                            <div class="row contenedor" id="1">
+                                                                                                                                <div class="col-md-10 nodosfilas">
                                                                                                                                     <div class="form-input">
-                                                                                                                                        <div class="callout-a">
-                                                                                                                                            <a href="#" class="button-3 eliminar">X</a>
+                                                                                                                                        <i class="fa fa-cutlery"></i> 
+                                                                                                                                        <input value="<?php echo $primero->nombre_primeros_menu ?>" name="primeros_menu_estructura[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="col-md-2 nodosfilas">
+                                                                                                                                    <div class="form-input">
+                                                                                                                                        <div class="form-input">
+                                                                                                                                            <div class="callout-a">
+                                                                                                                                                <a href="#" class="button-3 eliminar">X</a>
+                                                                                                                                            </div>
                                                                                                                                         </div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
-                                                                                                                        </div>
-                                                    
-                                        <?php } ?>
-                                                                                                </div>
-                                    
-                                                                                                <div class="clear"></div>
-                                    
-                                    
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#" id="addInputPrimeros">AÃ±adir mÃ¡s primeros<span><i class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                    
-                                                                                                <input type="hidden" name="primeros_platos_menu" id="primeros_platos_menu">
-                                    
-                                                                                            </div>
-                                    
-                                    
-                                    
-                                    
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>SEGUNDOS</h5>
-                                    
-                                                                                                <div id="contenedorPlatos2">
-                                        <?php if ($listadoSegundos[$key]) { ?>                                                                
-                                            <?php foreach ($listadoSegundos[$key] as $segundo): ?>
-                                                                                                                                            <div class="row">
-                                                                                                                                                <div class="col-md-10 nodosfilas">
-                                                                                                                                                    <div class="form-input">
-                                                                                                                                                        <i class="fa fa-cutlery"></i> 
-                                                                                                                                                        <input value="<?php echo $segundo->nombre_segundo_menu ?>" name="segundos_menu_estructura[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                                <div class="col-md-2 nodosfilas">
-                                                                                                                                                    <div class="form-input">
-                                                                                                                                                        <div class="callout-a ">
-                                                                                                                                                            <a href="#" class="button-3">X</a>
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                            </div>
                                             <?php endforeach; ?>
                                         <?php } else { ?>
-                                                                                                                        <div class="row">
-                                                                                                                            <div class="col-md-10 nodosfilas">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <i class="fa fa-cutlery"></i> 
-                                                                                                                                    <input name="segundos_menu_estructura[]" id="segundos_menu_estructura" type="text" placeholder="AÃ±adir plato">
-                                                                                                                                </div>
+                                                                                                            <div class="row contenedor" id="1">
+                                                                                                                <div class="col-md-10 nodosfilas">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <i class="fa fa-cutlery"></i> 
+                                                                                                                        <input name="primeros_menu_estructura[]" class="input-class" id="primeros_menu_estructura" type="text" placeholder="Añadir plato">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2 nodosfilas">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="form-input">
+                                                                                                                            <div class="callout-a">
+                                                                                                                                <a href="#" class="button-3 eliminar">X</a>
                                                                                                                             </div>
-                                                                                                                            <div class="col-md-2 nodosfilas">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <div class="callout-a ">
-                                                                                                                                        <a href="#" class="button-3">X</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                        
+                                        <?php } ?>
+                                                                                        </div>
+                            
+                                                                                        <div class="clear"></div>
+                            
+                            
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#" id="addInputPrimeros">Añadir más primeros<span><i class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                            
+                                                                                        <input type="hidden" name="primeros_platos_menu" id="primeros_platos_menu">
+                            
+                                                                                    </div>
+                            
+                            
+                            
+                            
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>SEGUNDOS</h5>
+                            
+                                                                                        <div id="contenedorPlatos2">
+                                        <?php if ($listadoSegundos[$key]) { ?>                                                                
+                                            <?php foreach ($listadoSegundos[$key] as $segundo): ?>
+                                                                                                                            <div class="row">
+                                                                                                                                <div class="col-md-10 nodosfilas">
+                                                                                                                                    <div class="form-input">
+                                                                                                                                        <i class="fa fa-cutlery"></i> 
+                                                                                                                                        <input value="<?php echo $segundo->nombre_segundo_menu ?>" name="segundos_menu_estructura[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="col-md-2 nodosfilas">
+                                                                                                                                    <div class="form-input">
+                                                                                                                                        <div class="callout-a ">
+                                                                                                                                            <a href="#" class="button-3">X</a>
+                                                                                                                                        </div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
+                                            <?php endforeach; ?>
+                                        <?php } else { ?>
+                                                                                                            <div class="row">
+                                                                                                                <div class="col-md-10 nodosfilas">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <i class="fa fa-cutlery"></i> 
+                                                                                                                        <input name="segundos_menu_estructura[]" id="segundos_menu_estructura" type="text" placeholder="Añadir plato">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2 nodosfilas">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="callout-a ">
+                                                                                                                            <a href="#" class="button-3">X</a>
                                                                                                                         </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
                                         <?php } ?>                                                                
-                                                                                                </div>
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#" id="addInputSegundos">AÃ±adir mÃ¡s segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
                                                                                         </div>
-                                    
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="separadorgrande"></div>
-                                    
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                    
-                                        <?php if ($value->postre_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
-                                        <?php } ?>
-                                    
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->cafe_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con cafÃ©</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con cafÃ©</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->pan_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->bebida_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#" id="addInputSegundos">Añadir más segundos<span><i class="fa fa-arrow-circle-right"></i></span></a>
                                                                                         </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <label>Observaciones</label>
-                                                                                            </div>
-                                                                                            <div class="col-md-9 nodosfilas convertir12">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-pencil"></i>
-                                                                                                    <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
-                                                                                                    <strong><div id="contador"></div></strong>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                    
-                                                                                        <br />
-                                    
-                                                                                        <div class="row">
-                                                                                            <p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a
-                                                                                                menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>
-                                                                                            <div class="col-md-8 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-cutlery"></i> <input name="nombre_menu_habitual" id="nombre_menu_habitual" type="text" placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-4 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <div class="callout-a ">
-                                                                                                        <a href="#" id="btnAddMenuHabitual" class="button-3">Guardar como menÃº habitual</a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                    
-                                    
-                                                                                        </div>
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row centrar reducirfila">
-                                                                                            <input class="button-3 botonpeq" id="btnAddPlateMenu2" type="submit" value="Actualizar menÃº">
-                                                                                        </div>
-                                    
-                                                                                        <div id="mensajeMenu"></div>
-                                    
-                                                                                        <input type="hidden" name="id_menu" id="id_menu" value="<?php echo $value->id_menu; ?>" />
-                                                                                        <input type="hidden" name="id_restaurante" id="id_restaurante" value="<?php echo $restauranteActual->clave_restaurante; ?>">
-                                                                                        <input type="hidden" name="id_restaurantes" id="id_restaurantes" value="<?php echo $restauranteActual->id_restaurante; ?>">
-                                    
-                                    
-                                                                                    </form>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
+                            
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="separadorgrande"></div>
+                            
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                            
+                                        <?php if ($value->postre_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
+                                        <?php } ?>
+                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->cafe_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con café</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con café</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->pan_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->bebida_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <label>Observaciones</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-9 nodosfilas convertir12">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-pencil"></i>
+                                                                                            <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
+                                                                                            <strong><div id="contador"></div></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                                                                                <br />
+                            
+                                                                                <div class="row">
+                                                                                    <p class="reducirfila">Â¿Este menú lo vas a reutilizar a
+                                                                                        menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>
+                                                                                    <div class="col-md-8 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-cutlery"></i> <input name="nombre_menu_habitual" id="nombre_menu_habitual" type="text" placeholder="Ej. Menú de los lunes, Menú arroces, etc...">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <div class="callout-a ">
+                                                                                                <a href="#" id="btnAddMenuHabitual" class="button-3">Guardar como menú habitual</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                            
+                            
+                                                                                </div>
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row centrar reducirfila">
+                                                                                    <input class="button-3 botonpeq" id="btnAddPlateMenu2" type="submit" value="Actualizar menú">
+                                                                                </div>
+                            
+                                                                                <div id="mensajeMenu"></div>
+                            
+                                                                                <input type="hidden" name="id_menu" id="id_menu" value="<?php echo $value->id_menu; ?>" />
+                                                                                <input type="hidden" name="id_restaurante" id="id_restaurante" value="<?php echo $restauranteActual->clave_restaurante; ?>">
+                                                                                <input type="hidden" name="id_restaurantes" id="id_restaurantes" value="<?php echo $restauranteActual->id_restaurante; ?>">
+                            
+                            
+                                                                            </form>
                                                                         </div>
-                                    
+                                                                    </div>
+                                                                </div>
+                            
                                     <?php } ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                                     <?php if ($value->tipo_menu_id_tipo_menu == 2) { ?>
-                                                                        <div class="section-content">
-                                                                            <h4 class="accordion-title">
-                                                                                <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
-                                                                            </h4>
-                                    
-                                                                            <div class="accordion-inner">
-                                                                                <div class="form-generico">
-                                                                                    <form method="post" id="form-1" action="#">
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Fecha</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-calendar"></i> 
-                                                                                                        <input name="calendario_2" id="calendario_2" type="text" value="<?php echo $value->fecha_dia_menu; ?>">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Precio</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-eur"></i> 
-                                                                                                        <input name="name" id="name" type="text" value="<?php echo $value->precio_menu; ?>">
-                                                                                                    </div>
-                                                                                                </div>
+                                                                <div class="section-content">
+                                                                    <h4 class="accordion-title">
+                                                                        <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
+                                                                    </h4>
+                            
+                                                                    <div class="accordion-inner">
+                                                                        <div class="form-generico">
+                                                                            <form method="post" id="form-1" action="#">
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Fecha</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-calendar"></i> 
+                                                                                                <input name="calendario_2" id="calendario_2" type="text" value="<?php echo $value->fecha_dia_menu; ?>">
                                                                                             </div>
                                                                                         </div>
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="alerts">
-                                                                                            <i class="fa fa-star"></i>
-                                                                                            <div>
-                                                                                                <h3>SelecciÃ³n de menÃºs habituales</h3>
-                                                                                                <p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
-                                    
-                                    
-                                                                                                <div class="row">
-                                                                                                    <div class="col-md-6">
-                                                                                                        <label>
-                                                                                                            <a href="#">MenÃº de los lunes&nbsp;
-                                                                                                                <i class="fa fa-check-circle"></i>
-                                                                                                            </a>&nbsp;
-                                    
-                                                                                                            <a href="#">
-                                                                                                                <i class="fa fa-times-circle"></i>
-                                                                                                            </a>
-                                                                                                        </label>
-                                                                                                    </div>
-                                    
-                                                                                                    <div class="col-md-6">
-                                                                                                        <label>
-                                                                                                            <a href="#">MenÃº de los lunes&nbsp;
-                                                                                                                <i class="fa fa-check-circle"></i>
-                                                                                                            </a>&nbsp;
-                                    
-                                                                                                            <a href="#">
-                                                                                                                <i class="fa fa-times-circle"></i>
-                                                                                                            </a>
-                                                                                                        </label>
-                                                                                                    </div>
-                                                                                                </div>
-                                    
-                                    
+                                                                                    </div>
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Precio</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-eur"></i> 
+                                                                                                <input name="name" id="name" type="text" value="<?php echo $value->precio_menu; ?>">
                                                                                             </div>
                                                                                         </div>
-                                    
-                                    
-                                                                                        <div class="row derecha">
-                                                                                            <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
-                                                                                        </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>ENTRANTES</h5>
-                                    
-                                        <?php for ($i = 0; $i < 3; $i++) { ?>
-                                                                                                                    <div class="row">
-                                                                                                                        <div class="col-md-10 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                        <div class="col-md-2 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <div class="callout-a ">
-                                                                                                                                        <a href="#" class="button-3">X</a>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                        <?php } ?>
-                                    
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#">AÃ±adir mÃ¡s primeros<span><i
-                                                                                                                class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
-                                    
-                                    
-                                    
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>PRIMEROS</h5>
-                                    
-                                        <?php for ($i = 0; $i < 3; $i++) { ?>
-                                                                                                                    <div class="row">
-                                                                                                                        <div class="col-md-10 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                        <div class="col-md-2 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <div class="callout-a ">
-                                                                                                                                        <a href="#" class="button-3">X</a>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                        <?php } ?>
-                                    
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#">AÃ±adir mÃ¡s primeros<span><i
-                                                                                                                class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
-                                    
-                                    
-                                    
-                                    
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>SEGUNDOS</h5>
-                                    
-                                        <?php for ($i = 0; $i < 3; $i++) { ?>
-                                                                                                                    <div class="row">
-                                                                                                                        <div class="col-md-10 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="JudÃ­as verdes con tomate" disabled>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                        <div class="col-md-2 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <div class="callout-a ">
-                                                                                                                                    <a href="#" class="button-3">X</a>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                        <?php } ?>
-                                    
-                                    
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#">AÃ±adir mÃ¡s segundos<span><i
-                                                                                                                class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                    
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="separadorgrande"></div>
-                                    
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                    
-                                        <?php if ($value->postre_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
-                                        <?php } ?>
-                                    
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->cafe_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con cafÃ©</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con cafÃ©</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->pan_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->bebida_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <label>Observaciones</label>
-                                                                                            </div>
-                                                                                            <div class="col-md-9 nodosfilas convertir12">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-pencil"></i>
-                                                                                                    <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
-                                                                                                    <strong><div id="contador"></div></strong>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="row">
-                                                                                            <p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a
-                                                                                                menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>
-                                                                                            <div class="col-md-8 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name"
-                                                                                                                                         type="text"
-                                                                                                                                         placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-4 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <div class="callout-a ">
-                                                                                                        <a href="#" class="button-3">Guardar como menÃº habitual</a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row centrar reducirfila">
-                                                                                            <input class="button-3 botonpeq" type="submit" value="Actualizar menÃº">
-                                                                                        </div>
-                                    
-                                                                                    </form>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="alerts">
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <div>
+                                                                                        <h3>Selección de menús habituales</h3>
+                                                                                        <p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
+                            
+                            
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6">
+                                                                                                <label>
+                                                                                                    <a href="#">Menú de los lunes&nbsp;
+                                                                                                        <i class="fa fa-check-circle"></i>
+                                                                                                    </a>&nbsp;
+                            
+                                                                                                    <a href="#">
+                                                                                                        <i class="fa fa-times-circle"></i>
+                                                                                                    </a>
+                                                                                                </label>
+                                                                                            </div>
+                            
+                                                                                            <div class="col-md-6">
+                                                                                                <label>
+                                                                                                    <a href="#">Menú de los lunes&nbsp;
+                                                                                                        <i class="fa fa-check-circle"></i>
+                                                                                                    </a>&nbsp;
+                            
+                                                                                                    <a href="#">
+                                                                                                        <i class="fa fa-times-circle"></i>
+                                                                                                    </a>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                            
+                            
+                                                                                    </div>
+                                                                                </div>
+                            
+                            
+                                                                                <div class="row derecha">
+                                                                                    <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>ENTRANTES</h5>
+                            
+                                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-10 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="callout-a ">
+                                                                                                                            <a href="#" class="button-3">X</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                        <?php } ?>
+                            
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#">Añadir más primeros<span><i
+                                                                                                        class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                            
+                            
+                            
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>PRIMEROS</h5>
+                            
+                                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-10 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="callout-a ">
+                                                                                                                            <a href="#" class="button-3">X</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                        <?php } ?>
+                            
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#">Añadir más primeros<span><i
+                                                                                                        class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                            
+                            
+                            
+                            
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>SEGUNDOS</h5>
+                            
+                                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-10 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Judí­as verdes con tomate" disabled>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <div class="callout-a ">
+                                                                                                                        <a href="#" class="button-3">X</a>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                        <?php } ?>
+                            
+                            
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#">Añadir más segundos<span><i
+                                                                                                        class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="separadorgrande"></div>
+                            
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                            
+                                        <?php if ($value->postre_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
+                                        <?php } ?>
+                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->cafe_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con café</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con café</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->pan_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->bebida_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <label>Observaciones</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-9 nodosfilas convertir12">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-pencil"></i>
+                                                                                            <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
+                                                                                            <strong><div id="contador"></div></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <p class="reducirfila">Â¿Este menú lo vas a reutilizar a
+                                                                                        menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>
+                                                                                    <div class="col-md-8 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-cutlery"></i> <input name="name" id="name"
+                                                                                                                                 type="text"
+                                                                                                                                 placeholder="Ej. Menú de los lunes, Menú arroces, etc...">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <div class="callout-a ">
+                                                                                                <a href="#" class="button-3">Guardar como menú habitual</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row centrar reducirfila">
+                                                                                    <input class="button-3 botonpeq" type="submit" value="Actualizar menú">
+                                                                                </div>
+                            
+                                                                            </form>
                                                                         </div>
-                                    
+                                                                    </div>
+                                                                </div>
+                            
                                     <?php } ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                                     <?php if ($value->tipo_menu_id_tipo_menu == 3) { ?>
-                                                                        <div class="section-content">
-                                                                            <h4 class="accordion-title">
-                                                                                <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
-                                                                            </h4>
-                                    
-                                                                            <div class="accordion-inner">
-                                                                                <div class="form-generico">
-                                                                                    <form method="post" id="form-1" action="#">
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Fecha</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-calendar"></i> 
-                                                                                                        <input name="calendario_2" id="calendario_2" type="text" value="<?php echo $value->fecha_dia_menu; ?>">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-6 nodosfilas">
-                                                                                                <div class="col-md-4">
-                                                                                                    <label>Precio</label>
-                                                                                                </div>
-                                                                                                <div class="col-md-8 nodosfilas convertir12">
-                                                                                                    <div class="form-input">
-                                                                                                        <i class="fa fa-eur"></i> 
-                                                                                                        <input name="name" id="name" type="text" value="<?php echo $value->precio_menu; ?>">
-                                                                                                    </div>
-                                                                                                </div>
+                                                                <div class="section-content">
+                                                                    <h4 class="accordion-title">
+                                                                        <a href="#"><?php echo $value->nombre_menu; ?><i class="fa fa-plus"></i></a>
+                                                                    </h4>
+                            
+                                                                    <div class="accordion-inner">
+                                                                        <div class="form-generico">
+                                                                            <form method="post" id="form-1" action="#">
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Fecha</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-calendar"></i> 
+                                                                                                <input name="calendario_2" id="calendario_2" type="text" value="<?php echo $value->fecha_dia_menu; ?>">
                                                                                             </div>
                                                                                         </div>
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="alerts">
-                                                                                            <i class="fa fa-star"></i>
-                                                                                            <div>
-                                                                                                <h3>SelecciÃ³n de menÃºs habituales</h3>
-                                                                                                <p>Si lo prefieres, puedes seleccionar uno de tus menÃºs guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
-                                    
-                                    
-                                                                                                <div class="row">
-                                                                                                    <div class="col-md-6">
-                                                                                                        <label>
-                                                                                                            <a href="#">MenÃº de los lunes&nbsp;
-                                                                                                                <i class="fa fa-check-circle"></i>
-                                                                                                            </a>&nbsp;
-                                    
-                                                                                                            <a href="#">
-                                                                                                                <i class="fa fa-times-circle"></i>
-                                                                                                            </a>
-                                                                                                        </label>
-                                                                                                    </div>
-                                    
-                                                                                                    <div class="col-md-6">
-                                                                                                        <label>
-                                                                                                            <a href="#">MenÃº de los lunes&nbsp;
-                                                                                                                <i class="fa fa-check-circle"></i>
-                                                                                                            </a>&nbsp;
-                                    
-                                                                                                            <a href="#">
-                                                                                                                <i class="fa fa-times-circle"></i>
-                                                                                                            </a>
-                                                                                                        </label>
-                                                                                                    </div>
-                                                                                                </div>
-                                    
-                                    
+                                                                                    </div>
+                                                                                    <div class="col-md-6 nodosfilas">
+                                                                                        <div class="col-md-4">
+                                                                                            <label>Precio</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 nodosfilas convertir12">
+                                                                                            <div class="form-input">
+                                                                                                <i class="fa fa-eur"></i> 
+                                                                                                <input name="name" id="name" type="text" value="<?php echo $value->precio_menu; ?>">
                                                                                             </div>
                                                                                         </div>
-                                    
-                                    
-                                                                                        <div class="row derecha">
-                                                                                            <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
-                                                                                        </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>ENTRANTES</h5>
-                                    
-                                        <?php for ($i = 0; $i < 3; $i++) { ?>
-                                                                                                                    <div class="row">
-                                                                                                                        <div class="col-md-10 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                        <div class="col-md-2 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <div class="callout-a ">
-                                                                                                                                        <a href="#" class="button-3">X</a>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                        <?php } ?>
-                                    
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#">AÃ±adir mÃ¡s primeros<span><i
-                                                                                                                class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
-                                    
-                                    
-                                    
-                                                                                            <div class="col-md-6 dosfilas">
-                                                                                                <h5>PLATO PRINCIPAL</h5>
-                                    
-                                        <?php for ($i = 0; $i < 3; $i++) { ?>
-                                                                                                                    <div class="row">
-                                                                                                                        <div class="col-md-10 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                        <div class="col-md-2 nodosfilas">
-                                                                                                                            <div class="form-input">
-                                                                                                                                <div class="form-input">
-                                                                                                                                    <div class="callout-a ">
-                                                                                                                                        <a href="#" class="button-3">X</a>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                        <?php } ?>
-                                    
-                                    
-                                                                                                <div class="clear"></div>
-                                                                                                <div class="enlacesencillo">
-                                                                                                    <a href="#">AÃ±adir mÃ¡s primeros<span><i
-                                                                                                                class="fa fa-arrow-circle-right"></i></span></a>
-                                                                                                </div>
-                                                                                            </div>
-                                    
-                                                                                        </div>
-                                    
-                                    
-                                                                                        <hr class="bordepunteadogris">
-                                    
-                                                                                        <div class="separadorgrande"></div>
-                                    
-                                    
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                    
-                                        <?php if ($value->postre_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
-                                        <?php } ?>
-                                    
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->cafe_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con cafÃ©</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con cafÃ©</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->pan_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-3">
-                                                                                                <div class="form-input">
-                                        <?php if ($value->bebida_menu == 1) { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
-                                        <?php } else { ?>
-                                                                                                                        <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
-                                        <?php } ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                    
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-md-3">
-                                                                                                <label>Observaciones</label>
-                                                                                            </div>
-                                                                                            <div class="col-md-9 nodosfilas convertir12">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-pencil"></i>
-                                                                                                    <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
-                                                                                                    <strong><div id="contador"></div></strong>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="row">
-                                                                                            <p class="reducirfila">Â¿Este menÃº lo vas a reutilizar a
-                                                                                                menudo? Ponle un nombre y dale a "Guardar como menÃº habitual"</p>
-                                                                                            <div class="col-md-8 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name"
-                                                                                                                                         type="text"
-                                                                                                                                         placeholder="Ej. MenÃº de los lunes, MenÃº arroces, etc...">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-md-4 nodosfilas">
-                                                                                                <div class="form-input">
-                                                                                                    <div class="callout-a ">
-                                                                                                        <a href="#" class="button-3">Guardar como menÃº habitual</a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="separadorpeq"></div>
-                                                                                        <div class="row centrar reducirfila">
-                                                                                            <input class="button-3 botonpeq" type="submit"
-                                                                                                   value="Actualizar menÃº">
-                                                                                        </div>
-                                    
-                                                                                    </form>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="alerts">
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <div>
+                                                                                        <h3>Selección de menús habituales</h3>
+                                                                                        <p>Si lo prefieres, puedes seleccionar uno de tus menús guardados para no teclearlos de nuevo. Sobre ellos puedes modificar lo que quieras:</p>
+                            
+                            
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6">
+                                                                                                <label>
+                                                                                                    <a href="#">Menú de los lunes&nbsp;
+                                                                                                        <i class="fa fa-check-circle"></i>
+                                                                                                    </a>&nbsp;
+                            
+                                                                                                    <a href="#">
+                                                                                                        <i class="fa fa-times-circle"></i>
+                                                                                                    </a>
+                                                                                                </label>
+                                                                                            </div>
+                            
+                                                                                            <div class="col-md-6">
+                                                                                                <label>
+                                                                                                    <a href="#">Menú de los lunes&nbsp;
+                                                                                                        <i class="fa fa-check-circle"></i>
+                                                                                                    </a>&nbsp;
+                            
+                                                                                                    <a href="#">
+                                                                                                        <i class="fa fa-times-circle"></i>
+                                                                                                    </a>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                            
+                            
+                                                                                    </div>
+                                                                                </div>
+                            
+                            
+                                                                                <div class="row derecha">
+                                                                                    <input class="button-3 botonpeq" type="submit" value="Borrar cajas y escribir de nuevo">
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>ENTRANTES</h5>
+                            
+                                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-10 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="callout-a ">
+                                                                                                                            <a href="#" class="button-3">X</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                        <?php } ?>
+                            
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#">Añadir más primeros<span><i
+                                                                                                        class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                            
+                            
+                            
+                                                                                    <div class="col-md-6 dosfilas">
+                                                                                        <h5>PLATO PRINCIPAL</h5>
+                            
+                                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-10 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <i class="fa fa-cutlery"></i> <input name="name" id="name" type="text" value="Arroz con pollo">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2 nodosfilas">
+                                                                                                                <div class="form-input">
+                                                                                                                    <div class="form-input">
+                                                                                                                        <div class="callout-a ">
+                                                                                                                            <a href="#" class="button-3">X</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                        <?php } ?>
+                            
+                            
+                                                                                        <div class="clear"></div>
+                                                                                        <div class="enlacesencillo">
+                                                                                            <a href="#">Añadir más primeros<span><i
+                                                                                                        class="fa fa-arrow-circle-right"></i></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                            
+                                                                                </div>
+                            
+                            
+                                                                                <hr class="bordepunteadogris">
+                            
+                                                                                <div class="separadorgrande"></div>
+                            
+                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                            
+                                        <?php if ($value->postre_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu" checked><label>Con postre</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="postre_menu" id="postre_menu"><label>Con postre</label>
+                                        <?php } ?>
+                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->cafe_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"checked><label>Con café</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="cafe_menu" id="cafe_menu"><label>Con café</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->pan_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu" checked><label>Con pan</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="pan_menu" id="pan_menu"><label>Con pan</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="form-input">
+                                        <?php if ($value->bebida_menu == 1) { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu" checked><label>Con bebida</label>
+                                        <?php } else { ?>
+                                                                                                            <input type="checkbox" name="bebida_menu" id="bebida_menu"><label>Con bebida</label>
+                                        <?php } ?>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                            
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <label>Observaciones</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-9 nodosfilas convertir12">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-pencil"></i>
+                                                                                            <textarea maxlength="255" name="observaciones_menu" id="observaciones_menu" type="text"></textarea>
+                                                                                            <strong><div id="contador"></div></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <p class="reducirfila">Â¿Este menú lo vas a reutilizar a
+                                                                                        menudo? Ponle un nombre y dale a "Guardar como menú habitual"</p>
+                                                                                    <div class="col-md-8 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <i class="fa fa-cutlery"></i> <input name="name" id="name"
+                                                                                                                                 type="text"
+                                                                                                                                 placeholder="Ej. Menú de los lunes, Menú arroces, etc...">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 nodosfilas">
+                                                                                        <div class="form-input">
+                                                                                            <div class="callout-a ">
+                                                                                                <a href="#" class="button-3">Guardar como menú habitual</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="separadorpeq"></div>
+                                                                                <div class="row centrar reducirfila">
+                                                                                    <input class="button-3 botonpeq" type="submit"
+                                                                                           value="Actualizar menú">
+                                                                                </div>
+                            
+                                                                            </form>
                                                                         </div>
-                                    
+                                                                    </div>
+                                                                </div>
+                            
                                     <?php } ?>
-                    
-                    
-                    
-                    
-                                                    
+                
+                
+                
+                
+                                                
                                 <?php } ?>
                                 -->
                             </div>
@@ -1194,13 +1173,13 @@
                             <!--
                                     <div class="section-content">
                                             <h4 class="accordion-title">
-                                                    <a href="#">MenÃº ejecutivo<i class="fa fa-minus"></i></a>
+                                                    <a href="#">Menú ejecutivo<i class="fa fa-minus"></i></a>
                                             </h4>
                                             <div class="accordion-inner"></div>
                                     </div>
                                     <div class="section-content">
                                             <h4 class="accordion-title">
-                                                    <a href="#">MenÃº fin de semana<i class="fa fa-minus"></i></a>
+                                                    <a href="#">Menú fin de semana<i class="fa fa-minus"></i></a>
                                             </h4>
                                             <div class="accordion-inner"></div>
                                     </div>
@@ -1317,7 +1296,7 @@
                                     <div class="col-md-7 nodosfilas convertir9">
                                         <div class="form-input">
                                             <i class="fa fa-key"></i>
-                                            <input name="password_propietario" id="pass_propietario" type="text" placeholder="Escribe tu nueva contraseÃ±a si quieres cambiarla">
+                                            <input name="password_propietario" id="pass_propietario" type="text" placeholder="Escribe tu nueva contraseña si quieres cambiarla">
                                         </div>
                                     </div>
                                     <div class="col-md-3 nodosfilas">
@@ -1640,11 +1619,11 @@
                                             <i class="fa fa-eur"></i>
                                             <select name="precio_medio_restaurante" id="precio_medio_restaurante">
                                                 <option>Selecciona rango de precios</option>
-                                                <option value="1" <?php $restauranteActual->precio_carta_restaurante == 1 ? 'selected' : '' ?>>Menos de 15€</option>
-                                                <option value="2" <?php $restauranteActual->precio_carta_restaurante == 2 ? 'selected' : '' ?>>16-25€</option>
-                                                <option value="3" <?php $restauranteActual->precio_carta_restaurante == 3 ? 'selected' : '' ?>>26-35€</option>
-                                                <option value="4" <?php $restauranteActual->precio_carta_restaurante == 4 ? 'selected' : '' ?>>36-50€</option>
-                                                <option value="5" <?php $restauranteActual->precio_carta_restaurante == 5 ? 'selected' : '' ?>>Más de 51€</option>
+                                                <option <?php if($restauranteActual->precio_medio_restaurante == 'Menos de 15€'){ echo ' selected="selected"'; } ?>>Menos de 15€</option>
+                                                <option <?php if($restauranteActual->precio_medio_restaurante == '16-25€'){ echo ' selected="selected"'; } ?>>16-25€</option>
+                                                <option <?php if($restauranteActual->precio_medio_restaurante == '26-35€'){ echo ' selected="selected"'; } ?>>26-35€</option>
+                                                <option <?php if($restauranteActual->precio_medio_restaurante == '36-50€'){ echo ' selected="selected"'; } ?>>36-50€</option>
+                                                <option <?php if($restauranteActual->precio_medio_restaurante == 'Más de 51€'){ echo ' selected="selected"'; } ?>>Más de 51€</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1674,7 +1653,7 @@
                                     </div>
                                     <div class="col-md-7 nodosfilas convertir9">
                                         <div class="form-input">
-                                            <input name="file" id="file" type="file">
+                                            <input name="archivo_carta" id="archivo_carta" type="file">
                                         </div>
                                     </div>
                                     <div class="col-md-3 nodosfilas">
@@ -1694,7 +1673,7 @@
                                                 <a href="<?php echo base_url() ?>assets/pdfs/<?php echo $restauranteActual->carta_restaurante; ?>" target="_blank">Mostrar carta</a>
                                             </span>
                                         <?php } else { ?>
-                                            <span class="restauranteseleccionado">
+                                            <span id="mostrar_carta" class="restauranteseleccionado">
                                                 Actualmente no tiene subida ninguna carta.
                                             </span>
                                         <?php } ?>
@@ -1796,12 +1775,11 @@
                                                 <select name="primera_categoria_restaurante" id="primera_categoria_restaurante">
                                                     <option>Selecciona categoría</option>
                                                     <?php foreach ($listadoCategorias as $key => $value) { ?>
-                                                        <option value="<?php echo $value->id_categoria; ?>" <?php $restauranteActual->categorias_id_categoria == $value->id_categoria ? 'selected' : ''; ?>>
+                                                        <option value="<?php echo $value->id_categoria; ?>"<?php if($restauranteActual->categorias_id_categoria == $value->id_categoria){ echo ' selected="selected"'; } ?>>
                                                             <?php echo $value->nombre_categoria; ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
-
                                             </div>
                                         </div>
 
@@ -1828,7 +1806,7 @@
                                                 <select name="segunda_categoria_restaurante" id="segunda_categoria_restaurante">
                                                     <option>Selecciona categoría</option>
                                                     <?php foreach ($listadoCategorias as $key => $value) { ?>
-                                                        <option value="<?php echo $value->id_categoria; ?>"  <?php $restauranteActual->segunda_categoria_restaurante == $value->id_categoria ? 'selected' : ''; ?>>
+                                                        <option value="<?php echo $value->id_categoria; ?>"<?php if($restauranteActual->segunda_categoria_restaurante == $value->id_categoria){ echo ' selected="selected"'; } ?>>
                                                             <?php echo $value->nombre_categoria; ?>
                                                         </option>
                                                     <?php } ?>
@@ -1857,7 +1835,7 @@
                                                 <select name="tercera_categoria_restaurante" id="tercera_categoria_restaurante">
                                                     <option>Selecciona categoría</option>
                                                     <?php foreach ($listadoCategorias as $key => $value) { ?>
-                                                        <option value="<?php echo $value->id_categoria; ?>"  <?php $restauranteActual->tercera_categoria_restaurante == $value->id_categoria ? 'selected' : ''; ?>>
+                                                        <option value="<?php echo $value->id_categoria; ?>"<?php if($restauranteActual->tercera_categoria_restaurante == $value->id_categoria){ echo ' selected="selected"'; } ?>>
                                                             <?php echo $value->nombre_categoria; ?>
                                                         </option>
                                                     <?php } ?>
@@ -1877,7 +1855,7 @@
                                 </article>
 
 
-
+                                
 
 
 
@@ -1896,69 +1874,28 @@
                                 <hr class="bordepunteadogris">
                                 <div class="separadorpeq"></div>
                                 <h6>Especialidades</h6>
-                                <div id="lista-especialidades" class="row">
-                                    <!--<div class="mensajeexito editFormEspecialidades" style="display:none;"></div>-->
+                                <div class="row">
+                                
+                                	<div id="listado_especialidades"></div>
 
-                                    <?php if ($listadoEspecialidades) { ?>
-                                        <?php foreach ($listadoEspecialidades as $key => $value) { ?>
-                                            <div class="col-md-9 nodosfilas">
-                                                <div class="form-input">
-                                                    <i class="fa fa-cutlery"></i>
-                                                    <input name="nombre_especilidad" id="nombre_especilidad" type="text" value="<?php echo $value->nombre_especialidad; ?>" disabled>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3 nodosfilas">
-                                                <div class="form-input">
-                                                    <div class="callout-a ">
-                                                        <a href="<?php echo base_url(); ?>acceso/restaurador/eliminar-especialidad?clave=<?php echo $value->clave_especialidad; ?>" class="button-3">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    <?php } else { ?>
-                                        <div class="col-md-9 nodosfilas">
-                                            <div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">
-                                                <p>Actualmente no has aÃ±adido ninguna especialidad a tu restaurante</p>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-
-
-
-                                    <div id="mensaje_especialidad" class="mensajeconfondo"></div>                                                                                
                                     <div class="col-md-9 nodosfilas">
                                         <div class="form-input">
                                             <i class="fa fa-cutlery"></i>
-                                            <input name="select_nombre_especialidad" id="select_nombre_especialidad" type="text" Placeholder="AÃ±adir otra especialidad">
+                                            <input name="nueva_especialidad" id="nueva_especialidad" type="text" Placeholder="Añadir nueva especialidad">
                                         </div>
                                     </div>
 
                                     <div class="col-md-3 nodosfilas">
                                         <div class="form-input">
                                             <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnAddEspecialtiesForm">AÃ±adir</a>
+                                                <a href="#" class="button-3" id="btnAddEspecialtiesForm">Añadir</a>
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div id="mensaje_especialidades" class="mensajeconfondo"></div>
 
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1968,118 +1905,50 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="separadorpeq"></div>
-                                <h6>Puntos de interÃ©s</h6>
+                                <h6>Puntos de interés</h6>
                                 <div class="row">
-                                    <div class="mensajeexito editFormPuntoInteres" style="display:none;"></div>
-
-                                    <?php if ($listadoPuntosInteres) { ?>
-                                        <?php foreach ($listadoPuntosInteres as $key => $value) { ?>
-                                            <div class="col-md-9 nodosfilas">
-                                                <div class="form-input">
-                                                    <i class="fa fa-map-marker"></i>
-                                                    <input name="nombre_punto_cercano" id="nombre_punto_cercano" type="text" value="<?php echo $value->nombre_punto_cercano; ?>" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 nodosfilas">
-                                                <div class="form-input">
-                                                    <div class="callout-a">
-                                                        <a href="<?php echo base_url(); ?>acceso/restaurador/eliminar-puntos-interes?pinteres=<?php echo $value->clave_punto_cercano; ?>" class="button-3" id="btnDeletePInteres">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    <?php } else { ?>
-                                        <div class="col-md-9 nodosfilas">
-                                            <div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">
-                                                <p>Actualmente no has aÃ±adido ningun punto cercano a tu restaurante</p>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-
-
+                                
+                                	<div id="listado_punto_interes"></div>
 
                                     <div class="col-md-9 nodosfilas">
                                         <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="select_nombre_punto_cercano" id="select_nombre_punto_cercano" type="text" Placeholder="AÃ±adir otro punto de interÃ©s">
+                                            <i class="fa fa-cutlery"></i>
+                                            <input name="nuevo_punto_interes" id="nuevo_punto_interes" type="text" Placeholder="Añadir nuevo punto de interés">
                                         </div>
                                     </div>
+
                                     <div class="col-md-3 nodosfilas">
                                         <div class="form-input">
                                             <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnAddPuntoInteres">AÃ±adir</a>
+                                                <a href="#" class="button-3" id="btnAddPuntoInteres">Añadir</a>
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div id="mensaje_punto_interes" class="mensajeconfondo"></div>
 
                                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
                                 <hr class="bordepunteadogris">
                                 <div class="separadorpeq"></div>
+                                
+                                
                                 <h6>Estaciones de metro</h6>
                                 <div class="row">
 
-                                    <div class="mensajeexito addFormEstacion" style="display:none;"></div>
-
-                                    <?php if ($listadoEstacionesRestaurante) { ?>
-
-                                        <?php foreach ($listadoEstacionesRestaurante as $key => $value) { ?>
-                                            <div class="col-md-9 nodosfilas">
-                                                <div class="form-input">
-                                                    <i class="fa fa-map-marker"></i>
-                                                    <input type="text" name="estacion_restaurante" id="estacion_restaurante" value="<?php echo $value->nombre_rel_estacion_restaurante; ?>" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 nodosfilas">
-                                                <div class="form-input">
-                                                    <div class="callout-a "><a href="#" class="button-3">Eliminar</a></div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-
-                                    <?php } else { ?>
-                                        <div class="col-md-9 nodosfilas">
-                                            <div class="form-input" style="text-align: center; margin: 20px 0 40px 0;">
-                                                <p>Actualmente no has aÃ±adido ninguna estaciÃ³n cercana a tu restaurante</p>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-
-
-
+                                	<div id="listado_estaciones_metro"></div>
+                                    
                                     <div class="col-md-9 nodosfilas">
                                         <div class="form-input">
                                             <i class="fa fa-map-marker"></i>
-                                            <select name="nombre_estacion" id="nombre_estacion">
-                                                <option>AÃ±adir estaciÃ³n</option>
-                                                <option>------------------</option>
+                                            <select name="nueva_estacion_metro" id="nueva_estacion_metro">
+                                                <option value="-2">Añadir estación</option>
+                                                <option value="-1">------------------</option>
 
                                                 <?php foreach ($listadoEstaciones as $key => $value) { ?>
-                                                    <option><?php echo $value->nombre_estacion; ?></option>
+                                                    <option value="<?php echo $value->id_estacion; ?>"><?php echo $value->nombre_estacion; ?></option>
                                                 <?php } ?>
 
                                             </select>
@@ -2088,13 +1957,16 @@
                                     <div class="col-md-3 nodosfilas">
                                         <div class="form-input">
                                             <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnAddEstacion">AÃ±adir</a>
+                                                <a href="#" class="button-3" id="addEstacionMetro">Añadir</a>
                                             </div>
                                         </div>
                                     </div>
-
-
+                                
+                               		<div id="mensaje_estaciones_metro" class="mensajeconfondo"></div>
                                 </div>
+                                    
+                                    
+                                    
                                 <input type="hidden" name="id_restaurante" id="id_restaurante" value="<?php echo $restauranteActual->clave_restaurante; ?>">
                                 <input type="hidden" name="id_restaurantes" id="id_restaurantes" value="<?php echo $restauranteActual->id_restaurante; ?>">
                             </form>
@@ -2103,22 +1975,6 @@
 
                         </div>
                     </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2138,32 +1994,55 @@
 
 
                     <article id="facturacion" class="seccion-restaurante">
-                        <h6>Datos facturaciÃ³n</h6>
+                        <h6>Datos facturación</h6>
                         <div class="form-generico">
 
 
-                            <form method="post" id="form-1" name="formularioFacturacion">
-                                <div class="row">
+                            <div class="row">
 
-                                    <div class="mensajeexito editFormRazonSocial" style="display:none;"></div>
-
-
-                                    <div class="col-md-2">
-                                        <label>RazÃ³n Social</label>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Razón Social</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-user"></i>
+                                        <input name="razon_social_facturacion" id="razon_social_facturacion" type="text" value="<?php echo $datosFacturacion->razon_social_facturacion; ?>">
                                     </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-user"></i>
-                                            <input name="razon_social_facturacion" id="razon_social_facturacion" type="text" value="<?php echo $datosFacturacion->razon_social_facturacion; ?>">
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditRazonFacturacion">Modificar</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
+                                </div>
+								<div id="mensaje_razon_facturacion" class="mensajeconfondo"></div>
+
+
+
+
+
+
+
+                                <!-- Revisar -->
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">CIF / NIF</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-user"></i>
+                                        <input name="cif_facturacion" id="cif_facturacion" type="text" placeholder="Poner NIF / CIF - Facturación" value="<?php echo $datosFacturacion->cif_facturacion; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditCifFacturacion">Modificar</a>
                                         </div>
                                     </div>
+                                </div>
+								<div id="mensaje_cif_facturacion" class="mensajeconfondo"></div>
 
 
 
@@ -2171,248 +2050,245 @@
 
 
 
-                                    <!-- Revisar -->
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>CIF / NIF</label>
+
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Calle</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-map-marker"></i>
+                                        <input name="calle_facturacion" id="calle_facturacion" type="text" value="<?php echo $datosFacturacion->direccion_facturacion; ?>">
                                     </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-user"></i>
-                                            <input name="cif_facturacion" id="cif_facturacion" type="text" placeholder="Poner NIF / CIF - FacturaciÃ³n">
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditCalleFacturacion">Modificar</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
+                                </div>
+								<div id="mensaje_calle_facturacion" class="mensajeconfondo"></div>
+
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Número</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-map-marker"></i>
+                                        <input name="numero_facturacion" id="numero_facturacion" type="text" value="<?php echo $datosFacturacion->numero_facturacion; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditNumeroFacturacion">Modificar</a>
                                         </div>
                                     </div>
+                                </div>
+								<div id="mensaje_numero_facturacion" class="mensajeconfondo"></div>
 
 
 
-
-
-
-
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Calle</label>
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Código Postal</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-map-marker"></i>
+                                        <input name="cp_facturacion" id="cp_facturacion" type="text" value="<?php echo $datosFacturacion->cp_facturacion; ?>">
                                     </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="direccion_facturacion" id="direccion_facturacion" type="text" value="<?php echo $datosFacturacion->direccion_facturacion; ?>">
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditCpFacturacion">Modificar</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
+                                </div>
+								<div id="mensaje_cp_facturacion" class="mensajeconfondo"></div>
+
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Provincia</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-map-marker"></i>
+                                        <select class="provincia_gestor" name="provincia_facturacion" id="provincia_facturacion">
+                                            <option value="-1">Provincia</option>
+                                            <?php foreach ($listadoProvincias as $key => $value) { ?>
+                                                <option value="<?php echo $value->id_provincia; ?>"<?php
+                                                if (isset($provinciaMunicipioDatosFacturacion->provincias_id_provincia)){
+                                                    echo $provinciaMunicipioDatosFacturacion->provincias_id_provincia == $value->id_provincia ? ' selected="selected"' : '';
+                                                }
+                                                        ?>>
+                                                    <?php echo $value->nombre_provincia; ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditProvinciaFacturacion">Modificar</a>
                                         </div>
                                     </div>
+                                </div>
+								<div id="mensaje_provincia_facturacion" class="mensajeconfondo"></div>
+                                <input name="id_provincia_facturacion" id="id_provincia_facturacion" type="hidden" value="<?php echo $provinciaMunicipioDatosFacturacion->provincias_id_provincia; ?>" disabled>
 
 
 
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>NÃºmero</label>
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Municipio</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-map-marker"></i>
+                                        <select class="municipio_gestor" name="municipio_facturacion" id="municipio_facturacion">
+                                            <option>Municipio</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="numero_facturacion" id="numero_facturacion" type="text" value="<?php echo $datosFacturacion->numero_facturacion; ?>">
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditMunicipioFacturacion">Modificar</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
+                                </div>                            
+								<div id="mensaje_municipio_facturacion" class="mensajeconfondo"></div>    
+                                <input name="id_localidad_facturacion" id="id_localidad_facturacion" type="hidden" value="<?php echo $provinciaMunicipioDatosFacturacion->id_localidad; ?>" disabled>
+
+
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Correo electrónico facturación</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-envelope"></i>
+                                        <input name="email_facturacion" id="email_facturacion" type="text" value="<?php echo $datosFacturacion->email_facturacion; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditEmailFacturacion">Modificar</a>
                                         </div>
                                     </div>
+                                </div>
+								<div id="mensaje_email_facturacion" class="mensajeconfondo"></div>  
 
 
 
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>CÃ³digo Postal</label>
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Periodo de facturación</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-calendar"></i>
+                                        <input name="periodo_facturacion" id="periodo_facturacion" type="text" value="<?php echo $restauranteActual->creado_restaurante; ?>" disabled>
                                     </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="cp_facturacion" id="cp_facturacion" type="text" value="<?php echo $datosFacturacion->cp_facturacion; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Municipio</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="name" id="name" type="text" class="clarito" value="<?php echo $dameCpDatosFacturacion->nombre_localidad; ?>" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <span class="nota">Asociado al CP</span>
-                                    </div>
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Provincia</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-map-marker"></i>
-                                            <input name="name" id="name" type="text" class="clarito" value="<?php echo $dameCpDatosFacturacion->nombre_provincia; ?>" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <span class="nota">Asociado al CP</span>
-                                    </div>
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Correo electrÃ³nico facturaciÃ³n</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-envelope"></i>
-                                            <input name="email_facturacion" id="email_facturacion" type="text" value="<?php echo $datosFacturacion->email_facturacion; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Periodo de facturaciÃ³n</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-calendar"></i>
-                                            <input name="periodo_facturacion" id="periodo_facturacion" type="text" value="<?php echo $datosFacturacion->periodo_facturacion; ?>" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Plan contratado</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-eur"></i>
-
-                                            <select name="plan_contratado" id="plan_contratado">
-                                                <option value="<?php echo $restauranteActual->id_plan; ?>"><?php echo $restauranteActual->nombre_plan; ?></option>
-                                                <option>----------------------------------------</option>
-                                                <?php foreach ($listadoPlanes as $key => $value) { ?>
-                                                    <option value="<?php echo $value->id_plan; ?>"><?php echo $value->nombre_plan; ?></option>
-                                                <?php } ?>
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditPlanContratado">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>Forma de pago</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-
-                                        <div class="form-input">
-                                            <input type="radio" name="estructura"><label>Tarjeta</label>
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="form-input">
-                                            <input type="radio" name="estructura" checked><label>Cuenta bancaria</label>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="clear"></div>
-                                    <div class="col-md-2">
-                                        <label>NÃºmero de cuenta bancaria</label>
-                                    </div>
-                                    <div class="col-md-7 nodosfilas convertir9">
-                                        <div class="form-input">
-                                            <i class="fa fa-credit-card"></i>
-                                            <input name="num_cuenta_facturacion" id="num_cuenta_facturacion" type="text" value="<?php echo $datosFacturacion->num_cuenta_facturacion; ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 nodosfilas">
-                                        <div class="form-input">
-                                            <div class="callout-a ">
-                                                <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="clear"></div>
-
+                                </div>
+                                <div class="col-md-3 nodosfilas">
                                 </div>
 
 
-                                <input type="hidden" name="id_restaurante" id="id_restaurante" value="<?php echo $restauranteActual->clave_restaurante; ?>">
-                                <input type="hidden" name="id_restaurantes" id="id_restaurantes" value="<?php echo $restauranteActual->id_restaurante; ?>">
 
-                            </form>
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Plan contratado</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-eur"></i>
 
+                                        <select name="plan_contratado" id="plan_contratado">
+                                            <option value="-1">Seleccione Plan</option>
+                                            <option>----------------------------------------</option>
+                                            <?php foreach ($listadoPlanes as $key => $value) { ?>
+                                                <option value="<?php echo $value->id_plan; ?>"<?php
+                                                if (isset($restauranteActual->nombre_plan)){
+                                                    echo $restauranteActual->id_plan == $value->id_plan ? ' selected="selected"' : '';
+                                                }
+                                                        ?>><?php echo $value->nombre_plan; ?></option>
+                                            <?php } ?>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditPlanContratadoFacturacion">Modificar</a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div id="mensaje_plan_facturacion" class="mensajeconfondo"></div> 
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Forma de pago</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+
+                                    <div class="form-input">
+                                        <input type="radio" name="estructura"><label>Tarjeta</label>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                    <div class="form-input">
+                                        <input type="radio" name="estructura" checked><label>Cuenta bancaria</label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditBillingData">Modificar</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clear"></div>
+                                <div class="col-md-2">
+                                    <label style="cursor: text;">Número de cuenta bancaria</label>
+                                </div>
+                                <div class="col-md-7 nodosfilas convertir9">
+                                    <div class="form-input">
+                                        <i class="fa fa-credit-card"></i>
+                                        <input name="num_cuenta_facturacion" id="num_cuenta_facturacion" type="text" value="<?php echo $datosFacturacion->num_cuenta_facturacion; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 nodosfilas">
+                                    <div class="form-input">
+                                        <div class="callout-a ">
+                                            <a href="#" class="button-3" id="btnEditCuentaFacturacion">Modificar</a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div id="mensaje_cuenta_facturacion" class="mensajeconfondo"></div> 
+
+                            </div>
 
                         </div>
                     </article>
@@ -2425,121 +2301,24 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <article id="cupones" class="seccion-restaurante">
                         <h6>Cupones y descuentos</h6>
-                        <p>A continuaciÃ³n se indican los cupones y descuentos vigentes en
-                            el restaurante. Puede modificarlos o aÃ±adir mÃ¡s en la parte inferior.</p>
+                        <p>A continuación se indican los cupones y descuentos vigentes en
+                            el restaurante. Puede modificarlos o añadir más en la parte inferior.</p>
                         <div class="form-generico">
 
-                            <form method="post" id="form-1" action="<?php echo base_url(); ?>acceso/restaurador/editar-cupon">
-                                <div class="row">
-
-                                    <div class="mensajeexito editFormRazonSocial" style="display:none;"></div>
-
-                                    <?php foreach ($listadoCuponesRestaurate as $key => $value) { ?>
-                                        <div class="col-md-6">
-                                            <div class="callout">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label>TÃ­tulo</label>
-                                                    </div>
-                                                    <div class="col-md-9 nodosfilas convertir12">
-                                                        <div class="form-input">
-                                                            <i class="fa fa-pencil"></i> 
-                                                            <input name="select_titulo_cupon" id="select_titulo_cupon" type="text" value="<?php echo $value->titulo_cupon; ?>">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-3">
-                                                        <label>DescripciÃ³n</label>
-                                                    </div>
-                                                    <div class="col-md-9 nodosfilas convertir12">
-                                                        <div class="form-input">
-                                                            <i class="fa fa-pencil"></i>
-                                                            <textarea name="select_descripcion_cupon" id="select_descripcion_cupon"><?php echo $value->descripcion_cupon; ?></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label>Inicio promociÃ³n</label>
-                                                    </div>
-                                                    <div class="col-md-9 nodosfilas convertir12">
-                                                        <div class="form-input">
-                                                            <i class="fa fa-calendar"></i> 
-                                                            <input name="select_fecha_inicio_cupon" id="select_fecha_inicio_cupon" type="text" value="<?php echo $value->fecha_inicio_cupon; ?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label>Fin promociÃ³n</label>
-                                                    </div>
-                                                    <div class="col-md-9 nodosfilas convertir12">
-                                                        <div class="form-input">
-                                                            <i class="fa fa-calendar"></i> 
-                                                            <input name="select_fecha_fin_cupon" id="select_fecha_fin_cupon" type="text" value="<?php echo $value->fecha_fin_cupon; ?>">
-                                                        </div>
-                                                    </div>
-
-                                                    <!--
-                                                    <div class="col-md-6 nodosfilas">
-                                                            <input class="button-4" type="submit" value="Eliminar">
-                                                    </div>
-                                                    -->
-
-                                                    <div class="col-md-6 nodosfilas">
-                                                        <a href="<?php echo base_url(); ?>acceso/restaurador/eliminar-cupon?clave_cupon=<?php echo $value->clave_cupon; ?>" class="button-4" style="text-align:center;">Eliminar</a>
-                                                    </div>
+                            <div class="row" id="lista_cupones"></div>
 
 
-
-                                                    <div class="col-md-6 nodosfilas">
-                                                        <input class="button-3" type="submit" value="Modificar">
-                                                    </div>
-
-
-
-                                                    <input type="hidden" name="clave_cupon" id="clave_cupon" value="<?php echo $value->clave_cupon; ?>">
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-
-                                </div>
-                            </form>
-
-
-
-
-                            <div class="separadorpeq"></div>
                             <hr class="bordepunteadogris">
                             <div class="separadorpeq"></div>
 
 
-
-                            <p>AÃ±adir oferta o cupÃ³n:</p>
+                            <p>Añadir oferta o cupón:</p>
                             <div class="row">
 
-                                <div class="mensajeexito addFormCupon" style="display:none;"></div>
-
-                                <form method="POST">
                                     <div class="col-md-2">
-                                        <label>TÃ­tulo</label>
+                                        <label>Título</label>
                                     </div>
                                     <div class="col-md-10 nodosfilas convertir12">
                                         <div class="form-input">
@@ -2549,7 +2328,7 @@
                                     </div>
 
                                     <div class="col-md-2">
-                                        <label>DescripciÃ³n</label>
+                                        <label>Descripción</label>
                                     </div>
                                     <div class="col-md-10 nodosfilas convertir12">
                                         <div class="form-input">
@@ -2559,36 +2338,32 @@
                                     </div>
 
                                     <div class="col-md-2 nodosfilas">
-                                        <label>Inicio promociÃ³n</label>
+                                        <label>Inicio promoción</label>
                                     </div>
                                     <div class="col-md-4 nodosfilas">
                                         <div class="form-input">
                                             <i class="fa fa-calendar"></i> 
-                                            <input name="fecha_inicio_cupon" id="fecha_inicio_cupon" type="text">
+                                            <input name="fecha_inicio_cupon" id="fecha_inicio_cupon" type="text" readonly="readonly">
                                         </div>
                                     </div>
 
                                     <div class="col-md-2 nodosfilas">
-                                        <label>Fin promociÃ³n</label>
+                                        <label>Fin promoción</label>
                                     </div>
                                     <div class="col-md-4 nodosfilas">
                                         <div class="form-input">
                                             <i class="fa fa-calendar"></i> 
-                                            <input name="fecha_fin_cupon" id="fecha_fin_cupon" type="text">
+                                            <input name="fecha_fin_cupon" id="fecha_fin_cupon" type="text" readonly="readonly">
                                         </div>
                                     </div>
+                                    
+									<div id="mensaje_anadir_cupon" class="mensajeconfondo"></div> 
 
                                     <div class="col-md-12 centrar">
-                                        <input class="button-3 botonpeq" type="submit" id="btnAddCupon" value="AÃ±adir">
+                                        <input class="button-3 botonpeq" type="submit" id="btnAddCupon" value="Añadir">
                                     </div>
 
-                                    <input type="hidden" name="id_restaurante" id="id_restaurante" value="<?php echo $restauranteActual->clave_restaurante; ?>">
-                                    <input type="hidden" name="id_restaurantes" id="id_restaurantes" value="<?php echo $restauranteActual->id_restaurante; ?>">
-
-                                </form>
                             </div>
-
-
 
                         </div>
                     </article>
@@ -2608,84 +2383,7 @@
                         <h6>Fotos restaurante</h6>
                         <p>Estas son las fotos dadas de alta actualmente para este
                             restaurante:</p>
-                        <div class="form-generico">
-                            <form method="post" id="form-1" action="#">
-                                <div class="row portfolio-all portfolio-0 ajustaralto">
-                                    <ul>
-
-                                        <?php if ($listadoImagenes) { ?>
-
-
-
-                                            <?php foreach ($listadoImagenes as $key => $value) { ?>
-                                                <li class="col-md-4 portfolio-item portfolio-item-2 isotope-item">
-                                                    <div class="portfolio-one rellenarfondo">
-                                                        <div class="portfolio-head">
-                                                            <div class="portfolio-img">
-                                                                <img alt="" src="<?php echo base_url(); ?>assets/img_restaurantes/<?php echo $value->thumbnails_imagen; ?>.<?php echo $value->extension_imagen; ?>">
-                                                            </div>
-                                                            <div class="portfolio-hover">
-                                                                <div class="portfolio-meta">
-                                                                    <div class="portfolio-name">
-
-                                                                        <div class="form-input">
-                                                                            <i class="fa fa-pencil"></i> 
-                                                                            <input name="name" id="name" type="text" value="SalÃ³n">
-                                                                        </div>
-                                                                        <div class="form-input">
-                                                                            <?php if ($value->principal_imagen == 1) { ?>
-                                                                                <input type="checkbox" name="principal_imagen" id="principal_imagen" checked="checked"><label>Principal</label>
-                                                                            <?php } else { ?>
-                                                                                <input type="checkbox" name="principal_imagen" id="principal_imagen"><label>Principal</label>
-                                                                            <?php } ?>
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <!-- End portfolio-meta -->
-                                                                <a class="portfolio-link" href="#"><i class="fa fa-times"></i></a>
-                                                                <a class="portfolio-zoom prettyPhoto"
-                                                                   href="<?php echo base_url(); ?>assets/img_restaurantes/<?php echo $value->nombre_imagen; ?>"><i
-                                                                        class="fa fa-search"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End portfolio-head -->
-                                                    </div>
-                                                    <!-- End portfolio-item -->
-                                                </li>
-                                            <?php } ?>
-
-
-
-
-                                        <?php } else { ?>
-                                            <li class="col-md-12 portfolio-item portfolio-item-2 isotope-item">
-                                                <p style="text-align: center;">No hay imÃ¡genes</p>
-                                            </li>
-                                        <?php } ?>
-
-                                    </ul>
-                                </div>
-
-                                <div class="row centrar reducirfila">
-                                    <input class="button-3 botonpeq" type="submit" value="Guardar cambios">
-                                </div>
-
-                                <div class="separadorpeq"></div>
-
-                                <!--
-                                <div class="row centrar reducirfila">
-                                        <input class="button-4 botonpeq" type="button" id="addImagen" value="AÃ±adir mÃ¡s fotos">
-                                </div>
-                                -->
-
-                                <div class="row centrar reducirfila">
-                                    <a href="<?php echo base_url(); ?>acceso/restaurador/alta-imagenes?id_restaurante=<?php echo $restauranteActual->id_restaurante; ?>" class="button-4 botonpeq" style="text-align:center;">AÃ±adir mÃ¡s fotos</a>
-                                </div>
-
-                            </form>
-                        </div>
+                        <div class="form-generico" id="listado_imagenes"></div>
                     </article>
 
 
@@ -2695,29 +2393,30 @@
 
                         <div class="mensajeexito addFormTipoMenu" id="sendMessageSupport" style="display:none;"></div>
 
-                        <h6>Soporte tÃ©cnico</h6>
-                        <p>Â¿Tienes cualquier duda o consulta? MÃ¡ndanosla a travÃ©s de este formulario y te contestaremos lo antes posible:</p>
+                        <h6>Soporte técnico</h6>
+                        <p>¿Tienes cualquier duda o consulta? Mándanosla a través de este formulario y te contestaremos lo antes posible:</p>
                         <div class="form-generico">
-                            <form method="post" id="form-1" action="#">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <label>Mensaje</label>
-                                    </div>
-                                    <div class="col-md-11">
-                                        <div class="form-input">
-                                            <i class="fa fa-comment"></i>
-                                            <textarea id="mensaje_soporte" name="mensaje_soporte"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="clear"></div>
-
-                                    <div class="separadorpeq"></div>
-                                    <div class="row centrar reducirfila">
-                                        <input class="button-3 botonpeq" id="btnSubmitMessageSupport" type="submit" value="Enviar">
+                        
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label>Mensaje</label>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="form-input">
+                                        <i class="fa fa-comment"></i>
+                                        <textarea id="texto_mensaje_soporte" name="mensaje_soporte"></textarea>
                                     </div>
                                 </div>
-                            </form>
+
+                                <div class="clear"></div>
+
+                                <div id="mensaje_soporte" class="mensajeconfondo"></div>
+                                <div class="separadorpeq"></div>
+                                <div class="row centrar reducirfila">
+                                    <input class="button-3 botonpeq" id="btnEmailSoporte" type="submit" value="Enviar">
+                                </div>
+                            </div>
+                            
                         </div>
                     </article>
 

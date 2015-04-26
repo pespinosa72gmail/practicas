@@ -510,6 +510,7 @@ div.form-input.reducirpadding {height:20px;border:1px solid red}
 
 .mensajeexito {border:1px dashed #4c8331;padding:5px;text-align:center;clear:both;font-size:0.8em;margin:auto;margin-top:5px;margin-bottom:5px;width:99%;;background-color:#dbfbcb;}
 .mensajeexito i {font-size:1.3em;color:#4c8331}
+#mensajeconfondo, .mensajeconfondo {border:1px dashed #4c8331;padding:5px;text-align:center;clear:both;font-size:0.8em;margin:auto;margin-top:5px;margin-bottom:5px;width:99%;;background-color:#dbfbcb;display:none;}
 
 #mensaje {height:20px;text-align:center;margin-bottom:10px;}
 
@@ -618,6 +619,7 @@ img.logobar {float:right;padding-left:5px;padding-bottom:5px;max-width:100px}
 .botonesrrss, .botonesrrss a {color:white;margin-top:6px;display:block;float:none;clear:both}
  
 
+
 /*Rectificaciones responsive */
 
 @media (max-width: 1200px) {
@@ -685,6 +687,7 @@ img.logobar {float:right;padding-left:5px;padding-bottom:5px;max-width:100px}
 
 }
 @media (min-width: 600px) {
+	
 	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {    float: left;  }  
 	.col-md-12 {    width: 100%;  }  
 	.col-md-11 {    width: 91.66666666666666%;  }  
@@ -694,11 +697,10 @@ img.logobar {float:right;padding-left:5px;padding-bottom:5px;max-width:100px}
 	.col-md-7 {    width: 58.333333333333336%;  }  
 	.col-md-6 {    width: 50%;  }  
 	.col-md-5 {    width: 41.66666666666667%;  }  
-	.col-md-4 {    width: 33.33333333333333%;  }  
+	.col-md-4 {    width: 33.33333333333333%;  }
 	.col-md-3 {    width: 25%;  }  
 	.col-md-2 {    width: 16.666666666666664%;  }  
 	.col-md-1 {    width: 8.333333333333332%;  }
-	
 }
 
 @media (max-width: 599px) {
@@ -758,3 +760,9 @@ img.logobar {float:right;padding-left:5px;padding-bottom:5px;max-width:100px}
 		display:none;
 	}
 }
+
+
+	
+/* Panel de control de usuario */
+
+#mes_cumpleanos_usuario, #dia_cumpleanos_usuario, #ano_cumpleanos_usuario {text-align:center;padding-left:10px;}

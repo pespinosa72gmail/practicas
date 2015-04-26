@@ -22,15 +22,14 @@
 				<!-- Segunda columna 10/12 -->
 				<div class="col-md-9">
 					<article class="seccion-restaurante">
-                        
-						<h5>Gestión de propietarios - Alta de fotografías</h5>
-                    
+						<h5>Gestión de restaurador - Alta de fotografías</h5>
+						<p>
+							Selección actual: <span class="restauranteseleccionado"><?php echo $direccionRestaurante->tipo_restaurante . ' ' . $direccionRestaurante->nombre_restaurante . ' (' . $direccionRestaurante->nombre_localidad . ', ' . $direccionRestaurante->nombre_provincia . ')'; ?></span>
+						</p>
+
+						<h5>Alta/baja de restaurantes</h5>
+
 						<div class="row">
-							<div class="col-md-4">
-								<div class="callout-a ">
-									<a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado-gestion-propietarios'); ?>" class="button-3">Volver a gestión de propietarios</a>
-								</div>
-							</div>
 							<div class="col-md-4">
 								<div class="callout-a ">
 									<a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado'); ?>" class="button-3">Volver a panel de control</a>
@@ -42,13 +41,6 @@
 								</div>
 							</div>
 						</div>
-                                
-                        <div class="separadorpeq"></div>
-                        
-						<p>
-							Selección actual: <span class="restauranteseleccionado"><?php echo $direccionRestaurante->tipo_restaurante . ' ' . $direccionRestaurante->nombre_restaurante . ' (' . $direccionRestaurante->nombre_localidad . ', ' . $direccionRestaurante->nombre_provincia . ')'; ?></span>
-						</p>
-
 					</article>
 
 					<article id="subidafotos" class="seccion-restaurante">
@@ -60,16 +52,6 @@
 								<input type="hidden" name="id_restaurante" value="<?php echo $id_restaurante; ?>">
 							</form>
 						
-							<hr class="bordepunteadogris">
-                                
-                            <div class="separadorpeq"></div>
-                            
-                            <div class="row centrar reducirfila">
-                                <input id="submit-all" class="button-3 botonpeq" type="button" value="Subir y guardar">
-                            </div>
-                            
-                            
-                            
 								<!--
 								<ul class="restaurantesfavoritos_seleccion">
 									<li>

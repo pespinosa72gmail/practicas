@@ -1,5 +1,5 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/registro.restaurante.franquiciado.2.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/alta.restaurante.restaurador.js"></script>
 <section class="one-page-panelcontrol">
 
 	<div class="sections">
@@ -12,7 +12,7 @@
 							<nav class="menu">
 							<ul>
 								<li><a href="#altarestaurante">Alta de restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></li>
-								<!-- <li><a href="#bajarestaurante">Eliminar restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></li> -->
+								<li><a href="#bajarestaurante">Eliminar restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></li>
 							</ul>
 							</nav>
 						</div>
@@ -22,16 +22,13 @@
 				<div class="col-md-9">
 					<article class="seccion-restaurante">
 
-						<h5>Gestión de propietarios - Alta/baja de restaurantes</h5>
+						<h5>Gestión de restauradores - Alta/baja de restaurantes</h5>
 							
           <div class="row">
-            <div class="col-md-4">
-								<div class="callout-a "><a href="<?php echo base_url(); ?>acceso/franquiciado/panel-franquiciado-gestion-propietarios" class="button-3">Volver a gestión de propietarios</a></div>
+							 <div class="col-md-6">
+								<div class="callout-a "><a href="<?php echo base_url('acceso/restaurador/panel-restaurador'); ?>" class="button-3">Volver a panel de control</a></div>
 							</div>
-							 <div class="col-md-4">
-								<div class="callout-a "><a href="<?php echo base_url(); ?>acceso/franquiciado/panel-franquiciado" class="button-3">Volver a panel de control</a></div>
-							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="callout-a "><a href="<?php echo base_url(); ?>logout" class="button-3">Desconectar</a></div>
 							 </div>
 						</div>
@@ -132,14 +129,7 @@
                                 <div class="col-md-9 nodosfilas convertir12">
                                     <div class="form-input">
                                         <i class="fa fa-map-marker"></i>
-                                        <select class="provincia_gestor" name="cp_restaurante" id="cp_restaurante">
-                                            <option value="-1">Seleccione un CP de los asignados</option>
-                                            <?php foreach ($listadoCpAsignados as $value) { ?>
-                                                <option value="<?php echo $value->cp_rel_franquiciado_cp; ?>">
-                                                    <?php echo $value->cp_rel_franquiciado_cp; ?>
-                                                </option>
-                                            <?php } ?>
-                                        </select>
+                                        <input name="cp_restaurante" id="cp_restaurante" type="text">
                                     </div>
                                 </div>
                                 
@@ -227,23 +217,43 @@
 
                             <div class="separadorpeq"></div>
 
-                            <!--
-                            <div class="mensajeexito">
-              <i class="fa fa-info-circle"></i>&nbsp;&nbsp;Para guardar estos datos primero debe guardar los datos del propietario (arriba)
-            </div>
-            -->
 							<div id="mensaje_resultado" class="mensajeconfondo"></div>
 
                             <div class="row centrar reducirfila">
-                                    <input type="hidden" name="id_propietario" id="id_propietario" value="<?php echo $dameClavePropietario->id_propietario; ?>">
-
                                     <input type="hidden" name="clave_plan" id="clave_plan" value="<?php echo $planContratado; ?>">
-                                    <input type="hidden" name="nuevo_propietario" id="nuevo_propietario" value="<?php echo $nuevoPropietario; ?>">
                                     <input class="button-4 botonpeq" id="comprobar_ubicacion" type="submit" value="Comprobar ubicación">
                                     <input style="display:none;" id="paso_siguiente_pag" class="button-3 botonpeq" type="submit" value="Paso siguiente">
                             </div>
 						</div>
 					</article>
+                    
+                    
+                    
+                    
+                    
+					<article id="bajarestaurante" class="seccion-restaurante">
+						<h6>Listado de restaurantes - Baja</h6>
+						<p>Este es el listado de tus restaurantes dados de alta. Para eliminar alguno, pincha en el botón "Eliminar".</p>
+						<p>Para modificar alguno, vuelve al panel de control, selecciona el restaurante que quieras y edita sus datos.</p>
+						 <div class="form-generico">
+
+
+								<div class="row">
+
+									<div class="col-md-12">
+										<ul class="restaurantesfavoritos_seleccion" id="baja_restaurantes">
+
+
+										</ul>	
+									</div>
+								</div>
+
+						</div>
+						<div class="clear"></div>
+					</article>
+                    
+                    
+                    
 
 					
 				</div><!-- FIN Segunda columna 10/12 -->

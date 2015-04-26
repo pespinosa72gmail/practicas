@@ -98,7 +98,7 @@
 <script src="<?php echo base_url(); ?>assets/js/calendarios.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/login.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/app_franquiciados.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/js/app_franquiciados.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/dropzone/dropzone.js"></script>
 
 

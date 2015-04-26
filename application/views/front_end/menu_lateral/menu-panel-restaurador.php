@@ -20,7 +20,7 @@
 	<a href="#cupones">Cupones y descuentos<span><i class="fa fa-arrow-circle-right"></i></span></a>
 </li>
 <li>
-	<a href="<?php echo base_url('acceso/restaurador/alta-restaurante'); ?>" id="altaRestaurante">Alta / Baja restaurantes<span><i class="fa fa-arrow-circle-right"></i></span></a>
+	<a href="<?php echo base_url('acceso/restaurador/alta-restaurante-plan'); ?>" id="altaRestaurantePlan">Alta / Baja restaurantes<span><i class="fa fa-arrow-circle-right"></i></span></a>
 </li>
 <li>
 	<a href="#fotos">Fotos restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a>

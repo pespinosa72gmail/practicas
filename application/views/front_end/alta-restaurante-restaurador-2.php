@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/registro.restaurante.franquiciado.3.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/alta.restaurante.restaurador.2.js"></script>
 <section class="one-page-panelcontrol">
 
 	<div class="sections">
@@ -12,10 +12,7 @@
 						</div>
 						<nav class="menu">
 							<ul>
-								<li><a href="#altarestaurante">Alta de restaurante<span><i
-											class="fa fa-arrow-circle-right"></i></span></a></li>
-								<li><a href="#bajarestaurante">Eliminar restaurante<span><i
-											class="fa fa-arrow-circle-right"></i></span></a></li>
+								<li><a href="#altarestaurante">Alta de restaurante<span><i class="fa fa-arrow-circle-right"></i></span></a></li>
 							</ul>
 						</nav>
 					</div>
@@ -26,22 +23,16 @@
 				<div class="col-md-9">
 					<article class="seccion-restaurante">
 
-						<h5>Gestión de propietarios - Alta/baja de restaurantes</h5>
+						<h5>Gestión de restauradores - Alta/baja de restaurantes</h5>
 
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="callout-a ">
-									<a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado-gestion-propietarios'); ?>"
-										class="button-3">Volver a gestión de propietarios</a>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="callout-a ">
-									<a href="<?php echo base_url('acceso/franquiciado/panel-franquiciado'); ?>" class="button-3">Volver
+									<a href="<?php echo base_url('acceso/restaurador/panel-restaurador'); ?>" class="button-3">Volver
 										a panel de control</a>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="callout-a ">
 									<a href="<?php echo base_url(); ?>logout" class="button-3">Desconectar</a>
 								</div>
@@ -53,7 +44,7 @@
 
 					<article id="altarestaurante" class="seccion-restaurante">
 					<!-- Facturación -->
-						<form name="alta_restaurante_franquiciado_3" action="<?php echo base_url(); ?>acceso/franquiciado/registro-propietario-franquiciado-3" method="POST">
+						<form name="alta_restaurante_restaurador_2" action="<?php echo base_url(); ?>acceso/restaurador/alta-restaurante-3" method="POST">
 						<div class="form-generico">
 							<div class="separadorpeq"></div>
 							<h6>Alta de restaurante - Datos facturación</h6>
@@ -328,9 +319,8 @@
 								<div id="mensaje_resultado" class="mensajeconfondo"></div>
                             
 								<div class="row centrar reducirfila">
-									<input type="hidden" name="clave_restaurante" id="clave_restaurante" value="<?php echo $dameDatosRestaurante->id_restaurante; ?>">
+									<input type="hidden" name="clave_restaurante" id="clave_restaurante" value="<?php echo $clave_restaurante; ?>">
 									<input type="hidden" name="clave_plan" id="clave_plan" value="<?php echo $clave_plan; ?>">
-									<input type="hidden" name="nuevo_propietario" id="nuevo_propietario" value="<?php echo $nuevoPropietario; ?>">
 									<input class="button-3 botonpeq" id="btnAddOtrosDatosRestaurante" type="button" value="Guardar datos">
 								</div>
 

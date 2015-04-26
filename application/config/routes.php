@@ -142,6 +142,11 @@ $route['acceso/restaurador/seleccionar-menu-habitual'] = "restaurador/selecction
 
 /* Acciones del restaurador y sus restaurantes */
 $route['acceso/restaurador/actualizar-categorias'] = "restaurador/editarCategoriasRestaurante";
+$route['acceso/restaurador/alta-restaurante-plan'] = "restaurador/altaRestaurantePlan";
+$route['acceso/restaurador/alta-restaurante/(:any)'] = "restaurador/registroRestaurante/$1";
+$route['acceso/restaurador/alta-restaurante-2/(:any)/(:any)'] = "restaurador/registroRestaurante2/$1/$2";
+$route['acceso/restaurador/alta-restaurante-3'] = "restaurador/altaRestaurante3";
+$route['acceso/restaurador/alta-restaurante-3/(:any)'] = "restaurador/altaRestaurante4/$1";
 $route['acceso/restaurador/alta-restaurante'] = "restaurante/index";
 $route['registro-restaurante'] = "restaurante/altaRestaurante";
 $route['acceso/restaurador/alta-restaurante-2'] = "restaurante/altaDatosRestaurante";
@@ -149,7 +154,8 @@ $route['registro-restaurante-2'] = "restaurante/altaRestaurante2";
 
 
 /**********************************************************/
-$route['acceso/restaurador/alta-imagenes'] = "imagenes/altaImagenesRestaurante";
+//$route['acceso/restaurador/alta-imagenes'] = "imagenes/altaImagenesRestaurante";
+$route['acceso/restaurador/alta-imagenes/(:any)'] = "restaurador/altaImagenesRestaurante/$1";
 $route['acceso/restaurador/cargar-imagenes-ajax'] = "imagenes/dameImagenesRestaurantes";
 /**********************************************************/
 
@@ -230,12 +236,12 @@ $route['acceso/franquiciado/alta-propietario-franquiciado-2/(:any)/(:any)'] = "f
 //$route['acceso/franquiciado/registro-propietario-franquiciado-2'] = "franquiciado/altaPropietariosFranquiciado2";
 
 //$route['acceso/franquiciado/alta-propietario-franquiciado-3'] = "franquiciado/vistaAltaPropietarios3";
-$route['acceso/franquiciado/alta-propietario-franquiciado-3/(:any)'] = "franquiciado/vistaAltaPropietarios3/$1";
+$route['acceso/franquiciado/alta-propietario-franquiciado-3/(:any)/(:any)'] = "franquiciado/vistaAltaPropietarios3/$1/$2";
 $route['acceso/franquiciado/registro-propietario-franquiciado-3'] = "franquiciado/altaPropietariosFranquiciado3";
 
-$route['acceso/franquiciado/alta-propietario-franquiciado-4'] = "franquiciado/vistaAltaPropietarios4";
+//$route['acceso/franquiciado/alta-propietario-franquiciado-4'] = "franquiciado/vistaAltaPropietarios4";
+$route['acceso/franquiciado/alta-propietario-franquiciado-4/(:any)'] = "franquiciado/vistaAltaPropietarios4/$1";
 $route['acceso/franquiciado/registro-propietario-franquiciado-4'] = "franquiciado/altaPropietariosFranquiciado4";
-
 
 /* Alta Franquiciado -> Esta parte es la de que un Franquiciado asigna un nuevo restaurante a un Propietario */
 $route['acceso/franquiciado/alta-propietario-restaurante-plan/(:any)'] = "franquiciado/vistaAltaRestaurantePlan/$1";
