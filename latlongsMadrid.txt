@@ -1,0 +1,19 @@
+Gran Vía (misma altura):	40.419813,-3.702991
+Diferencia entre Gran Vía y Sol:0,003124, 0,000499
+Sol:				40.416689,-3.70349
+Diferencia entre Sol y Atocha:	0,002822, 0,000478
+Calle Atocha (misma altura):	40.413867,-3.703012
+
+
+
+Opera (misma altura):		40.416889,-3.710759
+Diferencia entre Opera y Sol:	0.0002, 0,007269
+Sol:				40.416689,-3.70349
+Diferencia entre Sol y Congreso:0,000004, 0,007366
+Congreso (misma altura):	40.416693,-3.696124
+
+south-west corner: 		40.413458,-3.710887
+north-east corner:		40.419846,-3.696124
+Diferencia entre esquinas:	0,006388, 0,014763
+
+

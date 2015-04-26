@@ -1,0 +1,760 @@
+/*Otras*/
+
+h2.slogan {margin-top:5px;color:black;font-size:0.9em;padding-top:2px;padding-bottom:2px;border:1px dashed black;border-left:0px;border-right:0px;text-align:center;line-height:1em}
+.tiposcocina {margin-bottom:15px;}
+.tiposcocina div {height:38px;}
+.tiposcocina div img {height:38px;width:38px;max-width:inherit}
+.tiposcocina div a h3 {font-size:0.7em}
+.clear {clear:both}
+h3.entradillaBuscador {margin-bottom:3px;font-size:1.3em}
+.centrar {text-align:center;margin:auto}
+.blanco {color:white}
+/* Section destacados home */
+#section-destacados-home {
+	background: url('../images/fondo_destacados.jpg') no-repeat;
+    background-size:100%;
+	background-origin: content-box;
+}
+.fecha{font-size:1.3em;color:#acacac}
+.pizarra-item {margin-top:15px}
+.pizarra {background:url('../images/pizarra.jpg') no-repeat; background-size:100% 100%;height:auto;text-align:center;padding:10px;padding-top:15px;padding-bottom:15px;color:white}
+.pizarra * {font-family:kg_ten_thousand_reasonsRg,"Open Sans",Arial;}
+.pizarra ul {list-style-type:none;font-size:0.85em}
+.pizarra ul li {list-style-type:none;}
+.pizarra h2 {font-size:1.4em;margin-bottom:2px;}
+.pizarra h2 a{color:white} 
+.pizarra h3 {font-size:0.9em;margin-bottom:0px;font-weight:normal;}
+.pizarra time {font-size:0.8em;margin-bottom:20px;width:100%}
+.pizarra h4 {font-size:1.2em;margin-bottom:5px;margin-top:10px}
+.pizarra h5 {font-size:1em;margin-bottom:10px;margin-top:10px}
+.pizarra h6 {font-size:1.8em}
+.bordepunteado {border:0px;border-bottom:1px dashed white;margin:0px;margin-bottom:5px}
+.bordepunteadogris {border:0px;border-bottom:1px dashed #acacac;margin:auto;margin-top:10px;margin-bottom:15px;width:97%;}
+
+.botonpaginacion {
+	color:#acacac;
+	margin-top:30px;
+	margin-left:5px;
+	float: right;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+	line-height: 32px;
+	background-color: #171717;
+	text-align: center;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border-radius: 2px 2px 2px 2px;
+}
+
+/* Mapa google maps resultados búsqueda*/
+.google-maps {height:340px;max-width:100%}
+#infocaja {
+    /*border:2px solid black;*/
+    margin: 8px;
+    background:#fff;
+    color:#000;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    /*text-shadow:0 -1px #000000;*/
+    -webkit-box-shadow: 0 0  8px #000;
+    box-shadow: 0 0 8px #000;
+	padding: 10px;
+}
+.foto-google-maps {
+	max-width:180px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	/*border: #330 1px solid;*/
+}
+#infocaja .titulo {font-weight:bold;font-size:15px;margin: 13px 5px 5px 5px;}
+#infocaja .titulo a {color: #fec422;}
+#infocaja .texto {font-size:11px;color: #000;margin: 0px 0px 15px 0px;line-height: 17px;}
+.bot-google-maps {
+	background-color: #fec422;
+	padding: 3px 6px 3px 6px;
+	font-size: 11px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	color: #FFF;
+	border: #330 1px solid;
+}
+.bot-google-maps:hover {
+	background-color: #171717;
+}
+/*mapa google fin */
+
+.reducirboton .button-3, .reducirboton .button-4{padding:0px}
+.blanco {background-color:white;color:inherit}
+.ajustaralto .portfolio-img img {max-height:150px;width:auto}
+.portfolio-one.rellenarfondo {background:url('../images/rayas.png') repeat top left}
+
+/* Widget about 2 */
+.listadocontacto {
+	overflow: hidden;
+	height: 100%;
+}
+.listadocontacto > ul > li {
+	margin-bottom: 10px;
+	list-style: none;
+}
+.listadocontacto > ul > li:last-child {
+	margin-bottom: 0;
+}
+.listadocontacto > ul > li > i {
+	float: left;
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	font-size: 15px;
+	background-color: #282828;
+	color: #bababa;
+	margin-right: 20px;
+	text-align: center;
+}
+.listadocontacto > ul > li > div {
+	overflow: hidden;
+	height: 100%;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.listadocontacto > ul > li > i{
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.listadocontacto > ul > li:hover > i{color: #FFF;}
+
+/*Formularios nuevos */
+
+.form-home, .form-generico {
+	margin-bottom: 30px;
+}
+.form-home .form-input, .form-generico .form-input {
+	position: relative;
+}
+.form-home .form-input i, .form-generico .form-input i {
+	position: absolute;
+	top: 20px;
+	margin-top: -5px;
+	left: 10px;
+	font-size: 13px;
+}
+.form-home .form-input input,.form-home .form-input textarea, .form-home .form-input select , 
+.form-generico .form-input input, .form-generico .form-input textarea, .form-generico .form-input select{
+	width: 100%;
+	padding-left: 30px;
+	margin-bottom: 20px;
+}
+.form-home .form-input textarea, .form-generico.form-input textarea {
+	height: 160px;
+}
+
+.form-home .button-3 {color:#171717}
+.form-home .button-3:hover {color:white}
+
+.form-generico label{padding-top:10px;font-size:1em;line-height:1.1em}
+
+input[type="checkbox"], .form-input input[type="checkbox"], input[type="radio"], .form-input input[type="radio"]{float:left;text-align:left;width:auto;margin-bottom:10px}
+.form-input label {float:left;margin-left:3px;margin-top:0px;padding-top:0px;}
+.recordar-pass-login {height:10px;}
+#mensaje_login {
+	position: absolute;
+	top: 110px;
+	height: 15px;
+	color: #FFF;
+	text-align: center;
+	font-size: 11px;
+	width: 100%;
+	color: #fec422;
+}
+.registrate-login a {
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	margin-right: 50px;
+}
+/*#gestionmenus .form-input label, #datosrestaurante .form-input label, #gestiontipos .form-input label , #altarestaurante .form-input label, #facturacion .form-input label {margin-top:0px;padding-top:0px;}*/
+.form-input input, .form-input select, .form-input textarea {color:#171717}
+.form-input select {padding-left:29px;padding-top:8px;padding-bottom:8px;padding-right:4px}
+
+.reducirbarraprogreso {width:80%;margin:auto;}
+
+.testimonial-item .testimonial-content div.itemvaloracion{font-size:0.8em;text-align:left;width:100%;line-height:0.9em;white-space:nowrap}
+.testimonial-item .testimonial-content div.itemvaloracion i.fa {font-size:10px}
+
+.botonpeq {width:32%;padding:8px;}
+.derecha {text-align:right}
+
+.cupon {
+	background-color: #f8f7f7;
+	border: 1px solid #e9e8e8;
+}
+
+
+.seccion-restaurante {
+	margin-bottom:20px;
+	background-color: #FFF;
+	border: 1px solid #e9e8e8;
+	padding:20px;
+}
+
+.seccion-restaurante.sincaja {
+	border:0px;
+	margin-bottom:20px;
+	padding:0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background-color:transparent;
+	
+}
+.seccion-restaurante h1
+{
+	font-size:1.6em;
+}
+#menus {text-align:left}
+#menus ul {list-style-type:none;font-size:13px}
+#menus ul li {list-style-type:none;text-align:left;}
+#menus h2 {font-size:1.4em;margin-bottom:2px;}
+#menus h2 a{color:white} 
+#menus h3 {font-size:0.9em;margin-bottom:0px;font-weight:normal;}
+#menus time, #gestionmenus time {font-size:13px;margin-bottom:20px;width:100%;border:1px dashed #acacac;padding:5px}
+#menus h5 {font-size:1.2em;margin-bottom:5px;margin-top:10px;text-align:left}
+#menus h6 {font-size:1em;margin-bottom:10px;margin-top:10px}
+#menus h7 {font-size:1.8em;width:100%;text-align:left}
+
+#maparestaurante  iframe{max-width:100%;height:330px}
+
+/*carrusel tipos comida*/
+#carousel-car-model {
+    background: none repeat scroll 0 0 #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    padding: 0 20px;
+}
+.carousel {
+    position: relative;
+}
+
+.carousel-control {
+    background: none repeat scroll 0 0 #b0b0b0;
+    color: #fff;
+    display: inline-block;
+    filter: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    height: 42px;
+    line-height: 42px;
+    opacity: 1;
+    position: static;
+    text-shadow: none;
+    width: 42px;
+	bottom:0;
+}
+
+#carousel-car-model .carousel-control {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #cd1d1f;
+    left: -10px;
+    position: absolute;
+    top: 18px;
+    z-index: 3;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    display: inline-block;
+    font-family: "fontello";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    text-align: center;
+    text-decoration: inherit;
+    text-transform: none;
+    width: 1em;
+}
+
+#carousel-car-model .carousel-control.next {
+    left: 100%;
+    margin-left: -32px;
+}
+
+.carousel-inner {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-inner > .active {
+    left: 0;
+}
+.carousel-inner > .active, .carousel-inner > .next, .carousel-inner > .prev {
+    display: block;
+}
+
+.carousel-inner > .item {
+    display: none;
+    position: relative;
+    transition: left 0.6s ease-in-out 0s;
+}
+
+.blog-img .bxslider-slide .bx-controls-direction {
+top: inherit;
+left: inherit;
+right: 20px;
+bottom: 20px;
+margin-left: 0;
+}
+
+.blog-img .bxslider-slide {
+	padding-top:10px;	
+}
+
+.testimonials-slide-solouno {
+	margin-top: 10px;
+}
+.testimonials-slide-solouno ul li {
+	list-style: none;
+}
+
+header#header-top {background-color:black;color:white;border-bottom:0px}
+header#header-main {border-top:0px;}
+.fecha:hover, .fecha:hover i, #header-top.header-top-3 .fecha i, #header-top.header-top-3.fecha:hover {color:white}
+
+
+/* Section slider */
+#section-slider {
+
+}
+
+.tp-banner h2, .tp-banner p{text-shadow: 2px 2px 2px #171717;}
+
+.slide-h2 h2 {font-size:0.8em}
+
+.destacado {margin-top:15px}
+
+.botongeolocalizacion {padding-top:10px;color:#171717;font-size:1em}
+
+input.ocultar{
+  visibility: hidden;
+}
+.checkbox-1 { background: #ededed; width: 40px; height: 40px; margin-left: 10px; border-radius: 50%; position: relative; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4); }
+/*.checkbox-1 label { background: #909090; display: block; width: 20px; height: 20px; border-radius: 50%; cursor: pointer; position: absolute; top: 10px; left: 10px; z-index: 1; box-shadow: 0 0 5px rgba(0,0,0,0.7) inset; transition: all .5s ease; }*/
+.checkbox-1 label { background: #909090; display: block; width: 20px; height: 20px; border-radius: 50%; cursor: pointer; position: absolute; top: 10px; left: 10px; z-index: 1; box-shadow: 0 0 5px rgba(0,0,0,0.7) inset; }
+.checkbox-1 span {position:absolute;left:50px;top:2px;font-size:0.9em}
+/* La siguiente línea hace el efecto del botón de encender la geolocalización */
+.checkbox-1 input[type=checkbox]:checked + label { background: #8ae630; width: 30px; height: 30px; top: 5px; left: 5px; }
+
+/* Section destacados home */
+.section-listado-resultados{
+	background: url('../images/fondo_resultados.jpg') no-repeat;
+    background-size:100% auto;
+	background-color:#fcf6c9;
+}
+.section-detalle-restaurante{
+	background:url('../images/fondo_resultados.jpg') no-repeat;
+	background-size:100% auto;
+	background-color:#fcf6c9;
+}
+
+.crumbs {
+	text-align:right;
+	font-size: 0.8em;
+	line-height:0.8em;
+	padding-top:10px;
+	padding-bottom:10px;
+	clear:both;
+	height:auto;
+	border-bottom:1px dashed #acacac;
+	width:100%;
+}
+
+.padding15 {padding-left:15px;padding-right:15px}
+
+section, article {margin:0px;padding:0px;}
+
+.restaurantesfavoritos * {}
+.restaurantesfavoritos .button-3 {color:white}
+.restaurantesfavoritos .button-3:hover {color:white}
+.restaurantesfavoritos .widget-post-content div div div{font-size:0.8em;color:#171717}
+.restaurantesfavoritos widget-post-content h6 {margin-bottom:3px}
+
+ul.restaurantesfavoritos_seleccion li
+{
+	list-style: none;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	padding-top:5px;
+	background-color:#e9e8e8;
+	padding-left:4px;padding-right:4px;
+}
+
+ul.restaurantesfavoritos_seleccion li:last-child
+{
+	border-bottom: none;
+}
+
+.social-ul
+{
+	text-align: right;
+}
+
+.navigation_mobile
+{
+	width:150px;
+	margin-right:0px;
+	float:left;
+}
+
+.header-search {
+	position: relative;
+	float: right;
+	height: 35px;
+	margin: 2px 0 0 30px;
+	text-align:right;
+	margin-right:0px;
+}
+.header-search-a {
+	float: right;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+	line-height: 32px;
+	background-color: #171717;
+	/*border: 1px solid #eae9e9;*/
+	text-align: center;
+}
+
+.header-search-form {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 30px;
+	right: 0;
+	display: none;
+	background-color: #171717;
+}
+.header-search-form input {
+	background-color: #FFF;
+	border: none;
+	height: 32px;
+	width: 164px;
+	font-size: 12px;
+	line-height: 32px;
+	margin: 10px 0 0 10px;
+}
+
+.header-search-form input.button-3
+{
+	border:1px solid red;
+	padding:0px;
+	margin:0px;
+}
+.header-search-form label {color:white;font-size:0.8em;padding-top:5px}
+
+.header-search-a {width:auto;padding-right:35px;padding-left:36px;}
+
+.header-search-form {width:175px}
+.header-search-form input {width:90%}
+
+.enlacesencillo {padding-top:8px;float:right}
+.enlacesencillo-sin-float {padding-top:8px;}
+.enlacesencillo-sin-float i {margin-left:5px;}
+.submit-login {width:60px; margin: 50px 0 0 108px;}
+.enlacesencillo span {padding-left:5px;}
+
+
+.header-search-form .enlacesencillo {float:right;text-align:center;padding-top:0px;padding-right:5px;margin:0px}
+.header-search-form .enlacesencillo a {color:white}
+
+.separadorpeq {padding-bottom:20px;}
+.separadorgrande {padding-bottom:40px;}
+
+.reducirfila {padding-right:15px;padding-left:15px}
+
+.form-input input.clarito {color:#acacac}
+
+.nota {font-style:italic}
+
+.restauranteseleccionado {display:block;border: 1px dashed #acacac;padding: 5px;}
+
+.form-generico label a i {float:none;position:relative;top:auto;left:auto;margin:0px;padding:0px;font-size:1.5em}
+
+.bajarcheck {margin-top:10px}
+
+.fondogrisclaro {background-color: #F8F7F7;border: 1px solid #E9E8E8;}
+
+.reducirpadding {padding:8px}
+
+.nota {font-size:0.8em;}
+.nota span {padding-right:10px;font-weight:bold}
+a.amarillo {color:inherit;border-bottom:1px dotted #5c5c5c}
+div.form-input.reducirpadding {height:20px;border:1px solid red}
+
+.pricing-header div span {font-size:40px}
+.pricing-content ul li strong {font-size:11px}
+.pricing-content ul li span{font-size:11px;color:#0ce407}
+.pricing-content li {margin-top:4px;margin-bottom:4px;padding:0px;height:auto}
+.pricing-content ul li span.noincluido {color:red}
+
+.bienvenida {padding-top:1px;font-size:0.8em;line-height:1.4em;text-align:center;}
+.bienvenida span {font-size:1.1em}
+.bienvenida a:hover {color:black;border-bottom:1px dashed black}
+
+.mensajeexito {border:1px dashed #4c8331;padding:5px;text-align:center;clear:both;font-size:0.8em;margin:auto;margin-top:5px;margin-bottom:5px;width:99%;;background-color:#dbfbcb;}
+.mensajeexito i {font-size:1.3em;color:#4c8331}
+
+#mensaje {height:20px;text-align:center;margin-bottom:10px;}
+
+.reduciri i {font-size:1em}
+
+.buscador {}
+.enlaceplegarbuscador {float:left}
+.plegarbuscador {display:none}
+.enlaceplegarbuscador a {color:#171717}
+.mensaje-buscador {text-align: center; font-size: 15px;}
+
+.sombra {
+	-moz-box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+	box-shadow: 0 8px 15px rgba(0,0,0,0.1);}
+
+	/* Widget about 2 */
+
+.contact-information > ul > li {
+	list-style: none;
+	clear:both;
+	margin-bottom:15px;
+}
+.contact-information> ul > li:last-child {
+	margin-bottom: 0;
+}
+.contact-information > ul > li > i {
+	float: left;
+	height: 30px;
+	width: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	background-color: #282828;
+	color: #bababa;
+	margin-right: 20px;
+	text-align: center;
+}
+.contact-information > ul > li > div {
+	overflow: hidden;
+	height: 100%;
+	font-size: 13px;
+	line-height: 22px;
+}
+
+.contact-information li:first-child {color:inherit}
+
+.checksenlinea {padding-top:10px;}
+.checksenlinea label {margin-right:10px}
+
+/*#menuflotante {
+	position: fixed;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	top: 200;
+	left: 0;
+	}*/
+ 
+img.miniatura, ul.restaurantesfavoritos_seleccion img, .portfolio-img img, img.logobar {
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+ }
+ 
+img.miniatura {max-height:60px;float:left;margin-right:5px;}
+ 
+ .portfolio-meta {font-size:0.8em;color:#171717}
+ 
+.favorito-marcado {padding:0px;float:right;font-size:1em;white-space:nowrap;color:#fec422;}
+.favorito-marcado i {margin-right:5px;}
+.enlacefavorito {padding:0px;float:right;font-size:1em;white-space:nowrap}
+.enlacefavorito span {padding-right:5px;}
+.widget ul li .enlacefavorito a span {float:none}
+.enlacefavorito a, .enlacefavorito span, .widget ul li .enlacefavorito a{color:#171717;}
+
+#presentacion .enlacesencillo, #presentacion .enlacefavorito, #presentacion .favorito-marcado {float:left;font-size:inherit;}
+#presentacion .enlacesencillo span{padding-right:5px;padding-left:0px;}
+
+.restauranteszona * {text-align:left;}
+.restauranteszona .widget-post-content div div div{font-size:0.8em;color:#171717}
+.restauranteszona .widget-post-content div div .favorito-marcado {font-size:10px;color:#fec422;}
+.restauranteszona .widget-post-content div div .favorito-marcado i {font-size:11.5px;margin-right:5px;}
+.restauranteszona .widget-post-content h6 {margin-bottom:3px}
+
+
+.button-5 {
+	width: 100%;
+	border:1px solid #171717;
+	color:#171717;
+	background-color:#fec422;
+	font-size: 11px;
+	padding:2px;
+	font-weight: bold;
+	text-align:center;
+}
+
+.widget ul li a.button-5 {color:white}
+
+.button-5:hover {
+	background-color: #171717;
+}
+
+img.logobar {float:right;padding-left:5px;padding-bottom:5px;max-width:100px}
+
+#pagina404 #logo {max-width:100%}
+
+.botonesrrss, .botonesrrss a {color:white;margin-top:6px;display:block;float:none;clear:both}
+ 
+
+/*Rectificaciones responsive */
+
+@media (max-width: 1200px) {
+	#header-main .navigation ul li {font-size:0.8em}
+	nav.menu li {font-size:0.9em}
+}
+
+@media (max-width: 1000px) {
+	#menus .dosfilas {
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+		width:100%;
+		}
+}
+
+@media (max-width: 800px) {
+	.alerts i {height:20px;width:20px;font-size:0.7em;line-height:20px;}
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+		#datos .dosfilas {
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+		width:100%;
+		margin-top:5px}
+		
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+		#presentacion h1 {font-size:1.2em}
+		#menus h4 {font-size:0.9em}
+	
+}
+
+@media (max-width: 1200px) {
+	
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+	#valoraciones .dosfilas {
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+		width:100%;
+		}
+	#valoraciones .itemvaloracion {margin-bottom:3px;}
+}
+
+@media (max-width: 700px) {
+	.fecha {font-size:1em}
+	.dosfilas {
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+		width:100%;
+	}
+	
+	.button-3, .button-4, .button-5, .button-6 {padding-left:1px;padding-right:1px;font-size:0.8em}
+
+}
+@media (min-width: 600px) {
+	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {    float: left;  }  
+	.col-md-12 {    width: 100%;  }  
+	.col-md-11 {    width: 91.66666666666666%;  }  
+	.col-md-10 {    width: 83.33333333333334%;  }  
+	.col-md-9 {    width: 75%;  }  
+	.col-md-8 {    width: 66.66666666666666%;  }  
+	.col-md-7 {    width: 58.333333333333336%;  }  
+	.col-md-6 {    width: 50%;  }  
+	.col-md-5 {    width: 41.66666666666667%;  }  
+	.col-md-4 {    width: 33.33333333333333%;  }  
+	.col-md-3 {    width: 25%;  }  
+	.col-md-2 {    width: 16.666666666666664%;  }  
+	.col-md-1 {    width: 8.333333333333332%;  }
+	
+}
+
+@media (max-width: 599px) {
+
+	#logo {max-width:200px}
+	
+	.checkbox-1 span {float:left;position:relative;left:0px;padding-top:20px;font-size:0.8em}
+	
+	.dt-sc-tabs-vertical-frame li {font-size:0.8em}
+	
+	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 { 
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+	}
+	
+	.col-md-1.nodosfilas, .col-md-2.nodosfilas, .col-md-3.nodosfilas, .col-md-4.nodosfilas, .col-md-5.nodosfilas, .col-md-6.nodosfilas, .col-md-7.nodosfilas, .col-md-8.nodosfilas, .col-md-9.nodosfilas, .col-md-10.nodosfilas, .col-md-11.nodosfilas, .col-md-12.nodosfilas {    float: left;  }  
+	.col-md-12.nodosfilas {    width: 100%;  }  
+	.col-md-11.nodosfilas {    width: 91.66666666666666%;  }  
+	.col-md-10.nodosfilas {    width: 83.33333333333334%;  }  
+	.col-md-9.nodosfilas {    width: 75%;  }  
+	.col-md-8.nodosfilas {    width: 66.66666666666666%;  }  
+	.col-md-7.nodosfilas {    width: 58.333333333333336%;  }  
+	.col-md-6.nodosfilas {    width: 50%;  }  
+	.col-md-5.nodosfilas {    width: 41.66666666666667%;  }  
+	.col-md-4.nodosfilas {    width: 33.33333333333333%;  }  
+	.col-md-3.nodosfilas {    width: 25%;  }  
+	.col-md-2.nodosfilas {    width: 16.666666666666664%;  }  
+	.col-md-1.nodosfilas {    width: 8.333333333333332%;  }
+	.col-md-7.nodosfilas.convertir9 {width: 75%;}
+	.col-md-8.nodosfilas.convertir12 {width: 100%;}
+	.col-md-9.nodosfilas.convertir12 {width: 100%;}
+	.col-md-10.nodosfilas.convertir12 {width: 100%;}
+	.col-md-6.nodosfilas.convertir8 {width: 66.66666666666666%;}
+	
+	
+	.ocultar {display:none}
+	nav.menu li {font-size:1em}	
+	
+	.enlacefavorito {float:left}
+}
+
+.accordion.accordion-faqs .accordion-title {font-size:inherit;font-weight:normal;}
+.accordion.accordion-faqs .accordion-inner {}
+
+
+
+@media (max-width: 450px) {
+	#header-top .social-ul li a {width:25px;height:25px;padding:0px;border:0px}
+	#header-top .social-ul li {min-height:auto;padding:0px;}
+}
+
+@media (max-width: 400px) {
+	#header-top .social-ul, .header-search-a span
+	{
+		display:none;
+	}
+}

@@ -1,0 +1,66 @@
+.error{
+    color: red;
+    float: left;
+    position: relative;
+}
+
+/* Autocompletado */
+.wrapper{
+    margin: auto;
+    width: 500px;             
+}
+
+.autocompletar{
+    border-radius: 5px;
+    padding: 7px 2px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.contenido{
+	position: absolute;
+	z-index: 99999;
+	width: 250px;
+	height: auto;
+}
+
+.contenedor p{
+    font-size: 14px;
+    background-color: #fec422;
+    background-size: 203px 203px;
+    color: #000;
+    padding: 3px 2px;
+    border: 1px solid #000;
+    max-width: 100%;
+    margin-top: -14px;
+}
+
+.contenedor p a{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+/* De Alba para el autocompletado. */
+div.contenido {border-radius: 2px 0 2px 2px;background-color:black}
+ul.sugerenciasmunicipios {list-style-type:none;}
+ul.sugerenciasmunicipios li {list-style-type:none;padding:3px;Font-size:0.8em }
+ul.sugerenciasmunicipios li a {color:white ;text-decoration:none}
+ul.sugerenciasmunicipios li a:hover {color: #fec422}
+
+
+
+/* Mensaje de éxito */
+.mensajeexito {border:1px dashed #4c8331;padding:5px;text-align:center;clear:both;font-size:0.8em;margin:auto;margin-top:5px;margin-bottom:5px;width:99%;;background-color:#dbfbcb;}
+.mensajeexito i {font-size:1.3em;color:#4c8331}
+
+
+
+/* Div oculto en la vista de registro de usuario */
+#registro_usuario_tlm_oculto{
+    display: none;
+}
+
+

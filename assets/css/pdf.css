@@ -1,0 +1,121 @@
+@font-face{
+	font-family: "Open Sans";
+	src: url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.naranja{
+	color: #fec422;
+}
+
+body{
+	background-color: #fff;
+}
+
+article{
+	width: 100%;
+	height: auto;
+	float: left;
+	position: relative;
+}
+
+aside{
+	float: left;
+	position: relative;
+	width: 100%;
+	height: auto;
+	font-family: "Open Sans", sans-serif;
+}
+
+aside.logo{
+	position: relative;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+img{
+	position: relative;
+	margin: 0 0 50px 0;
+	width: 30%;
+	height: auto;
+}
+
+aside.cabecera{
+	float: left;
+	position: relative;
+	text-align: center;
+
+	font-family: "Open Sans", sans-serif;
+}
+
+.restaurante{
+	border: 1px dashed #fec422;
+	background: #fff;
+	margin: 40px;
+}
+
+aside.cuerpo{
+	text-align: center;
+}
+
+aside.cuerpo p{
+	line-height: 5px;
+}
+
+div.fechas{
+	/*color:  #fec422;*/
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+
+/* Caja */
+aside.cupon{
+	float: left;
+	position: relative;
+	border: 1px solid #fec422;
+
+	width: 60%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.header{
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #fec422;
+	padding: 10px;
+}
+
+.body{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+}
+
+p.descripcion{
+	float: left;
+	position: relative;
+	padding-top: -20px;
+	margin-bottom: 7px;
+}
+
+
+
+/* Código */
+.codigo{
+	width: 100%;
+	height: auto;
+	text-align: right;
+	margin-top: 30px;
+}
+
+.codigo span{
+	left: 100%;
+}
+

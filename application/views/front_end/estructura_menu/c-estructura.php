@@ -1,0 +1,1 @@
+<!-- La estructura A contiene el "Entrante + Plato principal" -->

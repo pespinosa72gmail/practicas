@@ -1,0 +1,47 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+
+RewriteCond %{HTTP_HOST} ^todoslosmenus.com [NC]
+RewriteRule ^(.*)$ http://www.todoslosmenus.com/$1 [L,R=301]
+
+RewriteCond $1 !^(index\.php|robots\.txt|sitemap\.xml|assets)
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+</IfModule>
+
+
+
+
+<IfModule mod_expires.c>
+    <filesmatch "\.(jpg|JPG|gif|GIF|png|PNG|css|js|woff)$">
+        ExpiresActive on
+        ExpiresDefault "access plus 30 day"
+    </filesmatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch ".(js|css|xml|gz)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+</IfModule>
+
+
+#Da error
+<ifmodule mod_mime.c>
+AddType font/opentype .otf
+AddType font/eot .eot
+AddType font/truetype .ttf
+</ifmodule>
+
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE font/truetype
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE font/eot
